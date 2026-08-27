@@ -1,0 +1,3 @@
+Synthetic assertion note.
+Investigators reported that Rahul Sharma knows Amit Kumar.
+This is treated as a relationship assertion requiring interpretation.

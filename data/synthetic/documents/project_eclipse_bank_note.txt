@@ -1,0 +1,3 @@
+Synthetic bank note for CASE-1042.
+Rahul Sharma transferred Rs. 50000 to Amit Kumar.
+Account number ****-****-7001 was referenced in the note.

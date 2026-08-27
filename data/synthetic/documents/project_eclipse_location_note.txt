@@ -1,0 +1,3 @@
+Synthetic location note.
+Rahul Sharma met Amit Kumar at Jaipur Railway Station.
+The same location appears in contact and transaction summaries.

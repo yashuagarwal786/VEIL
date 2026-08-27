@@ -1,0 +1,3 @@
+VEIL-2026-001 synthetic call log.
+Amit Kumar called Rahul Sharma on 2026-07-12.
+Rahul Sharma contacted Amit Kumar from 9876543210.

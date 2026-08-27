@@ -1,0 +1,7572 @@
+{
+  "cases": [
+    {
+      "id": 1,
+      "case_number": "VEIL-2026-001",
+      "title": "Project Eclipse",
+      "description": "Synthetic investigation with two communities, a bridge entity, repeated contacts, and unusual transfers.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 2,
+      "case_number": "VEIL-2026-002",
+      "title": "Synthetic Case 02",
+      "description": "Synthetic foundation case for development and testing.",
+      "status": "CLOSED"
+    },
+    {
+      "id": 3,
+      "case_number": "VEIL-2026-003",
+      "title": "Synthetic Case 03",
+      "description": "Synthetic foundation case for development and testing.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 4,
+      "case_number": "VEIL-2026-004",
+      "title": "Synthetic Case 04",
+      "description": "Synthetic foundation case for development and testing.",
+      "status": "ARCHIVED"
+    },
+    {
+      "id": 5,
+      "case_number": "VEIL-2026-005",
+      "title": "Synthetic Case 05",
+      "description": "Synthetic foundation case for development and testing.",
+      "status": "CLOSED"
+    },
+    {
+      "id": 6,
+      "case_number": "VEIL-2026-006",
+      "title": "Synthetic Case 06",
+      "description": "Synthetic foundation case for development and testing.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 7,
+      "case_number": "VEIL-2026-007",
+      "title": "Synthetic Case 07",
+      "description": "Synthetic foundation case for development and testing.",
+      "status": "ARCHIVED"
+    },
+    {
+      "id": 8,
+      "case_number": "VEIL-2026-008",
+      "title": "Synthetic Case 08",
+      "description": "Synthetic foundation case for development and testing.",
+      "status": "CLOSED"
+    },
+    {
+      "id": 9,
+      "case_number": "VEIL-2026-009",
+      "title": "Synthetic Case 09",
+      "description": "Synthetic foundation case for development and testing.",
+      "status": "ARCHIVED"
+    },
+    {
+      "id": 10,
+      "case_number": "VEIL-2026-010",
+      "title": "Synthetic Case 10",
+      "description": "Synthetic foundation case for development and testing.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 11,
+      "case_number": "VEIL-2026-011",
+      "title": "Synthetic Case 11",
+      "description": "Synthetic foundation case for development and testing.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 12,
+      "case_number": "VEIL-2026-012",
+      "title": "Synthetic Case 12",
+      "description": "Synthetic foundation case for development and testing.",
+      "status": "ARCHIVED"
+    }
+  ],
+  "persons": [
+    {
+      "id": 1,
+      "name": "Blair Cross 01",
+      "aliases": [],
+      "phone": "+1-555-01001",
+      "email": "synthetic.person01@example.test",
+      "date_of_birth": "1971-02-02",
+      "address": "101 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Casey Stone 02",
+      "aliases": [],
+      "phone": "+1-555-01002",
+      "email": "synthetic.person02@example.test",
+      "date_of_birth": "1972-03-03",
+      "address": "102 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Devon Reed 03",
+      "aliases": [],
+      "phone": "+1-555-01003",
+      "email": "synthetic.person03@example.test",
+      "date_of_birth": "1973-04-04",
+      "address": "103 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Ellis Lane 04",
+      "aliases": [],
+      "phone": "+1-555-01004",
+      "email": "synthetic.person04@example.test",
+      "date_of_birth": "1974-05-05",
+      "address": "104 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Finley Frost 05",
+      "aliases": [],
+      "phone": "+1-555-01005",
+      "email": "synthetic.person05@example.test",
+      "date_of_birth": "1975-06-06",
+      "address": "105 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Gray Quill 06",
+      "aliases": [],
+      "phone": "+1-555-01006",
+      "email": "synthetic.person06@example.test",
+      "date_of_birth": "1976-07-07",
+      "address": "106 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Harper Hart 07",
+      "aliases": [],
+      "phone": "+1-555-01007",
+      "email": "synthetic.person07@example.test",
+      "date_of_birth": "1977-08-08",
+      "address": "107 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Indigo North 08",
+      "aliases": [],
+      "phone": "+1-555-01008",
+      "email": "synthetic.person08@example.test",
+      "date_of_birth": "1978-09-09",
+      "address": "108 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Jules Pike 09",
+      "aliases": [
+        "Jules-9",
+        "Node-A-9"
+      ],
+      "phone": "+1-555-01009",
+      "email": "synthetic.person09@example.test",
+      "date_of_birth": "1979-10-10",
+      "address": "109 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Kai Vale 10",
+      "aliases": [],
+      "phone": "+1-555-01010",
+      "email": "synthetic.person10@example.test",
+      "date_of_birth": "1980-11-11",
+      "address": "110 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Logan Cross 11",
+      "aliases": [],
+      "phone": "+1-555-01011",
+      "email": "synthetic.person11@example.test",
+      "date_of_birth": "1981-12-12",
+      "address": "111 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Marlow Stone 12",
+      "aliases": [],
+      "phone": "+1-555-01012",
+      "email": "synthetic.person12@example.test",
+      "date_of_birth": "1982-01-13",
+      "address": "112 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Nico Reed 13",
+      "aliases": [],
+      "phone": "+1-555-01013",
+      "email": "synthetic.person13@example.test",
+      "date_of_birth": "1983-02-14",
+      "address": "113 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 14,
+      "name": "Oakley Lane 14",
+      "aliases": [],
+      "phone": "+1-555-01014",
+      "email": "synthetic.person14@example.test",
+      "date_of_birth": "1984-03-15",
+      "address": "114 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 15,
+      "name": "Avery Frost 15",
+      "aliases": [],
+      "phone": "+1-555-01015",
+      "email": "synthetic.person15@example.test",
+      "date_of_birth": "1985-04-16",
+      "address": "115 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 16,
+      "name": "Blair Quill 16",
+      "aliases": [],
+      "phone": "+1-555-01016",
+      "email": "synthetic.person16@example.test",
+      "date_of_birth": "1986-05-17",
+      "address": "116 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 17,
+      "name": "Casey Hart 17",
+      "aliases": [],
+      "phone": "+1-555-01017",
+      "email": "synthetic.person17@example.test",
+      "date_of_birth": "1987-06-18",
+      "address": "117 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 18,
+      "name": "Devon North 18",
+      "aliases": [
+        "Devon-18",
+        "Node-A-18"
+      ],
+      "phone": "+1-555-01018",
+      "email": "synthetic.person18@example.test",
+      "date_of_birth": "1988-07-19",
+      "address": "118 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 19,
+      "name": "Ellis Pike 19",
+      "aliases": [],
+      "phone": "+1-555-01019",
+      "email": "synthetic.person19@example.test",
+      "date_of_birth": "1989-08-20",
+      "address": "119 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 20,
+      "name": "Finley Vale 20",
+      "aliases": [],
+      "phone": "+1-555-01020",
+      "email": "synthetic.person20@example.test",
+      "date_of_birth": "1990-09-21",
+      "address": "120 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 21,
+      "name": "Gray Cross 21",
+      "aliases": [],
+      "phone": "+1-555-01021",
+      "email": "synthetic.person21@example.test",
+      "date_of_birth": "1991-10-22",
+      "address": "121 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 22,
+      "name": "Harper Stone 22",
+      "aliases": [],
+      "phone": "+1-555-01022",
+      "email": "synthetic.person22@example.test",
+      "date_of_birth": "1992-11-23",
+      "address": "122 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 23,
+      "name": "Indigo Reed 23",
+      "aliases": [],
+      "phone": "+1-555-01023",
+      "email": "synthetic.person23@example.test",
+      "date_of_birth": "1993-12-24",
+      "address": "123 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 24,
+      "name": "Jules Lane 24",
+      "aliases": [],
+      "phone": "+1-555-01024",
+      "email": "synthetic.person24@example.test",
+      "date_of_birth": "1994-01-25",
+      "address": "124 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 25,
+      "name": "Kai Frost 25",
+      "aliases": [],
+      "phone": "+1-555-01025",
+      "email": "synthetic.person25@example.test",
+      "date_of_birth": "1970-02-26",
+      "address": "125 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 26,
+      "name": "Logan Quill 26",
+      "aliases": [],
+      "phone": "+1-555-01001",
+      "email": "synthetic.person26@example.test",
+      "date_of_birth": "1971-03-27",
+      "address": "126 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 27,
+      "name": "Marlow Hart 27",
+      "aliases": [
+        "Marlow-27",
+        "Node-B-27"
+      ],
+      "phone": "+1-555-01002",
+      "email": "synthetic.person27@example.test",
+      "date_of_birth": "1972-04-01",
+      "address": "127 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 28,
+      "name": "Nico North 28",
+      "aliases": [],
+      "phone": "+1-555-01003",
+      "email": "synthetic.person28@example.test",
+      "date_of_birth": "1973-05-02",
+      "address": "128 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 29,
+      "name": "Oakley Pike 29",
+      "aliases": [],
+      "phone": "+1-555-01004",
+      "email": "synthetic.person29@example.test",
+      "date_of_birth": "1974-06-03",
+      "address": "129 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 30,
+      "name": "Avery Vale 30",
+      "aliases": [],
+      "phone": "+1-555-01005",
+      "email": "synthetic.person30@example.test",
+      "date_of_birth": "1975-07-04",
+      "address": "130 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 31,
+      "name": "Blair Cross 31",
+      "aliases": [],
+      "phone": "+1-555-01006",
+      "email": "synthetic.person31@example.test",
+      "date_of_birth": "1976-08-05",
+      "address": "131 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 32,
+      "name": "Casey Stone 32",
+      "aliases": [],
+      "phone": "+1-555-01007",
+      "email": "synthetic.person32@example.test",
+      "date_of_birth": "1977-09-06",
+      "address": "132 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 33,
+      "name": "Devon Reed 33",
+      "aliases": [],
+      "phone": "+1-555-01008",
+      "email": "synthetic.person33@example.test",
+      "date_of_birth": "1978-10-07",
+      "address": "133 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 34,
+      "name": "Ellis Lane 34",
+      "aliases": [],
+      "phone": "+1-555-01009",
+      "email": "synthetic.person34@example.test",
+      "date_of_birth": "1979-11-08",
+      "address": "134 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 35,
+      "name": "Finley Frost 35",
+      "aliases": [],
+      "phone": "+1-555-01010",
+      "email": "synthetic.person35@example.test",
+      "date_of_birth": "1980-12-09",
+      "address": "135 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 36,
+      "name": "Gray Quill 36",
+      "aliases": [
+        "Gray-36",
+        "Node-B-36"
+      ],
+      "phone": "+1-555-01011",
+      "email": "synthetic.person36@example.test",
+      "date_of_birth": "1981-01-10",
+      "address": "136 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 37,
+      "name": "Harper Hart 37",
+      "aliases": [],
+      "phone": "+1-555-01012",
+      "email": "synthetic.person37@example.test",
+      "date_of_birth": "1982-02-11",
+      "address": "137 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 38,
+      "name": "Indigo North 38",
+      "aliases": [],
+      "phone": "+1-555-01013",
+      "email": "synthetic.person38@example.test",
+      "date_of_birth": "1983-03-12",
+      "address": "138 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 39,
+      "name": "Jules Pike 39",
+      "aliases": [],
+      "phone": "+1-555-01014",
+      "email": "synthetic.person39@example.test",
+      "date_of_birth": "1984-04-13",
+      "address": "139 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 40,
+      "name": "Kai Vale 40",
+      "aliases": [],
+      "phone": "+1-555-01015",
+      "email": "synthetic.person40@example.test",
+      "date_of_birth": "1985-05-14",
+      "address": "140 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 41,
+      "name": "Logan Cross 41",
+      "aliases": [],
+      "phone": "+1-555-01016",
+      "email": "synthetic.person41@example.test",
+      "date_of_birth": "1986-06-15",
+      "address": "141 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 42,
+      "name": "Marlow Stone 42",
+      "aliases": [],
+      "phone": "+1-555-01017",
+      "email": "synthetic.person42@example.test",
+      "date_of_birth": "1987-07-16",
+      "address": "142 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 43,
+      "name": "Nico Reed 43",
+      "aliases": [],
+      "phone": "+1-555-01018",
+      "email": "synthetic.person43@example.test",
+      "date_of_birth": "1988-08-17",
+      "address": "143 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 44,
+      "name": "Oakley Lane 44",
+      "aliases": [],
+      "phone": "+1-555-01019",
+      "email": "synthetic.person44@example.test",
+      "date_of_birth": "1989-09-18",
+      "address": "144 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 45,
+      "name": "Avery Frost 45",
+      "aliases": [
+        "Avery-45",
+        "Node-C-45"
+      ],
+      "phone": "+1-555-01020",
+      "email": "synthetic.person45@example.test",
+      "date_of_birth": "1990-10-19",
+      "address": "145 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 46,
+      "name": "Blair Quill 46",
+      "aliases": [],
+      "phone": "+1-555-01021",
+      "email": "synthetic.person46@example.test",
+      "date_of_birth": "1991-11-20",
+      "address": "146 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 47,
+      "name": "Casey Hart 47",
+      "aliases": [],
+      "phone": "+1-555-01022",
+      "email": "synthetic.person47@example.test",
+      "date_of_birth": "1992-12-21",
+      "address": "147 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 48,
+      "name": "Devon North 48",
+      "aliases": [],
+      "phone": "+1-555-01023",
+      "email": "synthetic.person48@example.test",
+      "date_of_birth": "1993-01-22",
+      "address": "148 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 49,
+      "name": "Ellis Pike 49",
+      "aliases": [],
+      "phone": "+1-555-01024",
+      "email": "synthetic.person49@example.test",
+      "date_of_birth": "1994-02-23",
+      "address": "149 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 50,
+      "name": "Finley Vale 50",
+      "aliases": [],
+      "phone": "+1-555-01025",
+      "email": "synthetic.person50@example.test",
+      "date_of_birth": "1970-03-24",
+      "address": "150 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 51,
+      "name": "Gray Cross 51",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person51@example.test",
+      "date_of_birth": "1971-04-25",
+      "address": "151 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 52,
+      "name": "Harper Stone 52",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person52@example.test",
+      "date_of_birth": "1972-05-26",
+      "address": "152 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 53,
+      "name": "Indigo Reed 53",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person53@example.test",
+      "date_of_birth": "1973-06-27",
+      "address": "153 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 54,
+      "name": "Jules Lane 54",
+      "aliases": [
+        "Jules-54",
+        "Node-C-54"
+      ],
+      "phone": null,
+      "email": "synthetic.person54@example.test",
+      "date_of_birth": "1974-07-01",
+      "address": "154 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 55,
+      "name": "Kai Frost 55",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person55@example.test",
+      "date_of_birth": "1975-08-02",
+      "address": "155 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 56,
+      "name": "Logan Quill 56",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person56@example.test",
+      "date_of_birth": "1976-09-03",
+      "address": "156 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 57,
+      "name": "Marlow Hart 57",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person57@example.test",
+      "date_of_birth": "1977-10-04",
+      "address": "157 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 58,
+      "name": "Nico North 58",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person58@example.test",
+      "date_of_birth": "1978-11-05",
+      "address": "158 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 59,
+      "name": "Oakley Pike 59",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person59@example.test",
+      "date_of_birth": "1979-12-06",
+      "address": "159 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 60,
+      "name": "Avery Vale 60",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person60@example.test",
+      "date_of_birth": "1980-01-07",
+      "address": "160 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "C"
+      }
+    },
+    {
+      "id": 61,
+      "name": "Blair Cross 61",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person61@example.test",
+      "date_of_birth": "1981-02-08",
+      "address": "161 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 62,
+      "name": "Casey Stone 62",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person62@example.test",
+      "date_of_birth": "1982-03-09",
+      "address": "162 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 63,
+      "name": "Devon Reed 63",
+      "aliases": [
+        "Devon-63",
+        "Node-control-63"
+      ],
+      "phone": null,
+      "email": "synthetic.person63@example.test",
+      "date_of_birth": "1983-04-10",
+      "address": "163 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 64,
+      "name": "Ellis Lane 64",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person64@example.test",
+      "date_of_birth": "1984-05-11",
+      "address": "164 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 65,
+      "name": "Finley Frost 65",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person65@example.test",
+      "date_of_birth": "1985-06-12",
+      "address": "165 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 66,
+      "name": "Gray Quill 66",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person66@example.test",
+      "date_of_birth": "1986-07-13",
+      "address": "166 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 67,
+      "name": "Harper Hart 67",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person67@example.test",
+      "date_of_birth": "1987-08-14",
+      "address": "167 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 68,
+      "name": "Indigo North 68",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person68@example.test",
+      "date_of_birth": "1988-09-15",
+      "address": "168 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 69,
+      "name": "Jules Pike 69",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person69@example.test",
+      "date_of_birth": "1989-10-16",
+      "address": "169 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 70,
+      "name": "Kai Vale 70",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person70@example.test",
+      "date_of_birth": "1990-11-17",
+      "address": "170 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 71,
+      "name": "Logan Cross 71",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person71@example.test",
+      "date_of_birth": "1991-12-18",
+      "address": "171 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 72,
+      "name": "Marlow Stone 72",
+      "aliases": [
+        "Marlow-72",
+        "Node-control-72"
+      ],
+      "phone": null,
+      "email": "synthetic.person72@example.test",
+      "date_of_birth": "1992-01-19",
+      "address": "172 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 73,
+      "name": "Nico Reed 73",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person73@example.test",
+      "date_of_birth": "1993-02-20",
+      "address": "173 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 74,
+      "name": "Oakley Lane 74",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person74@example.test",
+      "date_of_birth": "1994-03-21",
+      "address": "174 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 75,
+      "name": "Avery Frost 75",
+      "aliases": [],
+      "phone": null,
+      "email": "synthetic.person75@example.test",
+      "date_of_birth": "1970-04-22",
+      "address": "175 Demo Street, Sample City",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    }
+  ],
+  "organizations": [
+    {
+      "id": 1,
+      "name": "Demo Organization 01",
+      "organization_type": "consulting",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 2,
+      "name": "Demo Organization 02",
+      "organization_type": "logistics",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 3,
+      "name": "Demo Organization 03",
+      "organization_type": "consulting",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 4,
+      "name": "Demo Organization 04",
+      "organization_type": "consulting",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 5,
+      "name": "Demo Organization 05",
+      "organization_type": "logistics",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 6,
+      "name": "Demo Organization 06",
+      "organization_type": "retail",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 7,
+      "name": "Demo Organization 07",
+      "organization_type": "logistics",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 8,
+      "name": "Demo Organization 08",
+      "organization_type": "consulting",
+      "metadata": {
+        "synthetic": true
+      }
+    }
+  ],
+  "phones": [
+    {
+      "id": 1,
+      "number": "+1-555-01001",
+      "carrier": "Civic Wireless",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 2,
+      "number": "+1-555-01002",
+      "carrier": "MetroCell",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 3,
+      "number": "+1-555-01003",
+      "carrier": "Blueband",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 4,
+      "number": "+1-555-01004",
+      "carrier": "Northstar Mobile",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 5,
+      "number": "+1-555-01005",
+      "carrier": "Civic Wireless",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 6,
+      "number": "+1-555-01006",
+      "carrier": "MetroCell",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 7,
+      "number": "+1-555-01007",
+      "carrier": "Blueband",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 8,
+      "number": "+1-555-01008",
+      "carrier": "Northstar Mobile",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 9,
+      "number": "+1-555-01009",
+      "carrier": "Civic Wireless",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 10,
+      "number": "+1-555-01010",
+      "carrier": "MetroCell",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 11,
+      "number": "+1-555-01011",
+      "carrier": "Blueband",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 12,
+      "number": "+1-555-01012",
+      "carrier": "Northstar Mobile",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 13,
+      "number": "+1-555-01013",
+      "carrier": "Civic Wireless",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 14,
+      "number": "+1-555-01014",
+      "carrier": "MetroCell",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 15,
+      "number": "+1-555-01015",
+      "carrier": "Blueband",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 16,
+      "number": "+1-555-01016",
+      "carrier": "Northstar Mobile",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 17,
+      "number": "+1-555-01017",
+      "carrier": "Civic Wireless",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 18,
+      "number": "+1-555-01018",
+      "carrier": "MetroCell",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 19,
+      "number": "+1-555-01019",
+      "carrier": "Blueband",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 20,
+      "number": "+1-555-01020",
+      "carrier": "Northstar Mobile",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 21,
+      "number": "+1-555-01021",
+      "carrier": "Civic Wireless",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 22,
+      "number": "+1-555-01022",
+      "carrier": "MetroCell",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 23,
+      "number": "+1-555-01023",
+      "carrier": "Blueband",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 24,
+      "number": "+1-555-01024",
+      "carrier": "Northstar Mobile",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 25,
+      "number": "+1-555-01025",
+      "carrier": "Civic Wireless",
+      "metadata": {
+        "synthetic": true
+      }
+    }
+  ],
+  "bank_accounts": [
+    {
+      "id": 1,
+      "account_number_masked": "****-****-7001",
+      "bank_name": "Harbor Test Credit",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 4
+      }
+    },
+    {
+      "id": 2,
+      "account_number_masked": "****-****-7002",
+      "bank_name": "Civic Sample Bank",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 7
+      }
+    },
+    {
+      "id": 3,
+      "account_number_masked": "****-****-7003",
+      "bank_name": "Atlas Sandbox Finance",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 10
+      }
+    },
+    {
+      "id": 4,
+      "account_number_masked": "****-****-7004",
+      "bank_name": "Union Demonstration Bank",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 13
+      }
+    },
+    {
+      "id": 5,
+      "account_number_masked": "****-****-7005",
+      "bank_name": "Harbor Test Credit",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 16
+      }
+    },
+    {
+      "id": 6,
+      "account_number_masked": "****-****-7006",
+      "bank_name": "Civic Sample Bank",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 19
+      }
+    },
+    {
+      "id": 7,
+      "account_number_masked": "****-****-7007",
+      "bank_name": "Atlas Sandbox Finance",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 22
+      }
+    },
+    {
+      "id": 8,
+      "account_number_masked": "****-****-7008",
+      "bank_name": "Union Demonstration Bank",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 25
+      }
+    },
+    {
+      "id": 9,
+      "account_number_masked": "****-****-7009",
+      "bank_name": "Harbor Test Credit",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 28
+      }
+    },
+    {
+      "id": 10,
+      "account_number_masked": "****-****-7010",
+      "bank_name": "Civic Sample Bank",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 31
+      }
+    },
+    {
+      "id": 11,
+      "account_number_masked": "****-****-7011",
+      "bank_name": "Atlas Sandbox Finance",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 34
+      }
+    },
+    {
+      "id": 12,
+      "account_number_masked": "****-****-7012",
+      "bank_name": "Union Demonstration Bank",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 37
+      }
+    },
+    {
+      "id": 13,
+      "account_number_masked": "****-****-7013",
+      "bank_name": "Harbor Test Credit",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 40
+      }
+    },
+    {
+      "id": 14,
+      "account_number_masked": "****-****-7014",
+      "bank_name": "Civic Sample Bank",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 43
+      }
+    },
+    {
+      "id": 15,
+      "account_number_masked": "****-****-7015",
+      "bank_name": "Atlas Sandbox Finance",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 46
+      }
+    },
+    {
+      "id": 16,
+      "account_number_masked": "****-****-7016",
+      "bank_name": "Union Demonstration Bank",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 49
+      }
+    },
+    {
+      "id": 17,
+      "account_number_masked": "****-****-7017",
+      "bank_name": "Harbor Test Credit",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 52
+      }
+    },
+    {
+      "id": 18,
+      "account_number_masked": "****-****-7018",
+      "bank_name": "Civic Sample Bank",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 55
+      }
+    },
+    {
+      "id": 19,
+      "account_number_masked": "****-****-7019",
+      "bank_name": "Atlas Sandbox Finance",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 58
+      }
+    },
+    {
+      "id": 20,
+      "account_number_masked": "****-****-7020",
+      "bank_name": "Union Demonstration Bank",
+      "metadata": {
+        "synthetic": true,
+        "owner_person_id": 61
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Demo Location 01",
+      "latitude": "39.001000",
+      "longitude": "-77.001000",
+      "address": "201 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 2,
+      "name": "Demo Location 02",
+      "latitude": "39.002000",
+      "longitude": "-77.002000",
+      "address": "202 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 3,
+      "name": "Demo Location 03",
+      "latitude": "39.003000",
+      "longitude": "-77.003000",
+      "address": "203 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": true
+      }
+    },
+    {
+      "id": 4,
+      "name": "Demo Location 04",
+      "latitude": "39.004000",
+      "longitude": "-77.004000",
+      "address": "204 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 5,
+      "name": "Demo Location 05",
+      "latitude": "39.005000",
+      "longitude": "-77.005000",
+      "address": "205 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 6,
+      "name": "Demo Location 06",
+      "latitude": "39.006000",
+      "longitude": "-77.006000",
+      "address": "206 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 7,
+      "name": "Demo Location 07",
+      "latitude": "39.007000",
+      "longitude": "-77.007000",
+      "address": "207 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": true
+      }
+    },
+    {
+      "id": 8,
+      "name": "Demo Location 08",
+      "latitude": "39.008000",
+      "longitude": "-77.008000",
+      "address": "208 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 9,
+      "name": "Demo Location 09",
+      "latitude": "39.009000",
+      "longitude": "-77.009000",
+      "address": "209 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 10,
+      "name": "Demo Location 10",
+      "latitude": "39.010000",
+      "longitude": "-77.010000",
+      "address": "210 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 11,
+      "name": "Demo Location 11",
+      "latitude": "39.011000",
+      "longitude": "-77.011000",
+      "address": "211 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 12,
+      "name": "Demo Location 12",
+      "latitude": "39.012000",
+      "longitude": "-77.012000",
+      "address": "212 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 13,
+      "name": "Demo Location 13",
+      "latitude": "39.013000",
+      "longitude": "-77.013000",
+      "address": "213 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 14,
+      "name": "Demo Location 14",
+      "latitude": "39.014000",
+      "longitude": "-77.014000",
+      "address": "214 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": true
+      }
+    },
+    {
+      "id": 15,
+      "name": "Demo Location 15",
+      "latitude": "39.015000",
+      "longitude": "-77.015000",
+      "address": "215 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 16,
+      "name": "Demo Location 16",
+      "latitude": "39.016000",
+      "longitude": "-77.016000",
+      "address": "216 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 17,
+      "name": "Demo Location 17",
+      "latitude": "39.017000",
+      "longitude": "-77.017000",
+      "address": "217 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 18,
+      "name": "Demo Location 18",
+      "latitude": "39.018000",
+      "longitude": "-77.018000",
+      "address": "218 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 19,
+      "name": "Demo Location 19",
+      "latitude": "39.019000",
+      "longitude": "-77.019000",
+      "address": "219 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 20,
+      "name": "Demo Location 20",
+      "latitude": "39.020000",
+      "longitude": "-77.020000",
+      "address": "220 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 21,
+      "name": "Demo Location 21",
+      "latitude": "39.021000",
+      "longitude": "-77.021000",
+      "address": "221 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 22,
+      "name": "Demo Location 22",
+      "latitude": "39.022000",
+      "longitude": "-77.022000",
+      "address": "222 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 23,
+      "name": "Demo Location 23",
+      "latitude": "39.023000",
+      "longitude": "-77.023000",
+      "address": "223 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 24,
+      "name": "Demo Location 24",
+      "latitude": "39.024000",
+      "longitude": "-77.024000",
+      "address": "224 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 25,
+      "name": "Demo Location 25 - Remote Activity",
+      "latitude": "40.712800",
+      "longitude": "-74.006000",
+      "address": "225 Synthetic Avenue, Example District",
+      "metadata": {
+        "synthetic": true,
+        "repeated_meeting_site": false
+      }
+    }
+  ],
+  "vehicles": [
+    {
+      "id": 1,
+      "registration_number": "SYN-2026-001",
+      "vehicle_type": "motorcycle",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 2,
+      "registration_number": "SYN-2026-002",
+      "vehicle_type": "sedan",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 3,
+      "registration_number": "SYN-2026-003",
+      "vehicle_type": "motorcycle",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 4,
+      "registration_number": "SYN-2026-004",
+      "vehicle_type": "truck",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 5,
+      "registration_number": "SYN-2026-005",
+      "vehicle_type": "van",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 6,
+      "registration_number": "SYN-2026-006",
+      "vehicle_type": "van",
+      "metadata": {
+        "synthetic": true,
+        "network": "A"
+      }
+    },
+    {
+      "id": 7,
+      "registration_number": "SYN-2026-007",
+      "vehicle_type": "van",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 8,
+      "registration_number": "SYN-2026-008",
+      "vehicle_type": "sedan",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 9,
+      "registration_number": "SYN-2026-009",
+      "vehicle_type": "van",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 10,
+      "registration_number": "SYN-2026-010",
+      "vehicle_type": "sedan",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 11,
+      "registration_number": "SYN-2026-011",
+      "vehicle_type": "sedan",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 12,
+      "registration_number": "SYN-2026-012",
+      "vehicle_type": "motorcycle",
+      "metadata": {
+        "synthetic": true,
+        "network": "B"
+      }
+    },
+    {
+      "id": 13,
+      "registration_number": "SYN-2026-013",
+      "vehicle_type": "van",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 14,
+      "registration_number": "SYN-2026-014",
+      "vehicle_type": "motorcycle",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 15,
+      "registration_number": "SYN-2026-015",
+      "vehicle_type": "motorcycle",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 16,
+      "registration_number": "SYN-2026-016",
+      "vehicle_type": "sedan",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 17,
+      "registration_number": "SYN-2026-017",
+      "vehicle_type": "truck",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    },
+    {
+      "id": 18,
+      "registration_number": "SYN-2026-018",
+      "vehicle_type": "motorcycle",
+      "metadata": {
+        "synthetic": true,
+        "network": "control"
+      }
+    }
+  ],
+  "communications": [
+    {
+      "id": 1,
+      "caller_entity_id": 5,
+      "receiver_entity_id": 3,
+      "timestamp": "2026-01-15T12:07:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 2,
+      "caller_entity_id": 3,
+      "receiver_entity_id": 7,
+      "timestamp": "2026-01-15T15:14:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 3,
+      "caller_entity_id": 3,
+      "receiver_entity_id": 6,
+      "timestamp": "2026-01-15T18:21:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 4,
+      "caller_entity_id": 10,
+      "receiver_entity_id": 11,
+      "timestamp": "2026-01-15T21:28:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 5,
+      "caller_entity_id": 4,
+      "receiver_entity_id": 9,
+      "timestamp": "2026-01-16T00:00:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 6,
+      "caller_entity_id": 7,
+      "receiver_entity_id": 4,
+      "timestamp": "2026-01-16T03:07:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 7,
+      "caller_entity_id": 8,
+      "receiver_entity_id": 7,
+      "timestamp": "2026-01-16T06:14:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 8,
+      "caller_entity_id": 4,
+      "receiver_entity_id": 1,
+      "timestamp": "2026-01-16T09:21:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 9,
+      "caller_entity_id": 5,
+      "receiver_entity_id": 10,
+      "timestamp": "2026-01-16T12:28:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 10,
+      "caller_entity_id": 5,
+      "receiver_entity_id": 10,
+      "timestamp": "2026-01-16T15:00:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 11,
+      "caller_entity_id": 8,
+      "receiver_entity_id": 4,
+      "timestamp": "2026-01-16T18:07:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 12,
+      "caller_entity_id": 8,
+      "receiver_entity_id": 9,
+      "timestamp": "2026-01-16T21:14:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 13,
+      "caller_entity_id": 8,
+      "receiver_entity_id": 9,
+      "timestamp": "2026-01-17T00:21:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 14,
+      "caller_entity_id": 4,
+      "receiver_entity_id": 5,
+      "timestamp": "2026-01-17T03:28:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 15,
+      "caller_entity_id": 8,
+      "receiver_entity_id": 9,
+      "timestamp": "2026-01-17T06:00:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 16,
+      "caller_entity_id": 9,
+      "receiver_entity_id": 10,
+      "timestamp": "2026-01-17T09:07:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 17,
+      "caller_entity_id": 1,
+      "receiver_entity_id": 11,
+      "timestamp": "2026-01-17T12:14:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 18,
+      "caller_entity_id": 3,
+      "receiver_entity_id": 4,
+      "timestamp": "2026-01-17T15:21:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 19,
+      "caller_entity_id": 3,
+      "receiver_entity_id": 5,
+      "timestamp": "2026-01-17T18:28:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 20,
+      "caller_entity_id": 7,
+      "receiver_entity_id": 4,
+      "timestamp": "2026-01-17T21:00:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 21,
+      "caller_entity_id": 10,
+      "receiver_entity_id": 7,
+      "timestamp": "2026-01-18T00:07:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 22,
+      "caller_entity_id": 6,
+      "receiver_entity_id": 2,
+      "timestamp": "2026-01-18T03:14:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 23,
+      "caller_entity_id": 6,
+      "receiver_entity_id": 2,
+      "timestamp": "2026-01-18T06:21:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 24,
+      "caller_entity_id": 8,
+      "receiver_entity_id": 11,
+      "timestamp": "2026-01-18T09:28:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 25,
+      "caller_entity_id": 2,
+      "receiver_entity_id": 11,
+      "timestamp": "2026-01-18T12:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 26,
+      "caller_entity_id": 2,
+      "receiver_entity_id": 8,
+      "timestamp": "2026-01-18T15:07:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 27,
+      "caller_entity_id": 9,
+      "receiver_entity_id": 2,
+      "timestamp": "2026-01-18T18:14:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 28,
+      "caller_entity_id": 5,
+      "receiver_entity_id": 4,
+      "timestamp": "2026-01-18T21:21:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 29,
+      "caller_entity_id": 7,
+      "receiver_entity_id": 4,
+      "timestamp": "2026-01-19T00:28:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 30,
+      "caller_entity_id": 4,
+      "receiver_entity_id": 5,
+      "timestamp": "2026-01-19T03:00:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 31,
+      "caller_entity_id": 2,
+      "receiver_entity_id": 8,
+      "timestamp": "2026-01-19T06:07:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 32,
+      "caller_entity_id": 4,
+      "receiver_entity_id": 11,
+      "timestamp": "2026-01-19T09:14:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 33,
+      "caller_entity_id": 6,
+      "receiver_entity_id": 11,
+      "timestamp": "2026-01-19T12:21:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 34,
+      "caller_entity_id": 10,
+      "receiver_entity_id": 9,
+      "timestamp": "2026-01-19T15:28:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 35,
+      "caller_entity_id": 8,
+      "receiver_entity_id": 4,
+      "timestamp": "2026-01-19T18:00:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 36,
+      "caller_entity_id": 10,
+      "receiver_entity_id": 11,
+      "timestamp": "2026-01-19T21:07:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 37,
+      "caller_entity_id": 8,
+      "receiver_entity_id": 2,
+      "timestamp": "2026-01-20T00:14:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 38,
+      "caller_entity_id": 3,
+      "receiver_entity_id": 1,
+      "timestamp": "2026-01-20T03:21:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 39,
+      "caller_entity_id": 2,
+      "receiver_entity_id": 6,
+      "timestamp": "2026-01-20T06:28:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 40,
+      "caller_entity_id": 1,
+      "receiver_entity_id": 2,
+      "timestamp": "2026-01-20T09:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 41,
+      "caller_entity_id": 9,
+      "receiver_entity_id": 10,
+      "timestamp": "2026-01-20T12:07:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 42,
+      "caller_entity_id": 9,
+      "receiver_entity_id": 8,
+      "timestamp": "2026-01-20T15:14:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 43,
+      "caller_entity_id": 5,
+      "receiver_entity_id": 10,
+      "timestamp": "2026-01-20T18:21:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 44,
+      "caller_entity_id": 5,
+      "receiver_entity_id": 6,
+      "timestamp": "2026-01-20T21:28:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 45,
+      "caller_entity_id": 7,
+      "receiver_entity_id": 4,
+      "timestamp": "2026-01-21T00:00:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 46,
+      "caller_entity_id": 3,
+      "receiver_entity_id": 9,
+      "timestamp": "2026-01-21T03:07:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 47,
+      "caller_entity_id": 8,
+      "receiver_entity_id": 2,
+      "timestamp": "2026-01-21T06:14:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 48,
+      "caller_entity_id": 10,
+      "receiver_entity_id": 8,
+      "timestamp": "2026-01-21T09:21:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 49,
+      "caller_entity_id": 2,
+      "receiver_entity_id": 10,
+      "timestamp": "2026-01-21T12:28:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 50,
+      "caller_entity_id": 2,
+      "receiver_entity_id": 6,
+      "timestamp": "2026-01-21T15:00:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 51,
+      "caller_entity_id": 4,
+      "receiver_entity_id": 10,
+      "timestamp": "2026-01-21T18:07:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 52,
+      "caller_entity_id": 6,
+      "receiver_entity_id": 11,
+      "timestamp": "2026-01-21T21:14:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 53,
+      "caller_entity_id": 3,
+      "receiver_entity_id": 11,
+      "timestamp": "2026-01-22T00:21:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 54,
+      "caller_entity_id": 2,
+      "receiver_entity_id": 3,
+      "timestamp": "2026-01-22T03:28:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 55,
+      "caller_entity_id": 8,
+      "receiver_entity_id": 3,
+      "timestamp": "2026-01-22T06:00:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 56,
+      "caller_entity_id": 9,
+      "receiver_entity_id": 5,
+      "timestamp": "2026-01-22T09:07:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 57,
+      "caller_entity_id": 7,
+      "receiver_entity_id": 1,
+      "timestamp": "2026-01-22T12:14:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 58,
+      "caller_entity_id": 2,
+      "receiver_entity_id": 10,
+      "timestamp": "2026-01-22T15:21:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 59,
+      "caller_entity_id": 10,
+      "receiver_entity_id": 9,
+      "timestamp": "2026-01-22T18:28:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 60,
+      "caller_entity_id": 2,
+      "receiver_entity_id": 3,
+      "timestamp": "2026-01-22T21:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 61,
+      "caller_entity_id": 9,
+      "receiver_entity_id": 10,
+      "timestamp": "2026-01-23T00:07:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 62,
+      "caller_entity_id": 4,
+      "receiver_entity_id": 1,
+      "timestamp": "2026-01-23T03:14:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 63,
+      "caller_entity_id": 11,
+      "receiver_entity_id": 2,
+      "timestamp": "2026-01-23T06:21:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 64,
+      "caller_entity_id": 11,
+      "receiver_entity_id": 8,
+      "timestamp": "2026-01-23T09:28:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 65,
+      "caller_entity_id": 4,
+      "receiver_entity_id": 5,
+      "timestamp": "2026-01-23T12:00:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 66,
+      "caller_entity_id": 1,
+      "receiver_entity_id": 5,
+      "timestamp": "2026-01-23T15:07:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 67,
+      "caller_entity_id": 5,
+      "receiver_entity_id": 11,
+      "timestamp": "2026-01-23T18:14:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 68,
+      "caller_entity_id": 1,
+      "receiver_entity_id": 5,
+      "timestamp": "2026-01-23T21:21:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 69,
+      "caller_entity_id": 3,
+      "receiver_entity_id": 9,
+      "timestamp": "2026-01-24T00:28:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 70,
+      "caller_entity_id": 3,
+      "receiver_entity_id": 4,
+      "timestamp": "2026-01-24T03:00:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 71,
+      "caller_entity_id": 1,
+      "receiver_entity_id": 5,
+      "timestamp": "2026-01-24T06:07:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 72,
+      "caller_entity_id": 6,
+      "receiver_entity_id": 5,
+      "timestamp": "2026-01-24T09:14:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 73,
+      "caller_entity_id": 11,
+      "receiver_entity_id": 12,
+      "timestamp": "2026-01-24T12:21:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 74,
+      "caller_entity_id": 1,
+      "receiver_entity_id": 2,
+      "timestamp": "2026-01-24T15:28:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 75,
+      "caller_entity_id": 6,
+      "receiver_entity_id": 11,
+      "timestamp": "2026-01-24T18:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 76,
+      "caller_entity_id": 11,
+      "receiver_entity_id": 9,
+      "timestamp": "2026-01-24T21:07:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 77,
+      "caller_entity_id": 1,
+      "receiver_entity_id": 11,
+      "timestamp": "2026-01-25T00:14:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 78,
+      "caller_entity_id": 2,
+      "receiver_entity_id": 9,
+      "timestamp": "2026-01-25T03:21:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 79,
+      "caller_entity_id": 7,
+      "receiver_entity_id": 8,
+      "timestamp": "2026-01-25T06:28:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 80,
+      "caller_entity_id": 11,
+      "receiver_entity_id": 12,
+      "timestamp": "2026-01-25T09:00:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 81,
+      "caller_entity_id": 2,
+      "receiver_entity_id": 4,
+      "timestamp": "2026-01-25T12:07:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 82,
+      "caller_entity_id": 8,
+      "receiver_entity_id": 7,
+      "timestamp": "2026-01-25T15:14:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 83,
+      "caller_entity_id": 5,
+      "receiver_entity_id": 11,
+      "timestamp": "2026-01-25T18:21:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 84,
+      "caller_entity_id": 4,
+      "receiver_entity_id": 10,
+      "timestamp": "2026-01-25T21:28:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 85,
+      "caller_entity_id": 7,
+      "receiver_entity_id": 1,
+      "timestamp": "2026-01-26T00:00:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 86,
+      "caller_entity_id": 3,
+      "receiver_entity_id": 7,
+      "timestamp": "2026-01-26T03:07:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 87,
+      "caller_entity_id": 8,
+      "receiver_entity_id": 9,
+      "timestamp": "2026-01-26T06:14:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 88,
+      "caller_entity_id": 6,
+      "receiver_entity_id": 4,
+      "timestamp": "2026-01-26T09:21:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 89,
+      "caller_entity_id": 7,
+      "receiver_entity_id": 1,
+      "timestamp": "2026-01-26T12:28:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 90,
+      "caller_entity_id": 7,
+      "receiver_entity_id": 5,
+      "timestamp": "2026-01-26T15:00:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 91,
+      "caller_entity_id": 23,
+      "receiver_entity_id": 29,
+      "timestamp": "2026-01-26T18:07:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 92,
+      "caller_entity_id": 24,
+      "receiver_entity_id": 25,
+      "timestamp": "2026-01-26T21:14:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 93,
+      "caller_entity_id": 33,
+      "receiver_entity_id": 31,
+      "timestamp": "2026-01-27T00:21:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 94,
+      "caller_entity_id": 30,
+      "receiver_entity_id": 27,
+      "timestamp": "2026-01-27T03:28:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 95,
+      "caller_entity_id": 28,
+      "receiver_entity_id": 27,
+      "timestamp": "2026-01-27T06:00:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 96,
+      "caller_entity_id": 29,
+      "receiver_entity_id": 25,
+      "timestamp": "2026-01-27T09:07:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 97,
+      "caller_entity_id": 23,
+      "receiver_entity_id": 24,
+      "timestamp": "2026-01-27T12:14:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 98,
+      "caller_entity_id": 27,
+      "receiver_entity_id": 31,
+      "timestamp": "2026-01-27T15:21:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 99,
+      "caller_entity_id": 28,
+      "receiver_entity_id": 32,
+      "timestamp": "2026-01-27T18:28:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 100,
+      "caller_entity_id": 27,
+      "receiver_entity_id": 32,
+      "timestamp": "2026-01-27T21:00:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 101,
+      "caller_entity_id": 33,
+      "receiver_entity_id": 30,
+      "timestamp": "2026-01-28T00:07:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 102,
+      "caller_entity_id": 31,
+      "receiver_entity_id": 25,
+      "timestamp": "2026-01-28T03:14:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 103,
+      "caller_entity_id": 24,
+      "receiver_entity_id": 32,
+      "timestamp": "2026-01-28T06:21:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 104,
+      "caller_entity_id": 23,
+      "receiver_entity_id": 24,
+      "timestamp": "2026-01-28T09:28:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 105,
+      "caller_entity_id": 28,
+      "receiver_entity_id": 33,
+      "timestamp": "2026-01-28T12:00:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 106,
+      "caller_entity_id": 33,
+      "receiver_entity_id": 34,
+      "timestamp": "2026-01-28T15:07:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 107,
+      "caller_entity_id": 23,
+      "receiver_entity_id": 32,
+      "timestamp": "2026-01-28T18:14:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 108,
+      "caller_entity_id": 29,
+      "receiver_entity_id": 28,
+      "timestamp": "2026-01-28T21:21:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 109,
+      "caller_entity_id": 27,
+      "receiver_entity_id": 28,
+      "timestamp": "2026-01-29T00:28:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 110,
+      "caller_entity_id": 29,
+      "receiver_entity_id": 30,
+      "timestamp": "2026-01-29T03:00:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 111,
+      "caller_entity_id": 28,
+      "receiver_entity_id": 29,
+      "timestamp": "2026-01-29T06:07:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 112,
+      "caller_entity_id": 25,
+      "receiver_entity_id": 26,
+      "timestamp": "2026-01-29T09:14:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 113,
+      "caller_entity_id": 31,
+      "receiver_entity_id": 32,
+      "timestamp": "2026-01-29T12:21:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 114,
+      "caller_entity_id": 30,
+      "receiver_entity_id": 26,
+      "timestamp": "2026-01-29T15:28:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 115,
+      "caller_entity_id": 28,
+      "receiver_entity_id": 30,
+      "timestamp": "2026-01-29T18:00:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 116,
+      "caller_entity_id": 28,
+      "receiver_entity_id": 29,
+      "timestamp": "2026-01-29T21:07:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 117,
+      "caller_entity_id": 29,
+      "receiver_entity_id": 28,
+      "timestamp": "2026-01-30T00:14:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 118,
+      "caller_entity_id": 24,
+      "receiver_entity_id": 31,
+      "timestamp": "2026-01-30T03:21:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 119,
+      "caller_entity_id": 23,
+      "receiver_entity_id": 29,
+      "timestamp": "2026-01-30T06:28:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 120,
+      "caller_entity_id": 31,
+      "receiver_entity_id": 33,
+      "timestamp": "2026-01-30T09:00:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 121,
+      "caller_entity_id": 26,
+      "receiver_entity_id": 23,
+      "timestamp": "2026-01-30T12:07:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 122,
+      "caller_entity_id": 25,
+      "receiver_entity_id": 30,
+      "timestamp": "2026-01-30T15:14:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 123,
+      "caller_entity_id": 25,
+      "receiver_entity_id": 33,
+      "timestamp": "2026-01-30T18:21:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 124,
+      "caller_entity_id": 32,
+      "receiver_entity_id": 23,
+      "timestamp": "2026-01-30T21:28:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 125,
+      "caller_entity_id": 32,
+      "receiver_entity_id": 23,
+      "timestamp": "2026-01-31T00:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 126,
+      "caller_entity_id": 28,
+      "receiver_entity_id": 25,
+      "timestamp": "2026-01-31T03:07:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 127,
+      "caller_entity_id": 32,
+      "receiver_entity_id": 33,
+      "timestamp": "2026-01-31T06:14:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 128,
+      "caller_entity_id": 27,
+      "receiver_entity_id": 24,
+      "timestamp": "2026-01-31T09:21:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 129,
+      "caller_entity_id": 26,
+      "receiver_entity_id": 33,
+      "timestamp": "2026-01-31T12:28:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 130,
+      "caller_entity_id": 26,
+      "receiver_entity_id": 33,
+      "timestamp": "2026-01-31T15:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 131,
+      "caller_entity_id": 27,
+      "receiver_entity_id": 33,
+      "timestamp": "2026-01-31T18:07:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 132,
+      "caller_entity_id": 23,
+      "receiver_entity_id": 29,
+      "timestamp": "2026-01-31T21:14:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 133,
+      "caller_entity_id": 31,
+      "receiver_entity_id": 23,
+      "timestamp": "2026-02-01T00:21:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 134,
+      "caller_entity_id": 32,
+      "receiver_entity_id": 23,
+      "timestamp": "2026-02-01T03:28:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 135,
+      "caller_entity_id": 30,
+      "receiver_entity_id": 23,
+      "timestamp": "2026-02-01T06:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 136,
+      "caller_entity_id": 26,
+      "receiver_entity_id": 23,
+      "timestamp": "2026-02-01T09:07:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 137,
+      "caller_entity_id": 25,
+      "receiver_entity_id": 23,
+      "timestamp": "2026-02-01T12:14:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 138,
+      "caller_entity_id": 29,
+      "receiver_entity_id": 30,
+      "timestamp": "2026-02-01T15:21:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 139,
+      "caller_entity_id": 23,
+      "receiver_entity_id": 24,
+      "timestamp": "2026-02-01T18:28:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 140,
+      "caller_entity_id": 25,
+      "receiver_entity_id": 26,
+      "timestamp": "2026-02-01T21:00:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 141,
+      "caller_entity_id": 28,
+      "receiver_entity_id": 29,
+      "timestamp": "2026-02-02T00:07:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 142,
+      "caller_entity_id": 29,
+      "receiver_entity_id": 25,
+      "timestamp": "2026-02-02T03:14:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 143,
+      "caller_entity_id": 28,
+      "receiver_entity_id": 27,
+      "timestamp": "2026-02-02T06:21:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 144,
+      "caller_entity_id": 26,
+      "receiver_entity_id": 27,
+      "timestamp": "2026-02-02T09:28:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 145,
+      "caller_entity_id": 23,
+      "receiver_entity_id": 29,
+      "timestamp": "2026-02-02T12:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 146,
+      "caller_entity_id": 26,
+      "receiver_entity_id": 23,
+      "timestamp": "2026-02-02T15:07:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 147,
+      "caller_entity_id": 33,
+      "receiver_entity_id": 24,
+      "timestamp": "2026-02-02T18:14:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 148,
+      "caller_entity_id": 25,
+      "receiver_entity_id": 28,
+      "timestamp": "2026-02-02T21:21:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 149,
+      "caller_entity_id": 33,
+      "receiver_entity_id": 26,
+      "timestamp": "2026-02-03T00:28:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 150,
+      "caller_entity_id": 27,
+      "receiver_entity_id": 30,
+      "timestamp": "2026-02-03T03:00:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 151,
+      "caller_entity_id": 24,
+      "receiver_entity_id": 26,
+      "timestamp": "2026-02-03T06:07:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 152,
+      "caller_entity_id": 27,
+      "receiver_entity_id": 28,
+      "timestamp": "2026-02-03T09:14:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 153,
+      "caller_entity_id": 33,
+      "receiver_entity_id": 32,
+      "timestamp": "2026-02-03T12:21:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 154,
+      "caller_entity_id": 27,
+      "receiver_entity_id": 33,
+      "timestamp": "2026-02-03T15:28:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 155,
+      "caller_entity_id": 25,
+      "receiver_entity_id": 24,
+      "timestamp": "2026-02-03T18:00:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 156,
+      "caller_entity_id": 25,
+      "receiver_entity_id": 27,
+      "timestamp": "2026-02-03T21:07:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 157,
+      "caller_entity_id": 27,
+      "receiver_entity_id": 31,
+      "timestamp": "2026-02-04T00:14:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 158,
+      "caller_entity_id": 30,
+      "receiver_entity_id": 27,
+      "timestamp": "2026-02-04T03:21:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 159,
+      "caller_entity_id": 31,
+      "receiver_entity_id": 33,
+      "timestamp": "2026-02-04T06:28:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 160,
+      "caller_entity_id": 26,
+      "receiver_entity_id": 31,
+      "timestamp": "2026-02-04T09:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 161,
+      "caller_entity_id": 27,
+      "receiver_entity_id": 32,
+      "timestamp": "2026-02-04T12:07:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 162,
+      "caller_entity_id": 24,
+      "receiver_entity_id": 32,
+      "timestamp": "2026-02-04T15:14:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 163,
+      "caller_entity_id": 24,
+      "receiver_entity_id": 33,
+      "timestamp": "2026-02-04T18:21:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 164,
+      "caller_entity_id": 25,
+      "receiver_entity_id": 33,
+      "timestamp": "2026-02-04T21:28:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 165,
+      "caller_entity_id": 29,
+      "receiver_entity_id": 30,
+      "timestamp": "2026-02-05T00:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 166,
+      "caller_entity_id": 24,
+      "receiver_entity_id": 29,
+      "timestamp": "2026-02-05T03:07:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 167,
+      "caller_entity_id": 31,
+      "receiver_entity_id": 32,
+      "timestamp": "2026-02-05T06:14:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 168,
+      "caller_entity_id": 27,
+      "receiver_entity_id": 25,
+      "timestamp": "2026-02-05T09:21:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 169,
+      "caller_entity_id": 31,
+      "receiver_entity_id": 23,
+      "timestamp": "2026-02-05T12:28:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 170,
+      "caller_entity_id": 29,
+      "receiver_entity_id": 30,
+      "timestamp": "2026-02-05T15:00:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 171,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 32,
+      "timestamp": "2026-02-05T18:07:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 172,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 9,
+      "timestamp": "2026-02-05T21:14:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 173,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 29,
+      "timestamp": "2026-02-06T00:21:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 174,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 25,
+      "timestamp": "2026-02-06T03:28:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 175,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 23,
+      "timestamp": "2026-02-06T06:00:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 176,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 1,
+      "timestamp": "2026-02-06T09:07:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 177,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 32,
+      "timestamp": "2026-02-06T12:14:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 178,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 2,
+      "timestamp": "2026-02-06T15:21:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 179,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 1,
+      "timestamp": "2026-02-06T18:28:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 180,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 31,
+      "timestamp": "2026-02-06T21:00:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 181,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 32,
+      "timestamp": "2026-02-07T00:07:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 182,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 27,
+      "timestamp": "2026-02-07T03:14:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 183,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 1,
+      "timestamp": "2026-02-07T06:21:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 184,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 31,
+      "timestamp": "2026-02-07T09:28:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 185,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 6,
+      "timestamp": "2026-02-07T12:00:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 186,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 30,
+      "timestamp": "2026-02-07T15:07:00+00:00",
+      "duration_seconds": 90,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 187,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 31,
+      "timestamp": "2026-02-07T18:14:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 188,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 10,
+      "timestamp": "2026-02-07T21:21:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 189,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 24,
+      "timestamp": "2026-02-08T00:28:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 190,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 9,
+      "timestamp": "2026-02-08T03:00:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 191,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 27,
+      "timestamp": "2026-02-08T06:07:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 192,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 3,
+      "timestamp": "2026-02-08T09:14:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 193,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 4,
+      "timestamp": "2026-02-08T12:21:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 194,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 1,
+      "timestamp": "2026-02-08T15:28:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 195,
+      "caller_entity_id": 45,
+      "receiver_entity_id": 7,
+      "timestamp": "2026-02-08T18:00:00+00:00",
+      "duration_seconds": 45,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "bridge"
+      }
+    },
+    {
+      "id": 196,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 74,
+      "timestamp": "2026-02-26T10:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 197,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 45,
+      "timestamp": "2026-02-26T11:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 198,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 74,
+      "timestamp": "2026-02-26T12:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 199,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 45,
+      "timestamp": "2026-02-26T13:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 200,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 74,
+      "timestamp": "2026-02-26T10:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 201,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 45,
+      "timestamp": "2026-02-26T11:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 202,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 74,
+      "timestamp": "2026-02-26T12:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 203,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 45,
+      "timestamp": "2026-02-26T13:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 204,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 74,
+      "timestamp": "2026-02-26T10:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 205,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 45,
+      "timestamp": "2026-02-26T11:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 206,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 74,
+      "timestamp": "2026-02-26T12:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 207,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 45,
+      "timestamp": "2026-02-26T13:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 208,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 74,
+      "timestamp": "2026-02-26T10:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 209,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 45,
+      "timestamp": "2026-02-26T11:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 210,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 74,
+      "timestamp": "2026-02-26T12:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 211,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 45,
+      "timestamp": "2026-02-26T13:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 212,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 74,
+      "timestamp": "2026-02-26T10:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 213,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 45,
+      "timestamp": "2026-02-26T11:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 214,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 74,
+      "timestamp": "2026-02-26T12:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 215,
+      "caller_entity_id": 14,
+      "receiver_entity_id": 45,
+      "timestamp": "2026-02-26T13:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "P014_communication_spike"
+      }
+    },
+    {
+      "id": 216,
+      "caller_entity_id": 19,
+      "receiver_entity_id": 39,
+      "timestamp": "2026-02-11T09:07:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 217,
+      "caller_entity_id": 28,
+      "receiver_entity_id": 2,
+      "timestamp": "2026-02-11T12:14:00+00:00",
+      "duration_seconds": 480,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 218,
+      "caller_entity_id": 10,
+      "receiver_entity_id": 5,
+      "timestamp": "2026-02-11T15:21:00+00:00",
+      "duration_seconds": 240,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 219,
+      "caller_entity_id": 5,
+      "receiver_entity_id": 29,
+      "timestamp": "2026-02-11T18:28:00+00:00",
+      "duration_seconds": 120,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    },
+    {
+      "id": 220,
+      "caller_entity_id": 4,
+      "receiver_entity_id": 13,
+      "timestamp": "2026-02-11T21:00:00+00:00",
+      "duration_seconds": 720,
+      "communication_type": "ENCRYPTED_MESSAGE",
+      "metadata": {
+        "synthetic": true,
+        "pattern": "community"
+      }
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "sender_entity_id": 14,
+      "receiver_entity_id": 15,
+      "amount": "4200.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-15T19:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "location_id": 1,
+        "scenario": "P014_behavioral_demo"
+      }
+    },
+    {
+      "id": 2,
+      "sender_entity_id": 14,
+      "receiver_entity_id": 15,
+      "amount": "4400.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-18T19:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "location_id": 1,
+        "scenario": "P014_behavioral_demo"
+      }
+    },
+    {
+      "id": 3,
+      "sender_entity_id": 14,
+      "receiver_entity_id": 15,
+      "amount": "4600.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-21T19:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "location_id": 1,
+        "scenario": "P014_behavioral_demo"
+      }
+    },
+    {
+      "id": 4,
+      "sender_entity_id": 14,
+      "receiver_entity_id": 15,
+      "amount": "4800.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-24T19:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "location_id": 1,
+        "scenario": "P014_behavioral_demo"
+      }
+    },
+    {
+      "id": 5,
+      "sender_entity_id": 14,
+      "receiver_entity_id": 15,
+      "amount": "5000.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-27T19:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "location_id": 1,
+        "scenario": "P014_behavioral_demo"
+      }
+    },
+    {
+      "id": 6,
+      "sender_entity_id": 14,
+      "receiver_entity_id": 74,
+      "amount": "850000.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-30T11:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "location_id": 25,
+        "scenario": "P014_behavioral_demo"
+      }
+    },
+    {
+      "id": 7,
+      "sender_entity_id": 6,
+      "receiver_entity_id": 17,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-22T16:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 8,
+      "sender_entity_id": 11,
+      "receiver_entity_id": 68,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-23T17:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 9,
+      "sender_entity_id": 6,
+      "receiver_entity_id": 31,
+      "amount": "1500.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-24T18:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 10,
+      "sender_entity_id": 7,
+      "receiver_entity_id": 46,
+      "amount": "240.50",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-25T19:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 11,
+      "sender_entity_id": 10,
+      "receiver_entity_id": 57,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-26T20:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 12,
+      "sender_entity_id": 5,
+      "receiver_entity_id": 27,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-27T21:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 13,
+      "sender_entity_id": 9,
+      "receiver_entity_id": 7,
+      "amount": "1500.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-28T22:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 14,
+      "sender_entity_id": 10,
+      "receiver_entity_id": 3,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-29T23:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 15,
+      "sender_entity_id": 1,
+      "receiver_entity_id": 52,
+      "amount": "780.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-31T00:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 16,
+      "sender_entity_id": 1,
+      "receiver_entity_id": 42,
+      "amount": "125.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-01T01:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 17,
+      "sender_entity_id": 7,
+      "receiver_entity_id": 7,
+      "amount": "1500.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-02T02:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 18,
+      "sender_entity_id": 10,
+      "receiver_entity_id": 37,
+      "amount": "1500.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-03T03:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 19,
+      "sender_entity_id": 5,
+      "receiver_entity_id": 62,
+      "amount": "1500.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-04T04:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 20,
+      "sender_entity_id": 6,
+      "receiver_entity_id": 51,
+      "amount": "125.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-05T05:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 21,
+      "sender_entity_id": 10,
+      "receiver_entity_id": 47,
+      "amount": "125.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-06T06:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 22,
+      "sender_entity_id": 8,
+      "receiver_entity_id": 55,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-07T07:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 23,
+      "sender_entity_id": 8,
+      "receiver_entity_id": 60,
+      "amount": "1500.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-08T08:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 24,
+      "sender_entity_id": 5,
+      "receiver_entity_id": 24,
+      "amount": "240.50",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-08T09:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 25,
+      "sender_entity_id": 4,
+      "receiver_entity_id": 54,
+      "amount": "125.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-09T10:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 26,
+      "sender_entity_id": 8,
+      "receiver_entity_id": 56,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-10T11:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 27,
+      "sender_entity_id": 6,
+      "receiver_entity_id": 16,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-11T12:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 28,
+      "sender_entity_id": 2,
+      "receiver_entity_id": 29,
+      "amount": "1500.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-12T13:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 29,
+      "sender_entity_id": 11,
+      "receiver_entity_id": 28,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-13T14:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 30,
+      "sender_entity_id": 11,
+      "receiver_entity_id": 19,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-14T15:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 31,
+      "sender_entity_id": 3,
+      "receiver_entity_id": 45,
+      "amount": "28100.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-15T16:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": true
+      }
+    },
+    {
+      "id": 32,
+      "sender_entity_id": 9,
+      "receiver_entity_id": 45,
+      "amount": "1500.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-16T17:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 33,
+      "sender_entity_id": 11,
+      "receiver_entity_id": 61,
+      "amount": "240.50",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-17T18:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 34,
+      "sender_entity_id": 10,
+      "receiver_entity_id": 56,
+      "amount": "780.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-18T19:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 35,
+      "sender_entity_id": 2,
+      "receiver_entity_id": 27,
+      "amount": "1500.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-19T20:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 36,
+      "sender_entity_id": 10,
+      "receiver_entity_id": 60,
+      "amount": "3400.25",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-20T21:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 37,
+      "sender_entity_id": 9,
+      "receiver_entity_id": 64,
+      "amount": "240.50",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-21T22:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 38,
+      "sender_entity_id": 3,
+      "receiver_entity_id": 55,
+      "amount": "1500.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-22T23:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 39,
+      "sender_entity_id": 8,
+      "receiver_entity_id": 42,
+      "amount": "780.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-24T00:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 40,
+      "sender_entity_id": 1,
+      "receiver_entity_id": 21,
+      "amount": "780.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-25T01:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 41,
+      "sender_entity_id": 7,
+      "receiver_entity_id": 64,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-26T02:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 42,
+      "sender_entity_id": 7,
+      "receiver_entity_id": 56,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-27T03:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 43,
+      "sender_entity_id": 2,
+      "receiver_entity_id": 12,
+      "amount": "1500.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-28T04:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 44,
+      "sender_entity_id": 9,
+      "receiver_entity_id": 39,
+      "amount": "125.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-03-01T05:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 45,
+      "sender_entity_id": 7,
+      "receiver_entity_id": 4,
+      "amount": "125.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-16T06:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 46,
+      "sender_entity_id": 5,
+      "receiver_entity_id": 71,
+      "amount": "240.50",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-17T07:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 47,
+      "sender_entity_id": 4,
+      "receiver_entity_id": 9,
+      "amount": "3400.25",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-18T08:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 48,
+      "sender_entity_id": 7,
+      "receiver_entity_id": 16,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-18T09:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 49,
+      "sender_entity_id": 3,
+      "receiver_entity_id": 4,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-19T10:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 50,
+      "sender_entity_id": 5,
+      "receiver_entity_id": 68,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-20T11:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 51,
+      "sender_entity_id": 1,
+      "receiver_entity_id": 41,
+      "amount": "125.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-21T12:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 52,
+      "sender_entity_id": 8,
+      "receiver_entity_id": 36,
+      "amount": "780.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-22T13:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 53,
+      "sender_entity_id": 5,
+      "receiver_entity_id": 38,
+      "amount": "125.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-23T14:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 54,
+      "sender_entity_id": 11,
+      "receiver_entity_id": 37,
+      "amount": "780.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-24T15:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 55,
+      "sender_entity_id": 4,
+      "receiver_entity_id": 30,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-25T16:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 56,
+      "sender_entity_id": 30,
+      "receiver_entity_id": 33,
+      "amount": "780.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-26T17:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 57,
+      "sender_entity_id": 30,
+      "receiver_entity_id": 12,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-27T18:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 58,
+      "sender_entity_id": 28,
+      "receiver_entity_id": 47,
+      "amount": "1500.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-28T19:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 59,
+      "sender_entity_id": 26,
+      "receiver_entity_id": 40,
+      "amount": "125.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-29T20:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 60,
+      "sender_entity_id": 27,
+      "receiver_entity_id": 25,
+      "amount": "780.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-30T21:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 61,
+      "sender_entity_id": 31,
+      "receiver_entity_id": 40,
+      "amount": "780.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-31T22:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 62,
+      "sender_entity_id": 24,
+      "receiver_entity_id": 46,
+      "amount": "125.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-01T23:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 63,
+      "sender_entity_id": 32,
+      "receiver_entity_id": 26,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-03T00:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 64,
+      "sender_entity_id": 30,
+      "receiver_entity_id": 2,
+      "amount": "780.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-04T01:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 65,
+      "sender_entity_id": 24,
+      "receiver_entity_id": 73,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-05T02:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 66,
+      "sender_entity_id": 25,
+      "receiver_entity_id": 46,
+      "amount": "1500.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-06T03:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 67,
+      "sender_entity_id": 24,
+      "receiver_entity_id": 51,
+      "amount": "240.50",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-07T04:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 68,
+      "sender_entity_id": 28,
+      "receiver_entity_id": 39,
+      "amount": "1500.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-08T05:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 69,
+      "sender_entity_id": 24,
+      "receiver_entity_id": 46,
+      "amount": "780.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-09T06:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 70,
+      "sender_entity_id": 25,
+      "receiver_entity_id": 48,
+      "amount": "125.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-10T07:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 71,
+      "sender_entity_id": 30,
+      "receiver_entity_id": 54,
+      "amount": "125.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-11T08:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 72,
+      "sender_entity_id": 27,
+      "receiver_entity_id": 59,
+      "amount": "125.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-11T09:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 73,
+      "sender_entity_id": 26,
+      "receiver_entity_id": 24,
+      "amount": "1500.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-12T10:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 74,
+      "sender_entity_id": 31,
+      "receiver_entity_id": 48,
+      "amount": "1500.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-13T11:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 75,
+      "sender_entity_id": 28,
+      "receiver_entity_id": 5,
+      "amount": "125.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-14T12:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 76,
+      "sender_entity_id": 24,
+      "receiver_entity_id": 51,
+      "amount": "780.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-15T13:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 77,
+      "sender_entity_id": 24,
+      "receiver_entity_id": 61,
+      "amount": "125.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-16T14:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 78,
+      "sender_entity_id": 32,
+      "receiver_entity_id": 64,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-17T15:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 79,
+      "sender_entity_id": 25,
+      "receiver_entity_id": 30,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-18T16:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 80,
+      "sender_entity_id": 33,
+      "receiver_entity_id": 34,
+      "amount": "240.50",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-19T17:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 81,
+      "sender_entity_id": 28,
+      "receiver_entity_id": 54,
+      "amount": "780.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-20T18:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 82,
+      "sender_entity_id": 32,
+      "receiver_entity_id": 32,
+      "amount": "125.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-21T19:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 83,
+      "sender_entity_id": 32,
+      "receiver_entity_id": 30,
+      "amount": "125.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-22T20:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 84,
+      "sender_entity_id": 32,
+      "receiver_entity_id": 63,
+      "amount": "3400.25",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-23T21:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 85,
+      "sender_entity_id": 24,
+      "receiver_entity_id": 24,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-24T22:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 86,
+      "sender_entity_id": 33,
+      "receiver_entity_id": 65,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-25T23:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 87,
+      "sender_entity_id": 31,
+      "receiver_entity_id": 24,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-27T00:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 88,
+      "sender_entity_id": 33,
+      "receiver_entity_id": 45,
+      "amount": "33800.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-28T01:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": true
+      }
+    },
+    {
+      "id": 89,
+      "sender_entity_id": 30,
+      "receiver_entity_id": 45,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-03-01T02:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 90,
+      "sender_entity_id": 23,
+      "receiver_entity_id": 75,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-16T03:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 91,
+      "sender_entity_id": 32,
+      "receiver_entity_id": 61,
+      "amount": "240.50",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-17T04:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 92,
+      "sender_entity_id": 28,
+      "receiver_entity_id": 4,
+      "amount": "3400.25",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-18T05:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 93,
+      "sender_entity_id": 27,
+      "receiver_entity_id": 12,
+      "amount": "3400.25",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-19T06:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 94,
+      "sender_entity_id": 27,
+      "receiver_entity_id": 11,
+      "amount": "3400.25",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-20T07:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 95,
+      "sender_entity_id": 28,
+      "receiver_entity_id": 17,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-21T08:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 96,
+      "sender_entity_id": 28,
+      "receiver_entity_id": 43,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-21T09:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 97,
+      "sender_entity_id": 25,
+      "receiver_entity_id": 30,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-22T10:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 98,
+      "sender_entity_id": 30,
+      "receiver_entity_id": 49,
+      "amount": "1500.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-23T11:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 99,
+      "sender_entity_id": 32,
+      "receiver_entity_id": 41,
+      "amount": "125.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-24T12:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 100,
+      "sender_entity_id": 30,
+      "receiver_entity_id": 59,
+      "amount": "240.50",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-25T13:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 101,
+      "sender_entity_id": 25,
+      "receiver_entity_id": 13,
+      "amount": "1500.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-26T14:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 102,
+      "sender_entity_id": 24,
+      "receiver_entity_id": 70,
+      "amount": "3400.25",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-27T15:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 103,
+      "sender_entity_id": 32,
+      "receiver_entity_id": 30,
+      "amount": "1500.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-28T16:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 104,
+      "sender_entity_id": 33,
+      "receiver_entity_id": 69,
+      "amount": "780.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-29T17:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 105,
+      "sender_entity_id": 33,
+      "receiver_entity_id": 9,
+      "amount": "1500.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-30T18:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 106,
+      "sender_entity_id": 36,
+      "receiver_entity_id": 55,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-31T19:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 107,
+      "sender_entity_id": 44,
+      "receiver_entity_id": 37,
+      "amount": "1500.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-01T20:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 108,
+      "sender_entity_id": 60,
+      "receiver_entity_id": 22,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-02T21:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 109,
+      "sender_entity_id": 63,
+      "receiver_entity_id": 75,
+      "amount": "1500.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-03T22:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 110,
+      "sender_entity_id": 22,
+      "receiver_entity_id": 25,
+      "amount": "780.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-04T23:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 111,
+      "sender_entity_id": 58,
+      "receiver_entity_id": 39,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-06T00:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 112,
+      "sender_entity_id": 22,
+      "receiver_entity_id": 60,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-07T01:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 113,
+      "sender_entity_id": 70,
+      "receiver_entity_id": 59,
+      "amount": "780.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-08T02:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 114,
+      "sender_entity_id": 54,
+      "receiver_entity_id": 68,
+      "amount": "1500.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-09T03:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 115,
+      "sender_entity_id": 1,
+      "receiver_entity_id": 70,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-10T04:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 116,
+      "sender_entity_id": 74,
+      "receiver_entity_id": 25,
+      "amount": "3400.25",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-11T05:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 117,
+      "sender_entity_id": 3,
+      "receiver_entity_id": 63,
+      "amount": "3400.25",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-12T06:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 118,
+      "sender_entity_id": 49,
+      "receiver_entity_id": 25,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-13T07:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 119,
+      "sender_entity_id": 60,
+      "receiver_entity_id": 71,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-14T08:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 120,
+      "sender_entity_id": 47,
+      "receiver_entity_id": 7,
+      "amount": "125.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-14T09:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 121,
+      "sender_entity_id": 17,
+      "receiver_entity_id": 28,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-15T10:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 122,
+      "sender_entity_id": 20,
+      "receiver_entity_id": 20,
+      "amount": "240.50",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-16T11:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 123,
+      "sender_entity_id": 10,
+      "receiver_entity_id": 20,
+      "amount": "780.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-17T12:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 124,
+      "sender_entity_id": 43,
+      "receiver_entity_id": 19,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-18T13:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 125,
+      "sender_entity_id": 5,
+      "receiver_entity_id": 72,
+      "amount": "780.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-19T14:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 126,
+      "sender_entity_id": 23,
+      "receiver_entity_id": 45,
+      "amount": "37600.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-20T15:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": true
+      }
+    },
+    {
+      "id": 127,
+      "sender_entity_id": 50,
+      "receiver_entity_id": 60,
+      "amount": "3400.25",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-21T16:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 128,
+      "sender_entity_id": 46,
+      "receiver_entity_id": 68,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-22T17:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 129,
+      "sender_entity_id": 5,
+      "receiver_entity_id": 60,
+      "amount": "3400.25",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-23T18:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 130,
+      "sender_entity_id": 5,
+      "receiver_entity_id": 66,
+      "amount": "3400.25",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-24T19:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 131,
+      "sender_entity_id": 29,
+      "receiver_entity_id": 27,
+      "amount": "1500.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-25T20:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 132,
+      "sender_entity_id": 61,
+      "receiver_entity_id": 61,
+      "amount": "125.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-02-26T21:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 133,
+      "sender_entity_id": 27,
+      "receiver_entity_id": 65,
+      "amount": "1500.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-02-27T22:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 134,
+      "sender_entity_id": 1,
+      "receiver_entity_id": 42,
+      "amount": "780.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-02-28T23:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 135,
+      "sender_entity_id": 62,
+      "receiver_entity_id": 72,
+      "amount": "125.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-16T00:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 136,
+      "sender_entity_id": 61,
+      "receiver_entity_id": 29,
+      "amount": "780.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-17T01:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 137,
+      "sender_entity_id": 37,
+      "receiver_entity_id": 13,
+      "amount": "125.00",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-18T02:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 138,
+      "sender_entity_id": 58,
+      "receiver_entity_id": 56,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-19T03:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 139,
+      "sender_entity_id": 62,
+      "receiver_entity_id": 17,
+      "amount": "240.50",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-20T04:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 140,
+      "sender_entity_id": 67,
+      "receiver_entity_id": 49,
+      "amount": "1500.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-21T05:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 141,
+      "sender_entity_id": 10,
+      "receiver_entity_id": 25,
+      "amount": "125.00",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-22T06:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 142,
+      "sender_entity_id": 8,
+      "receiver_entity_id": 20,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-23T07:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 143,
+      "sender_entity_id": 4,
+      "receiver_entity_id": 39,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-24T08:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 144,
+      "sender_entity_id": 6,
+      "receiver_entity_id": 60,
+      "amount": "3400.25",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-24T09:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 145,
+      "sender_entity_id": 65,
+      "receiver_entity_id": 40,
+      "amount": "780.00",
+      "transaction_type": "WIRE",
+      "timestamp": "2026-01-25T10:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 146,
+      "sender_entity_id": 20,
+      "receiver_entity_id": 19,
+      "amount": "3400.25",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-26T11:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 147,
+      "sender_entity_id": 61,
+      "receiver_entity_id": 29,
+      "amount": "3400.25",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-27T12:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 148,
+      "sender_entity_id": 6,
+      "receiver_entity_id": 53,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-28T13:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 149,
+      "sender_entity_id": 24,
+      "receiver_entity_id": 3,
+      "amount": "240.50",
+      "transaction_type": "MERCHANT_PAYMENT",
+      "timestamp": "2026-01-29T14:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    },
+    {
+      "id": 150,
+      "sender_entity_id": 47,
+      "receiver_entity_id": 24,
+      "amount": "240.50",
+      "transaction_type": "CASH_DEPOSIT",
+      "timestamp": "2026-01-30T15:00:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": false
+      }
+    }
+  ],
+  "documents": [
+    {
+      "id": 1,
+      "case_id": 1,
+      "filename": "synthetic_source_01.txt",
+      "document_type": "CALL_LOG",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 2,
+      "case_id": 1,
+      "filename": "synthetic_source_02.txt",
+      "document_type": "REPORT",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 3,
+      "case_id": 1,
+      "filename": "synthetic_source_03.txt",
+      "document_type": "FIELD_NOTE",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 4,
+      "case_id": 1,
+      "filename": "synthetic_source_04.txt",
+      "document_type": "CALL_LOG",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 5,
+      "case_id": 1,
+      "filename": "synthetic_source_05.txt",
+      "document_type": "BANK_SUMMARY",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 6,
+      "case_id": 1,
+      "filename": "synthetic_source_06.txt",
+      "document_type": "REPORT",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 7,
+      "case_id": 1,
+      "filename": "synthetic_source_07.txt",
+      "document_type": "BANK_SUMMARY",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 8,
+      "case_id": 1,
+      "filename": "synthetic_source_08.txt",
+      "document_type": "BANK_SUMMARY",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 9,
+      "case_id": 9,
+      "filename": "synthetic_source_09.txt",
+      "document_type": "CALL_LOG",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 10,
+      "case_id": 10,
+      "filename": "synthetic_source_10.txt",
+      "document_type": "BANK_SUMMARY",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 11,
+      "case_id": 11,
+      "filename": "synthetic_source_11.txt",
+      "document_type": "REPORT",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 12,
+      "case_id": 12,
+      "filename": "synthetic_source_12.txt",
+      "document_type": "REPORT",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 13,
+      "case_id": 1,
+      "filename": "synthetic_source_13.txt",
+      "document_type": "FIELD_NOTE",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 14,
+      "case_id": 2,
+      "filename": "synthetic_source_14.txt",
+      "document_type": "BANK_SUMMARY",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 15,
+      "case_id": 3,
+      "filename": "synthetic_source_15.txt",
+      "document_type": "BANK_SUMMARY",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 16,
+      "case_id": 4,
+      "filename": "synthetic_source_16.txt",
+      "document_type": "REPORT",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 17,
+      "case_id": 5,
+      "filename": "synthetic_source_17.txt",
+      "document_type": "BANK_SUMMARY",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 18,
+      "case_id": 6,
+      "filename": "synthetic_source_18.txt",
+      "document_type": "FIELD_NOTE",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 19,
+      "case_id": 7,
+      "filename": "synthetic_source_19.txt",
+      "document_type": "FIELD_NOTE",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 20,
+      "case_id": 8,
+      "filename": "synthetic_source_20.txt",
+      "document_type": "CALL_LOG",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 21,
+      "case_id": 9,
+      "filename": "synthetic_source_21.txt",
+      "document_type": "REPORT",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 22,
+      "case_id": 10,
+      "filename": "synthetic_source_22.txt",
+      "document_type": "BANK_SUMMARY",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 23,
+      "case_id": 11,
+      "filename": "synthetic_source_23.txt",
+      "document_type": "REPORT",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 24,
+      "case_id": 12,
+      "filename": "synthetic_source_24.txt",
+      "document_type": "REPORT",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 25,
+      "case_id": 1,
+      "filename": "synthetic_source_25.txt",
+      "document_type": "REPORT",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 26,
+      "case_id": 2,
+      "filename": "synthetic_source_26.txt",
+      "document_type": "REPORT",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 27,
+      "case_id": 3,
+      "filename": "synthetic_source_27.txt",
+      "document_type": "CALL_LOG",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 28,
+      "case_id": 4,
+      "filename": "synthetic_source_28.txt",
+      "document_type": "REPORT",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 29,
+      "case_id": 5,
+      "filename": "synthetic_source_29.txt",
+      "document_type": "FIELD_NOTE",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 30,
+      "case_id": 6,
+      "filename": "synthetic_source_30.txt",
+      "document_type": "FIELD_NOTE",
+      "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": 1,
+      "case_id": 1,
+      "document_id": 1,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_01:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.76,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 2,
+      "case_id": 1,
+      "document_id": 1,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_01:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.68,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 3,
+      "case_id": 1,
+      "document_id": 2,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_02:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.81,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 4,
+      "case_id": 1,
+      "document_id": 2,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_02:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.71,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 5,
+      "case_id": 1,
+      "document_id": 3,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_03:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.92,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 6,
+      "case_id": 1,
+      "document_id": 3,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_03:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.85,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 7,
+      "case_id": 1,
+      "document_id": 4,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_04:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.86,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 8,
+      "case_id": 1,
+      "document_id": 4,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_04:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.87,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 9,
+      "case_id": 1,
+      "document_id": 5,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_05:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.73,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 10,
+      "case_id": 1,
+      "document_id": 5,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_05:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.67,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 11,
+      "case_id": 1,
+      "document_id": 6,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_06:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.88,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 12,
+      "case_id": 1,
+      "document_id": 6,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_06:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.8,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 13,
+      "case_id": 1,
+      "document_id": 7,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_07:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.69,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 14,
+      "case_id": 1,
+      "document_id": 7,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_07:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.86,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 15,
+      "case_id": 1,
+      "document_id": 8,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_08:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.86,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 16,
+      "case_id": 1,
+      "document_id": 8,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_08:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.82,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 17,
+      "case_id": 9,
+      "document_id": 9,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_09:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.95,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 18,
+      "case_id": 9,
+      "document_id": 9,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_09:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.82,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 19,
+      "case_id": 10,
+      "document_id": 10,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_10:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.79,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 20,
+      "case_id": 10,
+      "document_id": 10,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_10:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.79,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 21,
+      "case_id": 11,
+      "document_id": 11,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_11:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.66,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 22,
+      "case_id": 11,
+      "document_id": 11,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_11:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.85,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 23,
+      "case_id": 12,
+      "document_id": 12,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_12:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.76,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 24,
+      "case_id": 12,
+      "document_id": 12,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_12:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.92,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 25,
+      "case_id": 1,
+      "document_id": 13,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_13:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.64,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 26,
+      "case_id": 1,
+      "document_id": 13,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_13:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.89,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 27,
+      "case_id": 2,
+      "document_id": 14,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_14:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.63,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 28,
+      "case_id": 2,
+      "document_id": 14,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_14:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.66,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 29,
+      "case_id": 3,
+      "document_id": 15,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_15:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.96,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 30,
+      "case_id": 3,
+      "document_id": 15,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_15:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.9,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 31,
+      "case_id": 4,
+      "document_id": 16,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_16:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.69,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 32,
+      "case_id": 4,
+      "document_id": 16,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_16:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.76,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 33,
+      "case_id": 5,
+      "document_id": 17,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_17:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.76,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 34,
+      "case_id": 5,
+      "document_id": 17,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_17:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.95,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 35,
+      "case_id": 6,
+      "document_id": 18,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_18:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.84,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 36,
+      "case_id": 6,
+      "document_id": 18,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_18:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.8,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 37,
+      "case_id": 7,
+      "document_id": 19,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_19:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.87,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 38,
+      "case_id": 7,
+      "document_id": 19,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_19:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.89,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 39,
+      "case_id": 8,
+      "document_id": 20,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_20:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.72,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 40,
+      "case_id": 8,
+      "document_id": 20,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_20:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.82,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 41,
+      "case_id": 9,
+      "document_id": 21,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_21:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.68,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 42,
+      "case_id": 9,
+      "document_id": 21,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_21:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.95,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 43,
+      "case_id": 10,
+      "document_id": 22,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_22:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.85,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 44,
+      "case_id": 10,
+      "document_id": 22,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_22:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.64,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 45,
+      "case_id": 11,
+      "document_id": 23,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_23:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.86,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 46,
+      "case_id": 11,
+      "document_id": 23,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_23:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.75,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 47,
+      "case_id": 12,
+      "document_id": 24,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_24:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.84,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 48,
+      "case_id": 12,
+      "document_id": 24,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_24:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.65,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 49,
+      "case_id": 1,
+      "document_id": 25,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_25:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.74,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 50,
+      "case_id": 1,
+      "document_id": 25,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_25:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.64,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": true
+      }
+    },
+    {
+      "id": 51,
+      "case_id": 2,
+      "document_id": 26,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_26:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.9,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 52,
+      "case_id": 2,
+      "document_id": 26,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_26:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.89,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 53,
+      "case_id": 3,
+      "document_id": 27,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_27:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.78,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 54,
+      "case_id": 3,
+      "document_id": 27,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_27:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.62,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 55,
+      "case_id": 4,
+      "document_id": 28,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "synthetic_source_28:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.7,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 56,
+      "case_id": 4,
+      "document_id": 28,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_28:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.82,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 57,
+      "case_id": 5,
+      "document_id": 29,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "synthetic_source_29:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.95,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 58,
+      "case_id": 5,
+      "document_id": 29,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_29:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.83,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 59,
+      "case_id": 6,
+      "document_id": 30,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_30:line-10",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.74,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    },
+    {
+      "id": 60,
+      "case_id": 6,
+      "document_id": 30,
+      "evidence_type": "LOCATION_REPEAT",
+      "source_reference": "synthetic_source_30:line-11",
+      "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
+      "confidence": 0.76,
+      "metadata": {
+        "synthetic": true,
+        "supports_project_eclipse": false
+      }
+    }
+  ],
+  "alerts": [
+    {
+      "id": 1,
+      "case_id": 1,
+      "entity_id": 45,
+      "alert_type": "BRIDGE_ENTITY",
+      "severity": "HIGH",
+      "score": 91.0,
+      "explanation": "Synthetic bridge entity links multiple communities in Project Eclipse.",
+      "status": "OPEN",
+      "metadata": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": 2,
+      "case_id": 1,
+      "entity_id": 31,
+      "alert_type": "UNUSUAL_TRANSACTION",
+      "severity": "CRITICAL",
+      "score": 94.0,
+      "explanation": "Synthetic large transfers exceed the normal demo transaction range.",
+      "status": "OPEN",
+      "metadata": {
+        "synthetic": true
+      }
+    }
+  ]
+}

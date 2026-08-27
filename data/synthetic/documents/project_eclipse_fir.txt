@@ -1,0 +1,7 @@
+FIR-2026-001 synthetic field note for VEIL Project Eclipse.
+
+Rahul Sharma met Amit Kumar near Jaipur Railway Station on 12 July 2026.
+Rahul Sharma later contacted Amit Kumar using phone number 9876543210.
+A transaction of INR 50000 was transferred to Amit Kumar by Rahul Sharma.
+The report also mentions vehicle RJ14AB1234 and email rahul.demo@example.test.
+Investigators reported that Rahul Sharma knows Amit Kumar, requiring review as a relationship assertion.

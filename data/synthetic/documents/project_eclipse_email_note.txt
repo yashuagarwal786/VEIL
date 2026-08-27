@@ -1,0 +1,3 @@
+Synthetic email note.
+rahul.demo@example.test contacted amit.demo@example.test about a planned meeting.
+No unsupported facts should be inferred from this note.
