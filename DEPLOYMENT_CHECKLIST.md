@@ -3,7 +3,7 @@
 Checked items were actually verified in the current environment. Unchecked items remain blocked or require public infrastructure.
 
 - [x] Repository inspected
-- [ ] Git status clean
+- [x] Git status clean
 - [x] Backend tests pass
 - [x] Frontend build passes
 - [ ] PostgreSQL works
@@ -22,7 +22,7 @@ Checked items were actually verified in the current environment. Unchecked items
 - [x] Evidence works through integration tests
 - [x] Search works through integration tests
 - [x] Production environment contract configured
-- [ ] GitHub updated
+- [x] GitHub updated — pushed commit 20df7a2 to origin/main
 - [ ] Frontend deployed
 - [ ] Backend deployed
 - [ ] PostgreSQL deployed
