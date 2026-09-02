@@ -53,8 +53,6 @@ def get_case_graph(
     limit: int = Query(default=250, ge=1, le=500),
 ) -> GraphResponse:
     nodes, edges = GraphService().get_case_graph(case_id, entity_type, relationship_type, depth, limit)
-    if not nodes:
-        raise HTTPException(status_code=404, detail=f"Case '{case_id}' was not found in the graph.")
     return _graph_response(nodes, edges)
 
 

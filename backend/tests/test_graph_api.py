@@ -68,6 +68,20 @@ def test_entity_not_found(monkeypatch) -> None:
     assert response.status_code == 404
 
 
+def test_empty_case_graph_returns_empty_graph(monkeypatch) -> None:
+    class EmptyGraphService(FakeGraphService):
+        def get_case_graph(self, case_id: str, entity_type: str | None, relationship_type: str | None, depth: int, limit: int):
+            return [], []
+
+    monkeypatch.setattr("app.api.graph.GraphService", lambda: EmptyGraphService())
+    client = TestClient(app)
+
+    response = client.get("/api/graph/cases/C999")
+
+    assert response.status_code == 200
+    assert response.json() == {"nodes": [], "edges": []}
+
+
 def test_shortest_path_rejects_same_source_target(monkeypatch) -> None:
     monkeypatch.setattr("app.api.graph.GraphService", lambda: FakeGraphService())
     client = TestClient(app)
