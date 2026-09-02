@@ -101,11 +101,18 @@ GET /api/health/neo4j
 
 Then test the dashboard, case overview, synthetic document upload and processing, entity review, graph synchronization, Network Explorer, evidence navigation, alerts, timeline, map, and global search. Do not mark deployment complete until the public frontend and API pass these checks.
 
+Run the deployment connection verifier after both services are live:
+
+```bash
+python scripts/verify_deployment.py --api-url https://your-api-domain.example --frontend-url https://your-vercel-domain.example
+```
+
 ## Troubleshooting
 
 - Database health fails: verify `DATABASE_URL`, network access, TLS requirements, and migrations.
 - Neo4j health fails: verify URI scheme, credentials, allowlists, and hosted instance status.
 - Browser calls localhost in production: set `VITE_API_BASE_URL` in Vercel and redeploy the frontend.
+- Browser receives HTML instead of JSON from `/api/...`: set `VITE_API_BASE_URL` to the backend URL instead of relying on same-origin `/api` calls.
 - Browser CORS errors: make `FRONTEND_URL` and `CORS_ORIGINS` match the Vercel origin, and make sure they do not point at the backend URL.
 - Nested Vercel routes return 404: confirm the project root is `frontend` and `vercel.json` is deployed.
 - Empty analytics: seed synthetic data and call the recalculation API.
