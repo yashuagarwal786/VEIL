@@ -19,8 +19,8 @@ Backend:
 ```text
 APP_ENV=production
 DATABASE_URL=postgresql://...
-FRONTEND_URL=https://your-vercel-domain.example
-CORS_ORIGINS=https://your-vercel-domain.example
+FRONTEND_URL=https://veil-frontend-wine.vercel.app
+CORS_ORIGINS=https://veil-frontend-wine.vercel.app
 SECRET_KEY=<at least 32 random characters>
 NEO4J_URI=neo4j+s://...
 NEO4J_USER=...
@@ -46,8 +46,8 @@ VITE_API_BASE_URL=https://veil-api.example.com
 The backend allows browser calls from `FRONTEND_URL` and `CORS_ORIGINS`. These values must match the frontend origin, not the API URL:
 
 ```text
-FRONTEND_URL=https://veil.example.com
-CORS_ORIGINS=https://veil.example.com
+FRONTEND_URL=https://veil-frontend-wine.vercel.app
+CORS_ORIGINS=https://veil-frontend-wine.vercel.app
 ```
 
 If `VITE_API_BASE_URL` is missing in production, the frontend falls back to relative `/api/...` requests. That only works when the host is configured to proxy `/api` to the FastAPI service; otherwise set `VITE_API_BASE_URL` explicitly.

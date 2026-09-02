@@ -13,7 +13,9 @@ services:
           name: veil-postgres
           property: connectionString
       - key: FRONTEND_URL
-        sync: false
+        value: https://veil-frontend-wine.vercel.app
+      - key: CORS_ORIGINS
+        value: https://veil-frontend-wine.vercel.app
       - key: SECRET_KEY
         generateValue: true
       - key: NEO4J_URI
