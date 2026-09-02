@@ -57,12 +57,12 @@ If `VITE_API_BASE_URL` is missing in production, the frontend falls back to rela
 `backend/Dockerfile` starts the API with:
 
 ```bash
-uvicorn app.main:app --host 0.0.0.0 --port $PORT
+alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT
 ```
 
-`render.yaml` is a Render Blueprint for the API and PostgreSQL. In Render, create the Blueprint from the existing GitHub repository, provide the frontend and Neo4j variables, then deploy. Equivalent container-capable Python services are compatible.
+`render.yaml` is a Render Blueprint for the API and PostgreSQL. In Render, create the Blueprint from the existing GitHub repository, provide the frontend and Neo4j variables, then deploy. Equivalent container-capable Python services are compatible. The container runs Alembic migrations before starting the API so an empty managed PostgreSQL database has the required tables before dashboard traffic arrives.
 
-Before serving production traffic, run from the backend directory:
+For manual maintenance, migrations can also be run from the backend directory:
 
 ```bash
 alembic upgrade head
