@@ -21,7 +21,7 @@ import type { AlertItem, AnalyticsOverview } from "../types/analytics";
 import type { CaseSummary, DashboardData, DocumentListItem, EntityDetail, EntitySummary, EvidenceItem, LocationEvent, SearchResult, TimelineEvent } from "../types/workspace";
 
 const DEFAULT_DEV_API_BASE_URL = "http://localhost:8000";
-const REQUEST_TIMEOUT_MS = 15000;
+const REQUEST_TIMEOUT_MS = import.meta.env.DEV ? 15000 : 60000;
 
 export function getApiBaseUrl(): string {
   const configured = import.meta.env.VITE_API_BASE_URL?.trim();
