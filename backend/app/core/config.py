@@ -4,6 +4,10 @@ from pydantic import Field, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+def _normalize_origin(origin: str) -> str:
+    return origin.strip().rstrip("/")
+
+
 class Settings(BaseSettings):
     app_env: str = Field(default="development", alias="APP_ENV")
     database_url_raw: str | None = Field(default=None, alias="DATABASE_URL")
@@ -47,11 +51,12 @@ class Settings(BaseSettings):
 
     @property
     def cors_origins(self) -> list[str]:
-        origins = [origin.strip() for origin in self.cors_origins_raw.split(",") if origin.strip()]
+        origins = [_normalize_origin(origin) for origin in self.cors_origins_raw.split(",") if origin.strip()]
         if self.app_env.lower() == "production":
             origins = [origin for origin in origins if not origin.startswith(("http://localhost", "http://127.0.0.1"))]
-        if self.frontend_url and self.frontend_url not in origins:
-            origins.append(self.frontend_url.rstrip("/"))
+        frontend_origin = _normalize_origin(self.frontend_url) if self.frontend_url else None
+        if frontend_origin and frontend_origin not in origins:
+            origins.append(frontend_origin)
         return origins
 
     @model_validator(mode="after")

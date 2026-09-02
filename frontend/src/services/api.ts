@@ -20,12 +20,38 @@ import type {
 import type { AlertItem, AnalyticsOverview } from "../types/analytics";
 import type { CaseSummary, DashboardData, DocumentListItem, EntityDetail, EntitySummary, EvidenceItem, LocationEvent, SearchResult, TimelineEvent } from "../types/workspace";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000";
+const DEFAULT_DEV_API_BASE_URL = "http://localhost:8000";
+const REQUEST_TIMEOUT_MS = 15000;
 
-async function request<T>(path: string): Promise<T> {
-  const response = await fetch(`${API_BASE_URL}${path}`);
+export function getApiBaseUrl(): string {
+  const configured = import.meta.env.VITE_API_BASE_URL?.trim();
+  const baseUrl = configured || (import.meta.env.DEV ? DEFAULT_DEV_API_BASE_URL : "");
+  return baseUrl.replace(/\/+$/, "");
+}
+
+export function buildApiUrl(path: string): string {
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  const baseUrl = getApiBaseUrl();
+  return baseUrl ? `${baseUrl}${cleanPath}` : cleanPath;
+}
+
+async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  let response: Response;
+
+  try {
+    response = await fetch(buildApiUrl(path), { ...init, signal: controller.signal });
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : "unknown network error";
+    throw new Error(`API connection failed for ${path}: ${reason}`);
+  } finally {
+    window.clearTimeout(timeout);
+  }
+
   if (!response.ok) {
-    throw new Error(`Request failed: ${response.status}`);
+    const details = await response.text().catch(() => "");
+    throw new Error(`API request failed for ${path}: ${response.status}${details ? ` - ${details}` : ""}`);
   }
   return (await response.json()) as T;
 }
@@ -88,28 +114,20 @@ export function globalSearch(query: string): Promise<SearchResult[]> { return re
 export function getAlerts(caseId = 1): Promise<AlertItem[]> { return request<AlertItem[]>(`/api/alerts?case_id=${caseId}`); }
 export function getAnalyticsOverview(caseId = 1): Promise<AnalyticsOverview> { return request<AnalyticsOverview>(`/api/analytics/cases/${caseId}/overview`); }
 export async function recalculateAnalytics(caseId = 1) {
-  const response = await fetch(`${API_BASE_URL}/api/analytics/recalculate`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ case_id: caseId }) });
-  if (!response.ok) throw new Error(`Recalculation failed: ${response.status}`);
-  return response.json();
+  return request("/api/analytics/recalculate", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ case_id: caseId }) });
 }
 export async function updateAlertStatus(alertId: number, status: AlertItem["status"]): Promise<AlertItem> {
-  const response = await fetch(`${API_BASE_URL}/api/alerts/${alertId}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status }) });
-  if (!response.ok) throw new Error(`Alert update failed: ${response.status}`);
-  return response.json() as Promise<AlertItem>;
+  return request<AlertItem>(`/api/alerts/${alertId}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status }) });
 }
 
 export async function uploadDocument(caseId: number, file: File): Promise<DocumentUploadResult> {
   const form = new FormData();
   form.append("case_id", String(caseId));
   form.append("file", file);
-  const response = await fetch(`${API_BASE_URL}/api/documents/upload`, {
+  return request<DocumentUploadResult>("/api/documents/upload", {
     method: "POST",
     body: form,
   });
-  if (!response.ok) {
-    throw new Error(`Upload failed: ${response.status}`);
-  }
-  return (await response.json()) as DocumentUploadResult;
 }
 
 export function processDocument(documentId: number): Promise<DocumentProcessingResult> {
@@ -133,37 +151,25 @@ export function getEntityMatches(caseId: number): Promise<EntityMatch[]> {
 }
 
 export async function reviewEntityMatch(matchId: number, decision: ReviewDecision): Promise<EntityMatch> {
-  const response = await fetch(`${API_BASE_URL}/api/entities/matches/${matchId}/review`, {
+  return request<EntityMatch>(`/api/entities/matches/${matchId}/review`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ decision }),
   });
-  if (!response.ok) {
-    throw new Error(`Review failed: ${response.status}`);
-  }
-  return (await response.json()) as EntityMatch;
 }
 
 export async function reviewExtraction(extractionId: number, decision: ReviewDecision) {
-  const response = await fetch(`${API_BASE_URL}/api/documents/extractions/${extractionId}/review`, {
+  return request(`/api/documents/extractions/${extractionId}/review`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ decision }),
   });
-  if (!response.ok) {
-    throw new Error(`Extraction review failed: ${response.status}`);
-  }
-  return response.json();
 }
 
 export async function reviewRelationship(relationshipId: number, decision: ReviewDecision) {
-  const response = await fetch(`${API_BASE_URL}/api/documents/relationships/${relationshipId}/review`, {
+  return request(`/api/documents/relationships/${relationshipId}/review`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ decision }),
   });
-  if (!response.ok) {
-    throw new Error(`Relationship review failed: ${response.status}`);
-  }
-  return response.json();
 }

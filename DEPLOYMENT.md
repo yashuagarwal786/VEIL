@@ -35,6 +35,23 @@ VITE_API_BASE_URL=https://your-api-domain.example
 
 Never commit these values. Production startup rejects a missing database URL, frontend URL, weak secret, or wildcard CORS origin.
 
+## Frontend/API Contract
+
+The deployed React app calls FastAPI through `VITE_API_BASE_URL`. Vite embeds this value during the frontend build, so changing it in Vercel requires a frontend redeploy. Leave off the trailing slash; the client normalizes it, but the canonical value should look like:
+
+```text
+VITE_API_BASE_URL=https://veil-api.example.com
+```
+
+The backend allows browser calls from `FRONTEND_URL` and `CORS_ORIGINS`. These values must match the frontend origin, not the API URL:
+
+```text
+FRONTEND_URL=https://veil.example.com
+CORS_ORIGINS=https://veil.example.com
+```
+
+If `VITE_API_BASE_URL` is missing in production, the frontend falls back to relative `/api/...` requests. That only works when the host is configured to proxy `/api` to the FastAPI service; otherwise set `VITE_API_BASE_URL` explicitly.
+
 ## Backend
 
 `backend/Dockerfile` starts the API with:
@@ -70,7 +87,7 @@ Provision Neo4j 5 AuraDB or another compatible hosted instance. Use an encrypted
 
 ## Vercel Frontend
 
-Import the existing `yashuagarwal786/VEIL` repository into Vercel and set the project root to `frontend`. Set `VITE_API_BASE_URL` to the public FastAPI URL. `frontend/vercel.json` provides the SPA fallback required for direct navigation to `/dashboard`, `/network`, `/entities/P001`, `/timeline`, and `/map`.
+Import the existing `yashuagarwal786/VEIL` repository into Vercel and set the project root to `frontend`. Set `VITE_API_BASE_URL` to the public FastAPI URL, then redeploy so Vite rebuilds with the correct endpoint. `frontend/vercel.json` provides the SPA fallback required for direct navigation to `/dashboard`, `/network`, `/entities/P001`, `/timeline`, and `/map`.
 
 ## Verification
 
@@ -88,6 +105,7 @@ Then test the dashboard, case overview, synthetic document upload and processing
 
 - Database health fails: verify `DATABASE_URL`, network access, TLS requirements, and migrations.
 - Neo4j health fails: verify URI scheme, credentials, allowlists, and hosted instance status.
-- Browser CORS errors: make `FRONTEND_URL` and `CORS_ORIGINS` exactly match the Vercel origin.
+- Browser calls localhost in production: set `VITE_API_BASE_URL` in Vercel and redeploy the frontend.
+- Browser CORS errors: make `FRONTEND_URL` and `CORS_ORIGINS` match the Vercel origin, and make sure they do not point at the backend URL.
 - Nested Vercel routes return 404: confirm the project root is `frontend` and `vercel.json` is deployed.
 - Empty analytics: seed synthetic data and call the recalculation API.
