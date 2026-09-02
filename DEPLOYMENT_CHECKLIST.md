@@ -6,6 +6,7 @@ Checked items were actually verified in the current environment. Unchecked items
 - [x] Git status clean
 - [x] Backend tests pass
 - [x] Frontend build passes
+- [x] Frontend dependency audit passes
 - [ ] PostgreSQL works
 - [ ] Neo4j works
 - [x] Migrations render successfully
@@ -22,7 +23,7 @@ Checked items were actually verified in the current environment. Unchecked items
 - [x] Evidence works through integration tests
 - [x] Search works through integration tests
 - [x] Production environment contract configured
-- [x] GitHub updated — pushed commit 20df7a2 to origin/main
+- [x] GitHub updated - origin/main verified
 - [ ] Frontend deployed
 - [ ] Backend deployed
 - [ ] PostgreSQL deployed
@@ -33,4 +34,5 @@ Checked items were actually verified in the current environment. Unchecked items
 
 - Docker Desktop is stopped, so local PostgreSQL and Neo4j cannot be started for live migration, seed, graph, or browser end-to-end checks.
 - No Vercel, backend-hosting, managed PostgreSQL, or Neo4j account credentials are available in this workspace.
+- Vercel CLI is installed, but `vercel whoami` did not return an authenticated session before timing out.
 - No in-app browser connection is available for screenshot-based UI verification.
