@@ -25,6 +25,8 @@ neo4j/logs/
 *.log
 logs/
 storage/
+!backend/app/storage/
+!backend/app/storage/**
 tmp/
 temp/
 *.tmp
