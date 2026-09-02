@@ -27,6 +27,7 @@ logs/
 storage/
 !backend/app/storage/
 !backend/app/storage/**
+backend/app/storage/__pycache__/
 tmp/
 temp/
 *.tmp
