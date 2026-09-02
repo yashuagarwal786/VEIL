@@ -27,6 +27,17 @@ def test_production_accepts_scoped_frontend_and_secret() -> None:
     assert settings.cors_origins == ["https://veil.example"]
 
 
+def test_production_can_start_before_neo4j_is_configured() -> None:
+    settings = Settings(
+        APP_ENV="production",
+        DATABASE_URL="postgresql://user:pass@db.example/veil",
+        FRONTEND_URL="https://veil.example",
+        SECRET_KEY="a-production-secret-longer-than-32-characters",
+        CORS_ORIGINS="https://veil.example",
+    )
+    assert settings.neo4j_configured is False
+
+
 def test_production_removes_localhost_from_cors() -> None:
     settings = Settings(
         APP_ENV="production",

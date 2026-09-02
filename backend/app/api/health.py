@@ -3,6 +3,7 @@ from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
 
 from app.db.session import SessionLocal
+from app.core.config import settings
 from app.graph.client import GraphClient
 from app.schemas.health import DatabaseHealthResponse, GraphHealthResponse, HealthResponse
 
@@ -30,6 +31,9 @@ def database_health() -> DatabaseHealthResponse:
 
 @router.get("/graph", response_model=GraphHealthResponse, summary="Neo4j connectivity check")
 def graph_health() -> GraphHealthResponse:
+    if not settings.neo4j_configured:
+        return GraphHealthResponse(status="error", graph="disconnected", detail="Neo4j is not configured.")
+
     client = GraphClient()
     try:
         client.verify_connectivity()

@@ -59,6 +59,10 @@ class Settings(BaseSettings):
             origins.append(frontend_origin)
         return origins
 
+    @property
+    def neo4j_configured(self) -> bool:
+        return self.neo4j_password != "change_me" and self.neo4j_uri != "bolt://localhost:7687"
+
     @model_validator(mode="after")
     def validate_production_settings(self) -> "Settings":
         if self.app_env.lower() == "production":
@@ -68,8 +72,6 @@ class Settings(BaseSettings):
                 raise ValueError("FRONTEND_URL is required in production")
             if self.secret_key == "development-only-change-me" or len(self.secret_key) < 32:
                 raise ValueError("SECRET_KEY must be a production secret of at least 32 characters")
-            if self.neo4j_password == "change_me" or self.neo4j_uri == "bolt://localhost:7687":
-                raise ValueError("Hosted Neo4j configuration is required in production")
             if "*" in self.cors_origins:
                 raise ValueError("Wildcard CORS origins are not allowed in production")
         return self
