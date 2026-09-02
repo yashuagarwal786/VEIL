@@ -60,7 +60,7 @@ If `VITE_API_BASE_URL` is missing in production, the frontend falls back to rela
 alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT
 ```
 
-`render.yaml` is a Render Blueprint for the API and PostgreSQL. In Render, create the Blueprint from the existing GitHub repository, provide the frontend and Neo4j variables, then deploy. Equivalent container-capable Python services are compatible. The container runs Alembic migrations before starting the API so an empty managed PostgreSQL database has the required tables before dashboard traffic arrives.
+`render.yaml` is a Render Blueprint for the API and PostgreSQL. In Render, create the Blueprint from the existing GitHub repository, provide the frontend and Neo4j variables, then deploy. Equivalent container-capable Python services are compatible. The container uses the repository root as its Docker context so the API, Alembic migrations, demo seed scripts, and synthetic data are available in the deployed image. It runs Alembic migrations before starting the API so an empty managed PostgreSQL database has the required tables before dashboard traffic arrives.
 
 For manual maintenance, migrations can also be run from the backend directory:
 
@@ -71,8 +71,8 @@ alembic upgrade head
 For the synthetic demo only:
 
 ```bash
-python ../scripts/seed_demo.py
-python ../scripts/sync_graph.py
+python scripts/seed_demo.py
+python scripts/sync_graph.py
 ```
 
 Re-run `sync_graph.py` to confirm idempotent Neo4j `MERGE` behavior, then calculate Phase 4 snapshots through `POST /api/analytics/recalculate` with `{"case_id": 1}`.
