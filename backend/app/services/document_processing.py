@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 from datetime import datetime, timezone
 
 from sqlalchemy.orm import Session
@@ -27,16 +28,31 @@ class DocumentProcessingService:
         self.entity_extractor = RuleBasedEntityExtractor()
         self.relationship_extractor = RuleBasedRelationshipExtractor()
 
-    def create_document(self, case_id: int, filename: str, document_type: str, content: bytes, mime_type: str) -> Document:
+    def create_document(
+        self,
+        case_id: int,
+        filename: str,
+        document_type: str,
+        content: bytes,
+        mime_type: str,
+        data_category: str = "OTHER",
+        source_description: str | None = None,
+        uploaded_by: str | None = None,
+    ) -> Document:
         stored = self.storage.save(filename, content)
         document = Document(
             case_id=case_id,
             filename=filename,
+            original_filename=filename,
             document_type=document_type.upper().lstrip("."),
+            data_category=data_category.upper(),
+            source_description=source_description,
+            uploaded_by_investigator_id=uploaded_by,
             text=None,
             storage_path=stored.reference,
             mime_type=mime_type,
             file_size_bytes=len(content),
+            checksum_sha256=hashlib.sha256(content).hexdigest(),
             processing_status=ProcessingStatus.PENDING,
             metadata_={"synthetic": False},
         )

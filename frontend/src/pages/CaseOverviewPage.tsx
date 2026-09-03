@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
-import { BrainCircuit, FileText, Network } from "lucide-react";
+import { BrainCircuit, FileText, Network, UploadCloud } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { ErrorState, LoadingState } from "../components/AsyncState";
 import { useAuth } from "../context/AuthContext";
 import { useCaseContext } from "../context/CaseContext";
-import { getAlerts, getCaseDetail } from "../services/api";
+import { getAlerts, getCaseActivity, getCaseDetail, getCaseSources, processCaseSource, uploadCaseSource } from "../services/api";
 import type { AlertItem } from "../types/analytics";
-import type { CaseSummary } from "../types/workspace";
+import type { CaseDataSource, CaseSummary, ProcessingActivity } from "../types/workspace";
 
 export function CaseOverviewPage() {
   const { caseId: routeId } = useParams();
@@ -15,12 +15,20 @@ export function CaseOverviewPage() {
   const { setCaseId } = useCaseContext();
   const [item, setItem] = useState<CaseSummary | null>(null);
   const [alerts, setAlerts] = useState<AlertItem[]>([]);
+  const [sources, setSources] = useState<CaseDataSource[]>([]);
+  const [activity, setActivity] = useState<ProcessingActivity[]>([]);
+  const [file, setFile] = useState<File | null>(null);
+  const [category, setCategory] = useState("FIR_REPORT");
+  const [description, setDescription] = useState("");
+  const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
   const load = useCallback(() => {
     setError(false);
-    Promise.all([getCaseDetail(id), getAlerts(id)]).then(([caseItem, items]) => {
+    Promise.all([getCaseDetail(id), getAlerts(id), getCaseSources(id), getCaseActivity(id)]).then(([caseItem, items, sourceRows, events]) => {
       setItem(caseItem);
       setAlerts(items);
+      setSources(sourceRows);
+      setActivity(events);
       setCaseId(id);
       recordAudit({ action: "VIEW_CASE", target_type: "CASE", target_id: caseItem.case_number, summary: `Viewed case overview for ${caseItem.case_number}.` });
     }).catch(() => setError(true));
@@ -30,6 +38,20 @@ export function CaseOverviewPage() {
 
   if (error) return <ErrorState label="Unable to load case overview." retry={load} />;
   if (!item) return <LoadingState />;
+
+  async function uploadSource() {
+    if (!file) return;
+    setUploading(true);
+    try {
+      const result = await uploadCaseSource(id, file, category, description);
+      await processCaseSource(result.source.id);
+      setFile(null);
+      setDescription("");
+      load();
+    } finally {
+      setUploading(false);
+    }
+  }
 
   return (
     <section className="page">
@@ -69,6 +91,35 @@ export function CaseOverviewPage() {
           </div>
         </section>
       </div>
+      <div className="veil-grid-2">
+        <section className="veil-panel">
+          <div className="panel-head"><h2>Data sources</h2><span className="muted">{sources.length} sources</span></div>
+          <div className="panel-body stack-list">
+            {sources.map((source) => (
+              <div className="stack-row" key={source.id}>
+                <strong>{source.filename}</strong>
+                <small className="muted">{source.data_category} - {source.processing_status} - {source.entities} entities - {source.relationships} relationships - {source.review_required} review</small>
+                {source.processing_error ? <p className="veil-error">{source.processing_error}</p> : null}
+                <div className="quick-links"><Link className="veil-button secondary" to={`/documents/${source.id}`}>View</Link><button className="veil-button secondary" onClick={() => processCaseSource(source.id).then(load)}>Reprocess</button></div>
+              </div>
+            ))}
+            {!sources.length ? <p className="muted">No sources yet. Add FIR, CDR, financial, surveillance, or intelligence data for this case.</p> : null}
+          </div>
+        </section>
+        <section className="veil-panel">
+          <div className="panel-head"><h2><UploadCloud size={15} /> Add investigation data</h2></div>
+          <div className="panel-body form-stack">
+            <label>Data category<select className="veil-select" value={category} onChange={(event) => setCategory(event.target.value)}><option value="FIR_REPORT">FIR / Report</option><option value="CDR">Call Detail Records</option><option value="FINANCIAL">Financial</option><option value="SURVEILLANCE">Surveillance</option><option value="CRIMINAL_HISTORY">Criminal History</option><option value="INTELLIGENCE">Intelligence</option><option value="OTHER">Other</option></select></label>
+            <label>Upload file<input className="veil-input" type="file" accept=".pdf,.txt,.csv,.json,.xlsx" onChange={(event) => setFile(event.target.files?.[0] ?? null)} /></label>
+            <label>Description<input className="veil-input" value={description} onChange={(event) => setDescription(event.target.value)} placeholder="Source reference, collection context, or intake note" /></label>
+            <button className="veil-button" disabled={!file || uploading} onClick={uploadSource}>{uploading ? "Processing..." : "Upload and process"}</button>
+          </div>
+        </section>
+      </div>
+      <section className="veil-panel">
+        <div className="panel-head"><h2>Processing activity</h2><span className="muted">{activity.length} events</span></div>
+        <div className="panel-body stack-list">{activity.slice(0, 10).map((event) => <div className="stack-row" key={event.id}><span className="status-pill">{event.status}</span> {event.summary}<small className="muted">{new Date(event.created_at).toLocaleString()}</small></div>)}{!activity.length ? <p className="muted">No processing activity recorded yet.</p> : null}</div>
+      </section>
       <section className="veil-panel">
         <div className="panel-head"><h2>Open analytical alerts</h2><Link to="/alerts">View all</Link></div>
         <div className="panel-body stack-list">

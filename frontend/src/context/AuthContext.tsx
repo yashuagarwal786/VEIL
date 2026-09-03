@@ -41,8 +41,8 @@ function readStoredList<T>(key: string): T[] {
   }
 }
 
-function persistSession(investigator: Investigator, remember: boolean) {
-  const payload = JSON.stringify({ investigator_id: investigator.id, investigator });
+function persistSession(investigator: Investigator, remember: boolean, accessToken = investigator.id) {
+  const payload = JSON.stringify({ investigator_id: investigator.id, investigator, access_token: accessToken });
   window.sessionStorage.setItem(SESSION_KEY, payload);
   if (remember) window.localStorage.setItem(SESSION_KEY, payload);
   else window.localStorage.removeItem(SESSION_KEY);
@@ -77,6 +77,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
       try {
         const response = await loginInvestigator(email, password);
         account = response.investigator;
+        persistSession(account, remember, response.access_token);
       } catch (reason) {
         const normalized = email.trim().toLowerCase();
         const fallback = demoInvestigators.find((item) => item.email === normalized);
@@ -84,8 +85,8 @@ export function AuthProvider({ children }: PropsWithChildren) {
           throw reason instanceof Error ? reason : new Error("Invalid investigator credentials.");
         }
         account = fallback;
+        persistSession(account, remember);
       }
-      persistSession(account, remember);
       setInvestigator(account);
       appendAudit(account, {
         action: "LOGIN",

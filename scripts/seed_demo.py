@@ -116,6 +116,46 @@ def seed_investigators(session) -> None:
         session.add(Investigator(**payload))
 
 
+def backfill_assignment_metadata(session) -> None:
+    if not session.query(Case).filter(Case.case_number == "CASE-2026-0142").one_or_none():
+        session.add(
+            Case(
+                case_number="CASE-2026-0142",
+                title="Financial Network Investigation",
+                description="Synthetic case intake scenario with overlapping FIR, CDR, financial, surveillance, and criminal history sources.",
+                status="ACTIVE",
+                case_type="FINANCIAL_FRAUD",
+                priority="CRITICAL",
+                created_by_investigator_id="INV-0001",
+                assigned_investigator_id="INV-1042",
+                assigned_at=_datetime("2026-09-03T09:00:00+00:00"),
+                jurisdiction="Synthetic Demonstration Region",
+                sensitivity="SYNTHETIC_DEMO",
+            )
+        )
+        session.flush()
+    for case in session.query(Case).all():
+        if not case.created_by_investigator_id:
+            case.created_by_investigator_id = "INV-0001"
+        if not case.assigned_investigator_id:
+            case.assigned_investigator_id = "INV-1042" if case.id in {1, 2} or case.id % 2 == 0 else "INV-2031"
+        if not case.assigned_at:
+            case.assigned_at = _datetime("2026-09-03T09:00:00+00:00")
+        if not case.case_type:
+            case.case_type = "GENERAL"
+        if not case.priority:
+            case.priority = "HIGH" if case.id in {1, 2} else "MEDIUM"
+        if not case.sensitivity:
+            case.sensitivity = "SYNTHETIC_DEMO"
+    categories = ["FIR_REPORT", "CDR", "FINANCIAL", "SURVEILLANCE", "CRIMINAL_HISTORY"]
+    for document in session.query(Document).all():
+        document.original_filename = document.original_filename or document.filename
+        document.data_category = document.data_category or categories[document.id % len(categories)]
+        document.source_description = document.source_description or "Synthetic source with deterministic provenance for VEIL demo workflows."
+        document.uploaded_by_investigator_id = document.uploaded_by_investigator_id or "INV-1042"
+        document.checksum_sha256 = document.checksum_sha256 or f"synthetic-{document.id:056d}"[-64:]
+
+
 def seed(reset: bool = False, export_only: bool = False) -> dict[str, int]:
     dataset = generate_dataset()
     export_dataset(dataset)
@@ -130,6 +170,7 @@ def seed(reset: bool = False, export_only: bool = False) -> dict[str, int]:
     with SessionLocal() as session:
         seed_investigators(session)
         if session.query(Case).filter(Case.case_number == "VEIL-2026-001").one_or_none():
+            backfill_assignment_metadata(session)
             session.commit()
             return {**{key: len(value) for key, value in dataset.items()}, "investigators": len(DEMO_INVESTIGATORS)}
 
@@ -139,6 +180,13 @@ def seed(reset: bool = False, export_only: bool = False) -> dict[str, int]:
                 title=row["title"],
                 description=row["description"],
                 status=row["status"],
+                case_type=row.get("case_type", "GENERAL"),
+                priority=row.get("priority", "MEDIUM"),
+                created_by_investigator_id="INV-0001",
+                assigned_investigator_id="INV-1042" if row["id"] in {1, 2} or row["id"] % 2 == 0 else "INV-2031",
+                assigned_at=_datetime("2026-09-03T09:00:00+00:00"),
+                jurisdiction="Synthetic Demonstration Region",
+                sensitivity="SYNTHETIC_DEMO",
             )
             for row in dataset["cases"]
         )
@@ -208,9 +256,14 @@ def seed(reset: bool = False, export_only: bool = False) -> dict[str, int]:
             Document(
                 case_id=cases[dataset["cases"][row["case_id"] - 1]["case_number"]],
                 filename=row["filename"],
+                original_filename=row["filename"],
                 document_type=row["document_type"],
+                data_category=row.get("data_category", "OTHER"),
+                source_description=row.get("source_description"),
+                uploaded_by_investigator_id="INV-1042",
                 text=row["text"],
                 processing_status=row["processing_status"],
+                checksum_sha256=f"synthetic-{row['id']:056d}"[-64:],
                 metadata_=_metadata(row),
             )
             for row in dataset["documents"]
@@ -248,6 +301,7 @@ def seed(reset: bool = False, export_only: bool = False) -> dict[str, int]:
             CaseEntity(case_id=project_eclipse_id, entity_type="person", entity_id=entity_id)
             for entity_id in [1, 2, 3, 4, 5, 14, 15, 23, 24, 25, 31, 32, 45, 74]
         )
+        backfill_assignment_metadata(session)
         session.commit()
 
     return {**{key: len(value) for key, value in dataset.items()}, "investigators": len(DEMO_INVESTIGATORS)}

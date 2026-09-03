@@ -5,84 +5,108 @@
       "case_number": "VEIL-2026-001",
       "title": "Project Eclipse",
       "description": "Synthetic investigation with two communities, a bridge entity, repeated contacts, and unusual transfers.",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "case_type": "NETWORK_ANALYSIS",
+      "priority": "HIGH"
     },
     {
       "id": 2,
-      "case_number": "VEIL-2026-002",
-      "title": "Synthetic Case 02",
-      "description": "Synthetic foundation case for development and testing.",
-      "status": "CLOSED"
+      "case_number": "CASE-2026-0142",
+      "title": "Financial Network Investigation",
+      "description": "Synthetic case intake scenario with overlapping FIR, CDR, financial, surveillance, and criminal history sources.",
+      "status": "ACTIVE",
+      "case_type": "FINANCIAL_FRAUD",
+      "priority": "CRITICAL"
     },
     {
       "id": 3,
       "case_number": "VEIL-2026-003",
       "title": "Synthetic Case 03",
       "description": "Synthetic foundation case for development and testing.",
-      "status": "ACTIVE"
+      "status": "CLOSED",
+      "case_type": "GENERAL",
+      "priority": "LOW"
     },
     {
       "id": 4,
       "case_number": "VEIL-2026-004",
       "title": "Synthetic Case 04",
       "description": "Synthetic foundation case for development and testing.",
-      "status": "ARCHIVED"
+      "status": "ARCHIVED",
+      "case_type": "GENERAL",
+      "priority": "MEDIUM"
     },
     {
       "id": 5,
       "case_number": "VEIL-2026-005",
       "title": "Synthetic Case 05",
       "description": "Synthetic foundation case for development and testing.",
-      "status": "CLOSED"
+      "status": "ACTIVE",
+      "case_type": "GENERAL",
+      "priority": "HIGH"
     },
     {
       "id": 6,
       "case_number": "VEIL-2026-006",
       "title": "Synthetic Case 06",
       "description": "Synthetic foundation case for development and testing.",
-      "status": "ACTIVE"
+      "status": "CLOSED",
+      "case_type": "GENERAL",
+      "priority": "HIGH"
     },
     {
       "id": 7,
       "case_number": "VEIL-2026-007",
       "title": "Synthetic Case 07",
       "description": "Synthetic foundation case for development and testing.",
-      "status": "ARCHIVED"
+      "status": "ACTIVE",
+      "case_type": "GENERAL",
+      "priority": "LOW"
     },
     {
       "id": 8,
       "case_number": "VEIL-2026-008",
       "title": "Synthetic Case 08",
       "description": "Synthetic foundation case for development and testing.",
-      "status": "CLOSED"
+      "status": "ARCHIVED",
+      "case_type": "GENERAL",
+      "priority": "LOW"
     },
     {
       "id": 9,
       "case_number": "VEIL-2026-009",
       "title": "Synthetic Case 09",
       "description": "Synthetic foundation case for development and testing.",
-      "status": "ARCHIVED"
+      "status": "CLOSED",
+      "case_type": "GENERAL",
+      "priority": "MEDIUM"
     },
     {
       "id": 10,
       "case_number": "VEIL-2026-010",
       "title": "Synthetic Case 10",
       "description": "Synthetic foundation case for development and testing.",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "case_type": "GENERAL",
+      "priority": "HIGH"
     },
     {
       "id": 11,
       "case_number": "VEIL-2026-011",
       "title": "Synthetic Case 11",
       "description": "Synthetic foundation case for development and testing.",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "case_type": "GENERAL",
+      "priority": "LOW"
     },
     {
       "id": 12,
       "case_number": "VEIL-2026-012",
       "title": "Synthetic Case 12",
       "description": "Synthetic foundation case for development and testing.",
-      "status": "ARCHIVED"
+      "status": "ACTIVE",
+      "case_type": "GENERAL",
+      "priority": "HIGH"
     }
   ],
   "persons": [
@@ -6433,6 +6457,8 @@
       "case_id": 1,
       "filename": "synthetic_source_01.txt",
       "document_type": "CALL_LOG",
+      "data_category": "CDR",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6444,6 +6470,8 @@
       "case_id": 1,
       "filename": "synthetic_source_02.txt",
       "document_type": "REPORT",
+      "data_category": "FINANCIAL",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6454,7 +6482,9 @@
       "id": 3,
       "case_id": 1,
       "filename": "synthetic_source_03.txt",
-      "document_type": "FIELD_NOTE",
+      "document_type": "BANK_SUMMARY",
+      "data_category": "SURVEILLANCE",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6465,7 +6495,9 @@
       "id": 4,
       "case_id": 1,
       "filename": "synthetic_source_04.txt",
-      "document_type": "CALL_LOG",
+      "document_type": "REPORT",
+      "data_category": "CRIMINAL_HISTORY",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6477,6 +6509,8 @@
       "case_id": 1,
       "filename": "synthetic_source_05.txt",
       "document_type": "BANK_SUMMARY",
+      "data_category": "FIR_REPORT",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6487,7 +6521,9 @@
       "id": 6,
       "case_id": 1,
       "filename": "synthetic_source_06.txt",
-      "document_type": "REPORT",
+      "document_type": "BANK_SUMMARY",
+      "data_category": "CDR",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6498,7 +6534,9 @@
       "id": 7,
       "case_id": 1,
       "filename": "synthetic_source_07.txt",
-      "document_type": "BANK_SUMMARY",
+      "document_type": "CALL_LOG",
+      "data_category": "FINANCIAL",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6510,6 +6548,8 @@
       "case_id": 1,
       "filename": "synthetic_source_08.txt",
       "document_type": "BANK_SUMMARY",
+      "data_category": "SURVEILLANCE",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6520,7 +6560,9 @@
       "id": 9,
       "case_id": 9,
       "filename": "synthetic_source_09.txt",
-      "document_type": "CALL_LOG",
+      "document_type": "REPORT",
+      "data_category": "CRIMINAL_HISTORY",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6531,7 +6573,9 @@
       "id": 10,
       "case_id": 10,
       "filename": "synthetic_source_10.txt",
-      "document_type": "BANK_SUMMARY",
+      "document_type": "REPORT",
+      "data_category": "FIR_REPORT",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6542,7 +6586,9 @@
       "id": 11,
       "case_id": 11,
       "filename": "synthetic_source_11.txt",
-      "document_type": "REPORT",
+      "document_type": "FIELD_NOTE",
+      "data_category": "CDR",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6553,7 +6599,9 @@
       "id": 12,
       "case_id": 12,
       "filename": "synthetic_source_12.txt",
-      "document_type": "REPORT",
+      "document_type": "BANK_SUMMARY",
+      "data_category": "FINANCIAL",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6564,7 +6612,9 @@
       "id": 13,
       "case_id": 1,
       "filename": "synthetic_source_13.txt",
-      "document_type": "FIELD_NOTE",
+      "document_type": "BANK_SUMMARY",
+      "data_category": "SURVEILLANCE",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6575,7 +6625,9 @@
       "id": 14,
       "case_id": 2,
       "filename": "synthetic_source_14.txt",
-      "document_type": "BANK_SUMMARY",
+      "document_type": "REPORT",
+      "data_category": "CRIMINAL_HISTORY",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6587,6 +6639,8 @@
       "case_id": 3,
       "filename": "synthetic_source_15.txt",
       "document_type": "BANK_SUMMARY",
+      "data_category": "FIR_REPORT",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6597,7 +6651,9 @@
       "id": 16,
       "case_id": 4,
       "filename": "synthetic_source_16.txt",
-      "document_type": "REPORT",
+      "document_type": "FIELD_NOTE",
+      "data_category": "CDR",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6608,7 +6664,9 @@
       "id": 17,
       "case_id": 5,
       "filename": "synthetic_source_17.txt",
-      "document_type": "BANK_SUMMARY",
+      "document_type": "FIELD_NOTE",
+      "data_category": "FINANCIAL",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6619,7 +6677,9 @@
       "id": 18,
       "case_id": 6,
       "filename": "synthetic_source_18.txt",
-      "document_type": "FIELD_NOTE",
+      "document_type": "CALL_LOG",
+      "data_category": "SURVEILLANCE",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6630,7 +6690,9 @@
       "id": 19,
       "case_id": 7,
       "filename": "synthetic_source_19.txt",
-      "document_type": "FIELD_NOTE",
+      "document_type": "REPORT",
+      "data_category": "CRIMINAL_HISTORY",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6641,7 +6703,9 @@
       "id": 20,
       "case_id": 8,
       "filename": "synthetic_source_20.txt",
-      "document_type": "CALL_LOG",
+      "document_type": "BANK_SUMMARY",
+      "data_category": "FIR_REPORT",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6653,6 +6717,8 @@
       "case_id": 9,
       "filename": "synthetic_source_21.txt",
       "document_type": "REPORT",
+      "data_category": "CDR",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6663,7 +6729,9 @@
       "id": 22,
       "case_id": 10,
       "filename": "synthetic_source_22.txt",
-      "document_type": "BANK_SUMMARY",
+      "document_type": "REPORT",
+      "data_category": "FINANCIAL",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6675,6 +6743,8 @@
       "case_id": 11,
       "filename": "synthetic_source_23.txt",
       "document_type": "REPORT",
+      "data_category": "SURVEILLANCE",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6686,6 +6756,8 @@
       "case_id": 12,
       "filename": "synthetic_source_24.txt",
       "document_type": "REPORT",
+      "data_category": "CRIMINAL_HISTORY",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6696,7 +6768,9 @@
       "id": 25,
       "case_id": 1,
       "filename": "synthetic_source_25.txt",
-      "document_type": "REPORT",
+      "document_type": "CALL_LOG",
+      "data_category": "FIR_REPORT",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6708,6 +6782,8 @@
       "case_id": 2,
       "filename": "synthetic_source_26.txt",
       "document_type": "REPORT",
+      "data_category": "CDR",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6718,7 +6794,9 @@
       "id": 27,
       "case_id": 3,
       "filename": "synthetic_source_27.txt",
-      "document_type": "CALL_LOG",
+      "document_type": "FIELD_NOTE",
+      "data_category": "FINANCIAL",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6729,7 +6807,9 @@
       "id": 28,
       "case_id": 4,
       "filename": "synthetic_source_28.txt",
-      "document_type": "REPORT",
+      "document_type": "FIELD_NOTE",
+      "data_category": "SURVEILLANCE",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6740,7 +6820,9 @@
       "id": 29,
       "case_id": 5,
       "filename": "synthetic_source_29.txt",
-      "document_type": "FIELD_NOTE",
+      "document_type": "CALL_LOG",
+      "data_category": "CRIMINAL_HISTORY",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6751,7 +6833,9 @@
       "id": 30,
       "case_id": 6,
       "filename": "synthetic_source_30.txt",
-      "document_type": "FIELD_NOTE",
+      "document_type": "BANK_SUMMARY",
+      "data_category": "FIR_REPORT",
+      "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
       "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
       "processing_status": "COMPLETED",
       "metadata": {
@@ -6764,10 +6848,10 @@
       "id": 1,
       "case_id": 1,
       "document_id": 1,
-      "evidence_type": "TRANSACTION_PATTERN",
+      "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_01:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.76,
+      "confidence": 0.71,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6780,7 +6864,7 @@
       "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_01:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.68,
+      "confidence": 0.91,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6790,10 +6874,10 @@
       "id": 3,
       "case_id": 1,
       "document_id": 2,
-      "evidence_type": "LOCATION_REPEAT",
+      "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_02:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.81,
+      "confidence": 0.85,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6806,7 +6890,7 @@
       "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_02:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.71,
+      "confidence": 0.69,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6816,10 +6900,10 @@
       "id": 5,
       "case_id": 1,
       "document_id": 3,
-      "evidence_type": "COMMUNICATION_PATTERN",
+      "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_03:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.92,
+      "confidence": 0.73,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6829,10 +6913,10 @@
       "id": 6,
       "case_id": 1,
       "document_id": 3,
-      "evidence_type": "TRANSACTION_PATTERN",
+      "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_03:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.85,
+      "confidence": 0.67,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6842,10 +6926,10 @@
       "id": 7,
       "case_id": 1,
       "document_id": 4,
-      "evidence_type": "TRANSACTION_PATTERN",
+      "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_04:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.86,
+      "confidence": 0.88,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6855,10 +6939,10 @@
       "id": 8,
       "case_id": 1,
       "document_id": 4,
-      "evidence_type": "LOCATION_REPEAT",
+      "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_04:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.87,
+      "confidence": 0.8,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6868,10 +6952,10 @@
       "id": 9,
       "case_id": 1,
       "document_id": 5,
-      "evidence_type": "LOCATION_REPEAT",
+      "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_05:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.73,
+      "confidence": 0.69,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6884,7 +6968,7 @@
       "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_05:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.67,
+      "confidence": 0.86,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6894,10 +6978,10 @@
       "id": 11,
       "case_id": 1,
       "document_id": 6,
-      "evidence_type": "COMMUNICATION_PATTERN",
+      "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_06:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.88,
+      "confidence": 0.86,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6907,10 +6991,10 @@
       "id": 12,
       "case_id": 1,
       "document_id": 6,
-      "evidence_type": "TRANSACTION_PATTERN",
+      "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_06:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.8,
+      "confidence": 0.82,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6920,10 +7004,10 @@
       "id": 13,
       "case_id": 1,
       "document_id": 7,
-      "evidence_type": "COMMUNICATION_PATTERN",
+      "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_07:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.69,
+      "confidence": 0.95,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6936,7 +7020,7 @@
       "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_07:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.86,
+      "confidence": 0.82,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6946,10 +7030,10 @@
       "id": 15,
       "case_id": 1,
       "document_id": 8,
-      "evidence_type": "LOCATION_REPEAT",
+      "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_08:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.86,
+      "confidence": 0.79,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6959,10 +7043,10 @@
       "id": 16,
       "case_id": 1,
       "document_id": 8,
-      "evidence_type": "COMMUNICATION_PATTERN",
+      "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_08:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.82,
+      "confidence": 0.79,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -6975,7 +7059,7 @@
       "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_09:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.95,
+      "confidence": 0.66,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -6988,7 +7072,7 @@
       "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_09:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.82,
+      "confidence": 0.85,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -6998,10 +7082,10 @@
       "id": 19,
       "case_id": 10,
       "document_id": 10,
-      "evidence_type": "TRANSACTION_PATTERN",
+      "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_10:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.79,
+      "confidence": 0.76,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7011,10 +7095,10 @@
       "id": 20,
       "case_id": 10,
       "document_id": 10,
-      "evidence_type": "LOCATION_REPEAT",
+      "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_10:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.79,
+      "confidence": 0.92,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7024,10 +7108,10 @@
       "id": 21,
       "case_id": 11,
       "document_id": 11,
-      "evidence_type": "TRANSACTION_PATTERN",
+      "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_11:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.66,
+      "confidence": 0.64,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7037,10 +7121,10 @@
       "id": 22,
       "case_id": 11,
       "document_id": 11,
-      "evidence_type": "COMMUNICATION_PATTERN",
+      "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_11:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.85,
+      "confidence": 0.89,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7050,10 +7134,10 @@
       "id": 23,
       "case_id": 12,
       "document_id": 12,
-      "evidence_type": "COMMUNICATION_PATTERN",
+      "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_12:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.76,
+      "confidence": 0.63,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7066,7 +7150,7 @@
       "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_12:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.92,
+      "confidence": 0.66,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7076,10 +7160,10 @@
       "id": 25,
       "case_id": 1,
       "document_id": 13,
-      "evidence_type": "COMMUNICATION_PATTERN",
+      "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_13:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.64,
+      "confidence": 0.96,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -7089,10 +7173,10 @@
       "id": 26,
       "case_id": 1,
       "document_id": 13,
-      "evidence_type": "LOCATION_REPEAT",
+      "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_13:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.89,
+      "confidence": 0.9,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -7105,7 +7189,7 @@
       "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_14:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.63,
+      "confidence": 0.69,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7118,7 +7202,7 @@
       "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_14:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.66,
+      "confidence": 0.76,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7128,10 +7212,10 @@
       "id": 29,
       "case_id": 3,
       "document_id": 15,
-      "evidence_type": "LOCATION_REPEAT",
+      "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_15:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.96,
+      "confidence": 0.76,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7141,10 +7225,10 @@
       "id": 30,
       "case_id": 3,
       "document_id": 15,
-      "evidence_type": "TRANSACTION_PATTERN",
+      "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_15:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7157,7 +7241,7 @@
       "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_16:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.69,
+      "confidence": 0.84,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7167,10 +7251,10 @@
       "id": 32,
       "case_id": 4,
       "document_id": 16,
-      "evidence_type": "TRANSACTION_PATTERN",
+      "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_16:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.76,
+      "confidence": 0.8,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7183,7 +7267,7 @@
       "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_17:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.76,
+      "confidence": 0.87,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7196,7 +7280,7 @@
       "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_17:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.95,
+      "confidence": 0.89,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7206,10 +7290,10 @@
       "id": 35,
       "case_id": 6,
       "document_id": 18,
-      "evidence_type": "TRANSACTION_PATTERN",
+      "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_18:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.84,
+      "confidence": 0.72,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7219,10 +7303,10 @@
       "id": 36,
       "case_id": 6,
       "document_id": 18,
-      "evidence_type": "LOCATION_REPEAT",
+      "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_18:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.8,
+      "confidence": 0.82,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7232,10 +7316,10 @@
       "id": 37,
       "case_id": 7,
       "document_id": 19,
-      "evidence_type": "TRANSACTION_PATTERN",
+      "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_19:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.87,
+      "confidence": 0.68,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7248,7 +7332,7 @@
       "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_19:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.89,
+      "confidence": 0.95,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7261,7 +7345,7 @@
       "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_20:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.72,
+      "confidence": 0.85,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7271,10 +7355,10 @@
       "id": 40,
       "case_id": 8,
       "document_id": 20,
-      "evidence_type": "TRANSACTION_PATTERN",
+      "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_20:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.82,
+      "confidence": 0.64,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7287,7 +7371,7 @@
       "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_21:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.68,
+      "confidence": 0.86,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7300,7 +7384,7 @@
       "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_21:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.95,
+      "confidence": 0.75,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7313,7 +7397,7 @@
       "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_22:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.85,
+      "confidence": 0.84,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7326,7 +7410,7 @@
       "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_22:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.64,
+      "confidence": 0.65,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7336,10 +7420,10 @@
       "id": 45,
       "case_id": 11,
       "document_id": 23,
-      "evidence_type": "COMMUNICATION_PATTERN",
+      "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_23:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.86,
+      "confidence": 0.74,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7349,10 +7433,10 @@
       "id": 46,
       "case_id": 11,
       "document_id": 23,
-      "evidence_type": "COMMUNICATION_PATTERN",
+      "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_23:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.75,
+      "confidence": 0.64,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7362,10 +7446,10 @@
       "id": 47,
       "case_id": 12,
       "document_id": 24,
-      "evidence_type": "COMMUNICATION_PATTERN",
+      "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_24:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.84,
+      "confidence": 0.9,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7378,7 +7462,7 @@
       "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_24:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.65,
+      "confidence": 0.89,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7391,7 +7475,7 @@
       "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_25:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.74,
+      "confidence": 0.78,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -7404,7 +7488,7 @@
       "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_25:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.64,
+      "confidence": 0.62,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": true
@@ -7414,10 +7498,10 @@
       "id": 51,
       "case_id": 2,
       "document_id": 26,
-      "evidence_type": "LOCATION_REPEAT",
+      "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_26:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.9,
+      "confidence": 0.7,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7427,10 +7511,10 @@
       "id": 52,
       "case_id": 2,
       "document_id": 26,
-      "evidence_type": "COMMUNICATION_PATTERN",
+      "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_26:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.89,
+      "confidence": 0.82,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7443,7 +7527,7 @@
       "evidence_type": "TRANSACTION_PATTERN",
       "source_reference": "synthetic_source_27:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7456,7 +7540,7 @@
       "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_27:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.62,
+      "confidence": 0.83,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7466,10 +7550,10 @@
       "id": 55,
       "case_id": 4,
       "document_id": 28,
-      "evidence_type": "COMMUNICATION_PATTERN",
+      "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_28:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.7,
+      "confidence": 0.74,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7479,10 +7563,10 @@
       "id": 56,
       "case_id": 4,
       "document_id": 28,
-      "evidence_type": "TRANSACTION_PATTERN",
+      "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_28:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.82,
+      "confidence": 0.76,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7492,7 +7576,7 @@
       "id": 57,
       "case_id": 5,
       "document_id": 29,
-      "evidence_type": "TRANSACTION_PATTERN",
+      "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_29:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
       "confidence": 0.95,
@@ -7505,10 +7589,10 @@
       "id": 58,
       "case_id": 5,
       "document_id": 29,
-      "evidence_type": "LOCATION_REPEAT",
+      "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_29:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.83,
+      "confidence": 0.9,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7518,10 +7602,10 @@
       "id": 59,
       "case_id": 6,
       "document_id": 30,
-      "evidence_type": "LOCATION_REPEAT",
+      "evidence_type": "COMMUNICATION_PATTERN",
       "source_reference": "synthetic_source_30:line-10",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.74,
+      "confidence": 0.7,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false
@@ -7534,7 +7618,7 @@
       "evidence_type": "LOCATION_REPEAT",
       "source_reference": "synthetic_source_30:line-11",
       "content": "Synthetic evidence supports a relationship or anomaly for future graph demonstrations.",
-      "confidence": 0.76,
+      "confidence": 0.75,
       "metadata": {
         "synthetic": true,
         "supports_project_eclipse": false

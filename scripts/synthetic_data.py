@@ -156,8 +156,21 @@ def generate_dataset() -> dict[str, list[dict[str, Any]]]:
             "title": "Project Eclipse",
             "description": "Synthetic investigation with two communities, a bridge entity, repeated contacts, and unusual transfers.",
             "status": "ACTIVE",
+            "case_type": "NETWORK_ANALYSIS",
+            "priority": "HIGH",
         }
     ]
+    cases.append(
+        {
+            "id": 2,
+            "case_number": "CASE-2026-0142",
+            "title": "Financial Network Investigation",
+            "description": "Synthetic case intake scenario with overlapping FIR, CDR, financial, surveillance, and criminal history sources.",
+            "status": "ACTIVE",
+            "case_type": "FINANCIAL_FRAUD",
+            "priority": "CRITICAL",
+        }
+    )
     cases.extend(
         {
             "id": i,
@@ -165,8 +178,10 @@ def generate_dataset() -> dict[str, list[dict[str, Any]]]:
             "title": f"Synthetic Case {i:02d}",
             "description": "Synthetic foundation case for development and testing.",
             "status": rng.choice(["ACTIVE", "CLOSED", "ARCHIVED"]),
+            "case_type": "GENERAL",
+            "priority": rng.choice(["LOW", "MEDIUM", "HIGH"]),
         }
-        for i in range(2, 13)
+        for i in range(3, 13)
     )
 
     documents = []
@@ -179,6 +194,8 @@ def generate_dataset() -> dict[str, list[dict[str, Any]]]:
                 "case_id": case_id,
                 "filename": f"synthetic_source_{i:02d}.txt",
                 "document_type": rng.choice(["REPORT", "CALL_LOG", "BANK_SUMMARY", "FIELD_NOTE"]),
+                "data_category": ["FIR_REPORT", "CDR", "FINANCIAL", "SURVEILLANCE", "CRIMINAL_HISTORY"][i % 5],
+                "source_description": "Synthetic source with deterministic provenance for VEIL demo workflows.",
                 "text": "Synthetic document linking demo entities through communications, locations, or transfers.",
                 "processing_status": "COMPLETED",
                 "metadata": {"synthetic": True},

@@ -2,16 +2,24 @@ from enum import Enum
 
 
 class CaseStatus(str, Enum):
+    NEW = "NEW"
+    ASSIGNED = "ASSIGNED"
     ACTIVE = "ACTIVE"
+    ON_HOLD = "ON_HOLD"
     CLOSED = "CLOSED"
     ARCHIVED = "ARCHIVED"
 
 
 class ProcessingStatus(str, Enum):
+    UPLOADED = "UPLOADED"
+    QUEUED = "QUEUED"
     PENDING = "PENDING"
     PROCESSING = "PROCESSING"
+    PROCESSED = "PROCESSED"
+    PARTIALLY_PROCESSED = "PARTIALLY_PROCESSED"
     COMPLETED = "COMPLETED"
     FAILED = "FAILED"
+    REQUIRES_REVIEW = "REQUIRES_REVIEW"
 
 
 class AlertSeverity(str, Enum):

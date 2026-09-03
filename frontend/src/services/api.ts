@@ -19,7 +19,7 @@ import type {
 } from "../types/documents";
 import type { AlertItem, AnalyticsOverview } from "../types/analytics";
 import type { Investigator } from "../types/investigator";
-import type { CaseSummary, DashboardData, DocumentListItem, EntityDetail, EntitySummary, EvidenceItem, LocationEvent, SearchResult, TimelineEvent } from "../types/workspace";
+import type { CaseDataSource, CaseSummary, DashboardData, DocumentListItem, EntityDetail, EntitySummary, EvidenceItem, IntelligenceFinding, LocationEvent, ProcessingActivity, SearchResult, TimelineEvent } from "../types/workspace";
 
 const DEFAULT_DEV_API_BASE_URL = "http://localhost:8000";
 const REQUEST_TIMEOUT_MS = import.meta.env.DEV ? 15000 : 60000;
@@ -36,13 +36,25 @@ export function buildApiUrl(path: string): string {
   return baseUrl ? `${baseUrl}${cleanPath}` : cleanPath;
 }
 
+function authHeaders(): Record<string, string> {
+  const raw = window.localStorage.getItem("veil.auth.session") ?? window.sessionStorage.getItem("veil.auth.session");
+  if (!raw) return {};
+  try {
+    const parsed = JSON.parse(raw) as { access_token?: string; investigator_id?: string };
+    const token = parsed.access_token ?? parsed.investigator_id;
+    return token ? { Authorization: `Bearer ${token}` } : {};
+  } catch {
+    return {};
+  }
+}
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const controller = new AbortController();
   const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
   let response: Response;
 
   try {
-    response = await fetch(buildApiUrl(path), { ...init, signal: controller.signal });
+    response = await fetch(buildApiUrl(path), { ...init, headers: { ...authHeaders(), ...(init?.headers ?? {}) }, signal: controller.signal });
   } catch (error) {
     const reason = error instanceof Error ? error.message : "unknown network error";
     throw new Error(`API connection failed for ${path}: ${reason}`);
@@ -104,6 +116,11 @@ export function searchGraph(query: string, caseId = "C001"): Promise<GraphRespon
 export function getDashboard(caseId = 1): Promise<DashboardData> { return request<DashboardData>(`/api/workspace/dashboard?case_id=${caseId}`); }
 export function getCases(): Promise<CaseSummary[]> { return request<CaseSummary[]>("/api/workspace/cases"); }
 export function getCaseDetail(caseId: number): Promise<CaseSummary> { return request<CaseSummary>(`/api/workspace/cases/${caseId}`); }
+export function getCaseSources(caseId: number): Promise<CaseDataSource[]> { return request<CaseDataSource[]>(`/api/workspace/cases/${caseId}/sources`); }
+export function getCaseActivity(caseId: number): Promise<ProcessingActivity[]> { return request<ProcessingActivity[]>(`/api/workspace/cases/${caseId}/activity`); }
+export function getCaseFindings(caseId: number): Promise<IntelligenceFinding[]> { return request<IntelligenceFinding[]>(`/api/workspace/cases/${caseId}/findings`); }
+export function processCaseSource(sourceId: number) { return request(`/api/workspace/sources/${sourceId}/process`, { method: "POST" }); }
+export function uploadCaseSource(caseId: number, file: File, dataCategory: string, sourceDescription: string): Promise<{ source: CaseDataSource; job: { id: string; status: string; next: string } }> { const form = new FormData(); form.append("file", file); form.append("data_category", dataCategory); form.append("source_description", sourceDescription); return request<{ source: CaseDataSource; job: { id: string; status: string; next: string } }>(`/api/workspace/cases/${caseId}/sources`, { method: "POST", body: form }); }
 export function getEntities(caseId = 1, query = ""): Promise<EntitySummary[]> { return request<EntitySummary[]>(`/api/workspace/entities?case_id=${caseId}&query=${encodeURIComponent(query)}`); }
 export function getEntityDetail(entityId: string, caseId = 1): Promise<EntityDetail> { return request<EntityDetail>(`/api/workspace/entities/${encodeURIComponent(entityId)}?case_id=${caseId}`); }
 export function getEvidence(caseId = 1, query = "", minimumConfidence = 0): Promise<EvidenceItem[]> { return request<EvidenceItem[]>(`/api/workspace/evidence?case_id=${caseId}&query=${encodeURIComponent(query)}&min_confidence=${minimumConfidence}`); }

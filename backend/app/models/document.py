@@ -14,7 +14,11 @@ class Document(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     case_id: Mapped[int] = mapped_column(ForeignKey("cases.id", ondelete="CASCADE"), index=True)
     filename: Mapped[str] = mapped_column(String(255))
+    original_filename: Mapped[str | None] = mapped_column(String(255), default=None)
     document_type: Mapped[str] = mapped_column(String(100))
+    data_category: Mapped[str] = mapped_column(String(100), default="OTHER", index=True)
+    source_description: Mapped[str | None] = mapped_column(Text)
+    uploaded_by_investigator_id: Mapped[str | None] = mapped_column(String(30), index=True)
     text: Mapped[str | None] = mapped_column(Text)
     upload_timestamp: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     processing_status: Mapped[ProcessingStatus] = mapped_column(
@@ -22,6 +26,7 @@ class Document(Base):
         default=ProcessingStatus.PENDING,
     )
     storage_path: Mapped[str | None] = mapped_column(String(500))
+    checksum_sha256: Mapped[str | None] = mapped_column(String(64), index=True)
     mime_type: Mapped[str | None] = mapped_column(String(150))
     file_size_bytes: Mapped[int | None] = mapped_column()
     processing_started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
