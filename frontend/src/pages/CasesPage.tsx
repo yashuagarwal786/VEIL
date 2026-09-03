@@ -11,10 +11,10 @@ export function CasesPage() {
   const { investigator, recordAudit } = useAuth();
   const [rows, setRows] = useState<CaseSummary[] | null>(null);
   const [filter, setFilter] = useState<CaseFilter>("MY_CASES");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
   const load = () => {
-    setError(false);
-    getCases().then(setRows).catch(() => setError(true));
+    setError("");
+    getCases().then(setRows).catch((reason: unknown) => setError(reason instanceof Error ? reason.message : "Unable to load assigned cases."));
   };
 
   useEffect(load, []);
@@ -30,7 +30,7 @@ export function CasesPage() {
     return item.status === filter;
   }), [filter, investigator, rows]);
 
-  if (error) return <ErrorState label="Unable to load cases." retry={load} />;
+  if (error) return <ErrorState label="Unable to load assigned cases." detail={error.includes("401") ? `${error}. Sign in again after running backend migrations and seed data.` : error} retry={load} />;
   if (!rows) return <LoadingState />;
 
   return (

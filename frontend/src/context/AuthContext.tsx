@@ -1,7 +1,7 @@
-import { createContext, useCallback, useContext, useMemo, useState, type PropsWithChildren } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type PropsWithChildren } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { defaultInvestigator, demoInvestigators, demoPasswords } from "../data/demoInvestigators";
-import { loginInvestigator } from "../services/api";
+import { AUTH_INVALID_EVENT, loginInvestigator } from "../services/api";
 import type { AuditEvent, GeneratedReport, Investigator } from "../types/investigator";
 
 const SESSION_KEY = "veil.auth.session";
@@ -13,7 +13,7 @@ type AuthContextValue = {
   auditEvents: AuditEvent[];
   reports: GeneratedReport[];
   signIn: (email: string, password: string, remember: boolean) => Promise<void>;
-  signInDemo: () => void;
+  signInDemo: () => Promise<void>;
   signOut: () => void;
   recordAudit: (event: Omit<AuditEvent, "id" | "investigator_id" | "investigator_name" | "created_at">) => void;
   generateReport: (report: Omit<GeneratedReport, "id" | "investigator_id" | "created_at">) => GeneratedReport | null;
@@ -53,6 +53,12 @@ export function AuthProvider({ children }: PropsWithChildren) {
   const [auditEvents, setAuditEvents] = useState<AuditEvent[]>(() => readStoredList<AuditEvent>(AUDIT_KEY));
   const [reports, setReports] = useState<GeneratedReport[]>(() => readStoredList<GeneratedReport>(REPORT_KEY));
 
+  useEffect(() => {
+    const clearInvalidSession = () => setInvestigator(null);
+    window.addEventListener(AUTH_INVALID_EVENT, clearInvalidSession);
+    return () => window.removeEventListener(AUTH_INVALID_EVENT, clearInvalidSession);
+  }, []);
+
   const appendAudit = useCallback((actor: Investigator, event: Omit<AuditEvent, "id" | "investigator_id" | "investigator_name" | "created_at">) => {
     const next: AuditEvent = {
       ...event,
@@ -81,7 +87,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
       } catch (reason) {
         const normalized = email.trim().toLowerCase();
         const fallback = demoInvestigators.find((item) => item.email === normalized);
-        if (!fallback || demoPasswords[normalized] !== password) {
+        if (!import.meta.env.DEV || !fallback || demoPasswords[normalized] !== password) {
           throw reason instanceof Error ? reason : new Error("Invalid investigator credentials.");
         }
         account = fallback;
@@ -94,13 +100,14 @@ export function AuthProvider({ children }: PropsWithChildren) {
         summary: "Investigator session opened in the synthetic VEIL environment.",
       });
     },
-    signInDemo() {
-      persistSession(defaultInvestigator, true);
-      setInvestigator(defaultInvestigator);
-      appendAudit(defaultInvestigator, {
-        action: "DEMO_LOGIN",
+    async signInDemo() {
+      const response = await loginInvestigator(defaultInvestigator.email, demoPasswords[defaultInvestigator.email]);
+      persistSession(response.investigator, true, response.access_token);
+      setInvestigator(response.investigator);
+      appendAudit(response.investigator, {
+        action: "LOGIN",
         target_type: "AUTH",
-        summary: "Synthetic demo investigator session opened.",
+        summary: "Seeded senior investigator session opened.",
       });
     },
     signOut() {

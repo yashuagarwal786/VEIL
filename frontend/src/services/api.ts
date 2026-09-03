@@ -23,6 +23,7 @@ import type { CaseDataSource, CaseSummary, DashboardData, DocumentListItem, Enti
 
 const DEFAULT_DEV_API_BASE_URL = "http://localhost:8000";
 const REQUEST_TIMEOUT_MS = import.meta.env.DEV ? 15000 : 60000;
+export const AUTH_INVALID_EVENT = "veil:auth-invalid";
 
 export function getApiBaseUrl(): string {
   const configured = import.meta.env.VITE_API_BASE_URL?.trim();
@@ -64,6 +65,11 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 
   if (!response.ok) {
     const details = await response.text().catch(() => "");
+    if (response.status === 401) {
+      window.localStorage.removeItem("veil.auth.session");
+      window.sessionStorage.removeItem("veil.auth.session");
+      window.dispatchEvent(new CustomEvent(AUTH_INVALID_EVENT, { detail: details || "Invalid investigator session." }));
+    }
     throw new Error(`API request failed for ${path}: ${response.status}${details ? ` - ${details}` : ""}`);
   }
   return (await response.json()) as T;

@@ -8,18 +8,29 @@ import type { CaseSummary, DashboardData } from "../types/workspace";
 
 export function HomePage() {
   const { auditEvents, investigator } = useAuth();
-  const { caseId } = useCaseContext();
+  const { caseId, setCaseId } = useCaseContext();
   const [data, setData] = useState<DashboardData | null>(null);
   const [cases, setCases] = useState<CaseSummary[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   const load = useCallback(() => {
     setError(null);
-    Promise.all([getDashboard(caseId), getCases()]).then(([dashboard, caseRows]) => {
+    getCases().then((caseRows) => {
+      const selectedCase = caseRows.find((item) => item.id === caseId) ?? caseRows[0];
+      if (!selectedCase) {
+        setCases([]);
+        setData({ case_id: caseId, metrics: { active_cases: 0, entities: 0, open_alerts: 0, documents: 0, anomalies: 0 }, priority_entities: [], recent_alerts: [], anomaly_series: [] });
+        return;
+      }
+      if (selectedCase.id !== caseId) setCaseId(selectedCase.id);
+      return getDashboard(selectedCase.id).then((dashboard) => ({ dashboard, caseRows }));
+    }).then((result) => {
+      if (!result) return;
+      const { dashboard, caseRows } = result;
       setData(dashboard);
       setCases(caseRows);
     }).catch((reason: unknown) => setError(reason instanceof Error ? reason.message : "Unknown API error"));
-  }, [caseId]);
+  }, [caseId, setCaseId]);
 
   useEffect(load, [load]);
 

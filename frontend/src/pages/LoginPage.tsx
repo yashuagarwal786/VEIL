@@ -28,6 +28,18 @@ export function LoginPage() {
     }
   }
 
+  async function openSeededAccount() {
+    setBusy(true);
+    setError("");
+    try {
+      await signInDemo();
+    } catch (reason) {
+      setError(reason instanceof Error ? `${reason.message}. Run backend migrations and seed investigator accounts on Render.` : "Unable to open seeded investigator account.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
   return (
     <main className="login-shell">
       <section className="login-panel">
@@ -41,7 +53,7 @@ export function LoginPage() {
           <label className="inline-check"><input type="checkbox" checked={remember} onChange={(event) => setRemember(event.target.checked)} /> Keep me signed in on this device</label>
           {error ? <p className="veil-error">{error}</p> : null}
           <button className="veil-button" disabled={busy} type="submit"><LogIn size={16} /> {busy ? "Signing in..." : "Sign in"}</button>
-          <button className="veil-button secondary" type="button" onClick={signInDemo}><ShieldCheck size={16} /> Use seeded senior investigator account</button>
+          <button className="veil-button secondary" disabled={busy} type="button" onClick={openSeededAccount}><ShieldCheck size={16} /> Use seeded senior investigator account</button>
         </form>
         <p className="disclaimer">Seeded credentials are synthetic for demonstration data. Do not use this flow for regulated production work without hardened token authentication and administrator-managed accounts.</p>
       </section>
