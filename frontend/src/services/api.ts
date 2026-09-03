@@ -18,6 +18,7 @@ import type {
   ReviewDecision,
 } from "../types/documents";
 import type { AlertItem, AnalyticsOverview } from "../types/analytics";
+import type { Investigator } from "../types/investigator";
 import type { CaseSummary, DashboardData, DocumentListItem, EntityDetail, EntitySummary, EvidenceItem, LocationEvent, SearchResult, TimelineEvent } from "../types/workspace";
 
 const DEFAULT_DEV_API_BASE_URL = "http://localhost:8000";
@@ -110,6 +111,12 @@ export function getDocuments(caseId = 1): Promise<DocumentListItem[]> { return r
 export function getTimeline(caseId = 1, entityId?: number, eventType?: string): Promise<TimelineEvent[]> { const params = new URLSearchParams({ case_id: String(caseId) }); if (entityId) params.set("entity_id", String(entityId)); if (eventType && eventType !== "ALL") params.set("event_type", eventType); return request<TimelineEvent[]>(`/api/workspace/timeline?${params}`); }
 export function getLocations(caseId = 1, entityId?: number): Promise<LocationEvent[]> { const params = new URLSearchParams({ case_id: String(caseId) }); if (entityId) params.set("entity_id", String(entityId)); return request<LocationEvent[]>(`/api/workspace/locations?${params}`); }
 export function globalSearch(query: string): Promise<SearchResult[]> { return request<SearchResult[]>(`/api/workspace/search?query=${encodeURIComponent(query)}`); }
+
+export function loginInvestigator(email: string, password: string): Promise<{ investigator: Investigator; token_type: string; access_token: string }> {
+  return request<{ investigator: Investigator; token_type: string; access_token: string }>("/api/auth/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, password }) });
+}
+export function getInvestigator(investigatorId: string): Promise<Investigator> { return request<Investigator>(`/api/auth/me/${encodeURIComponent(investigatorId)}`); }
+export function getInvestigators(): Promise<Investigator[]> { return request<Investigator[]>("/api/auth/investigators"); }
 
 export function getAlerts(caseId = 1): Promise<AlertItem[]> { return request<AlertItem[]>(`/api/alerts?case_id=${caseId}`); }
 export function getAnalyticsOverview(caseId = 1): Promise<AnalyticsOverview> { return request<AnalyticsOverview>(`/api/analytics/cases/${caseId}/overview`); }

@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.analytics import router as analytics_router
 from app.api.alerts import router as alerts_router
+from app.api.auth import router as auth_router
 from app.api.documents import router as documents_router
 from app.api.entities import router as entities_router
 from app.api.graph import router as graph_router
@@ -26,6 +27,7 @@ app.add_middleware(
 )
 
 app.include_router(health_router, prefix="/api/health", tags=["health"])
+app.include_router(auth_router, prefix="/api/auth", tags=["auth"])
 app.include_router(graph_router, prefix="/api/graph", tags=["graph"])
 app.include_router(analytics_router, prefix="/api/analytics", tags=["analytics"])
 app.include_router(alerts_router, prefix="/api/alerts", tags=["alerts"])

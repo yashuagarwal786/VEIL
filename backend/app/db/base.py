@@ -7,6 +7,7 @@ from app.models.document import Document
 from app.models.entity import CaseEntity
 from app.models.evidence import Evidence
 from app.models.extraction import DocumentExtraction, EntityMatch, ExtractedRelationship, ReviewAudit
+from app.models.investigator import Investigator
 from app.models.location import Location
 from app.models.organization import Organization
 from app.models.person import Person
@@ -27,6 +28,7 @@ __all__ = [
     "EntityMatch",
     "ExtractedRelationship",
     "ReviewAudit",
+    "Investigator",
     "Location",
     "Organization",
     "Person",

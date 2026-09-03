@@ -23,9 +23,24 @@ from app.models.vehicle import Vehicle
 
 router = APIRouter()
 
+INVESTIGATORS = [
+    {"investigator_id": "INV-1042", "name": "Yash Agarwal", "role": "Senior Investigator"},
+    {"investigator_id": "INV-2031", "name": "Aarav Mehta", "role": "Investigator"},
+    {"investigator_id": "INV-0001", "name": "Operations Admin", "role": "Administrator"},
+]
+
+
+def ownership_for_case(case_id: int) -> dict:
+    assigned = INVESTIGATORS[(case_id - 1) % 2]
+    creator = INVESTIGATORS[2]
+    modifier = INVESTIGATORS[case_id % len(INVESTIGATORS)]
+    priority_score = min(96, 48 + (case_id * 7) % 45)
+    risk_level = "CRITICAL" if priority_score >= 88 else "HIGH" if priority_score >= 72 else "MEDIUM" if priority_score >= 55 else "LOW"
+    return {"assigned_investigator": assigned, "created_by": creator, "last_modified_by": modifier, "risk_level": risk_level, "priority_score": priority_score}
+
 
 def case_row(item: Case) -> dict:
-    return {"id": item.id, "case_number": item.case_number, "title": item.title, "description": item.description, "status": item.status.value, "created_at": item.created_at, "updated_at": item.updated_at}
+    return {"id": item.id, "case_number": item.case_number, "title": item.title, "description": item.description, "status": item.status.value, "created_at": item.created_at, "updated_at": item.updated_at, **ownership_for_case(item.id)}
 
 
 @router.get("/dashboard")

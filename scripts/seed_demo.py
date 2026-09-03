@@ -21,16 +21,63 @@ from app.models.communication import Communication
 from app.models.document import Document
 from app.models.entity import CaseEntity
 from app.models.evidence import Evidence
+from app.models.investigator import Investigator
 from app.models.location import Location
 from app.models.organization import Organization
 from app.models.person import Person
 from app.models.phone import Phone
 from app.models.transaction import Transaction
 from app.models.vehicle import Vehicle
+from app.security.passwords import hash_password
 from scripts.synthetic_data import generate_dataset
 
 SYNTHETIC_DIR = ROOT / "data" / "synthetic"
 DATASET_PATH = SYNTHETIC_DIR / "demo_dataset.json"
+
+DEMO_INVESTIGATORS = [
+    {
+        "investigator_id": "INV-1042",
+        "name": "Yash Agarwal",
+        "email": "yash.agarwal@synthetic.veil",
+        "role": "SENIOR_INVESTIGATOR",
+        "role_label": "Senior Investigator",
+        "department": "Digital Intelligence Unit",
+        "clearance": "Level 3 - Case Intelligence",
+        "password": "veil-demo-1042",
+        "can_view_all_cases": True,
+        "can_assign_cases": False,
+        "can_generate_reports": True,
+        "can_review_audit_trail": True,
+    },
+    {
+        "investigator_id": "INV-2031",
+        "name": "Aarav Mehta",
+        "email": "aarav.mehta@synthetic.veil",
+        "role": "INVESTIGATOR",
+        "role_label": "Investigator",
+        "department": "Financial Crimes Cell",
+        "clearance": "Level 2 - Evidence Review",
+        "password": "veil-demo-2031",
+        "can_view_all_cases": False,
+        "can_assign_cases": False,
+        "can_generate_reports": True,
+        "can_review_audit_trail": False,
+    },
+    {
+        "investigator_id": "INV-0001",
+        "name": "Operations Admin",
+        "email": "admin@synthetic.veil",
+        "role": "ADMINISTRATOR",
+        "role_label": "Administrator",
+        "department": "VEIL Operations",
+        "clearance": "Level 4 - Administration",
+        "password": "veil-admin-0001",
+        "can_view_all_cases": True,
+        "can_assign_cases": True,
+        "can_generate_reports": True,
+        "can_review_audit_trail": True,
+    },
+]
 
 
 def export_dataset(dataset: dict[str, list[dict[str, Any]]]) -> None:
@@ -59,18 +106,32 @@ def reset_demo_data() -> None:
     Base.metadata.create_all(bind=engine)
 
 
+def seed_investigators(session) -> None:
+    existing = {row.email for row in session.query(Investigator).all()}
+    for row in DEMO_INVESTIGATORS:
+        if row["email"] in existing:
+            continue
+        payload = {key: value for key, value in row.items() if key != "password"}
+        payload["password_hash"] = hash_password(row["password"])
+        session.add(Investigator(**payload))
+
+
 def seed(reset: bool = False, export_only: bool = False) -> dict[str, int]:
     dataset = generate_dataset()
     export_dataset(dataset)
     if export_only:
-        return {key: len(value) for key, value in dataset.items()}
+        return {**{key: len(value) for key, value in dataset.items()}, "investigators": len(DEMO_INVESTIGATORS)}
 
     if reset:
         reset_demo_data()
+    else:
+        Base.metadata.create_all(bind=engine)
 
     with SessionLocal() as session:
+        seed_investigators(session)
         if session.query(Case).filter(Case.case_number == "VEIL-2026-001").one_or_none():
-            return {key: len(value) for key, value in dataset.items()}
+            session.commit()
+            return {**{key: len(value) for key, value in dataset.items()}, "investigators": len(DEMO_INVESTIGATORS)}
 
         session.add_all(
             Case(
@@ -189,7 +250,7 @@ def seed(reset: bool = False, export_only: bool = False) -> dict[str, int]:
         )
         session.commit()
 
-    return {key: len(value) for key, value in dataset.items()}
+    return {**{key: len(value) for key, value in dataset.items()}, "investigators": len(DEMO_INVESTIGATORS)}
 
 
 def sync_graph(reset: bool = False) -> tuple[int, int, int]:
@@ -212,6 +273,7 @@ def print_summary(counts: dict[str, int]) -> None:
         ("Documents", "documents"),
         ("Evidence", "evidence"),
         ("Alerts", "alerts"),
+        ("Investigators", "investigators"),
     ]
     print("VEIL Demo Seed")
     print("----------------")
