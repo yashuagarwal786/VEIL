@@ -105,6 +105,27 @@ def cases(status: str | None = None, limit: int = Query(50, ge=1, le=200), autho
         return [case_row(item, investigators) for item in session.scalars(query).all()]
 
 
+@router.post("/demo/seed")
+def seed_demo_data(sync_graph: bool = Query(False), authorization: str | None = Header(default=None)) -> dict:
+    with SessionLocal() as session:
+        investigator = _current_investigator(session, authorization)
+        if not investigator.can_view_all_cases and investigator.role not in {"ADMINISTRATOR", "SUPERVISOR"}:
+            raise HTTPException(status_code=403, detail="Senior investigator access required.")
+
+    from scripts.seed_demo import seed, sync_graph as sync_demo_graph
+
+    counts = seed(reset=False, export_only=False)
+    graph_warning = None
+    graph = None
+    if sync_graph:
+        try:
+            nodes, relationships, cases_represented = sync_demo_graph(reset=False)
+            graph = {"nodes": nodes, "relationships": relationships, "cases": cases_represented}
+        except Exception as exc:  # pragma: no cover - depends on external Neo4j availability
+            graph_warning = str(exc)
+    return {"status": "seeded", "counts": counts, "graph": graph, "graph_warning": graph_warning}
+
+
 @router.post("/cases")
 def create_case(payload: dict, authorization: str | None = Header(default=None)) -> dict:
     with SessionLocal() as session:

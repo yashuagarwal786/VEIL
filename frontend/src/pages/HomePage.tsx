@@ -38,6 +38,7 @@ export function HomePage() {
   if (!data) return <LoadingState label="Loading investigation overview..." />;
 
   const myCases = cases.filter((item) => item.assigned_investigator?.investigator_id === investigator?.id || item.last_modified_by?.investigator_id === investigator?.id || item.created_by?.investigator_id === investigator?.id);
+  const primaryCase = myCases[0] ?? cases[0];
   const metrics = [
     { label: "My cases", value: myCases.length },
     { label: "Active cases", value: data.metrics.active_cases },
@@ -52,9 +53,12 @@ export function HomePage() {
         <div>
           <p className="eyebrow">Investigator dashboard</p>
           <h1>{investigator?.name}</h1>
-          <p className="muted">{investigator?.role_label} - {investigator?.department} - VEIL-2026-{String(caseId).padStart(3, "0")}</p>
+          <p className="muted">{investigator?.role_label} - {investigator?.department}{primaryCase ? ` - ${primaryCase.case_number}` : " - No active case selected"}</p>
         </div>
-        <div className="quick-links"><Link className="veil-button secondary" to="/cases/1">Case overview</Link><Link className="veil-button" to="/cases/1/intelligence">Case intelligence</Link></div>
+        <div className="quick-links">
+          <Link className="veil-button secondary" to={primaryCase ? `/cases/${primaryCase.id}` : "/cases"}>Case overview</Link>
+          <Link className="veil-button" to={primaryCase ? `/cases/${primaryCase.id}/intelligence` : "/cases"}>Case intelligence</Link>
+        </div>
       </header>
       <div className="metric-grid">{metrics.map((item) => <div className="metric" key={item.label}><span>{item.label}</span><strong>{item.value}</strong></div>)}</div>
       <div className="veil-grid-2">

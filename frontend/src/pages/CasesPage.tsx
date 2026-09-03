@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { EmptyState, ErrorState, LoadingState } from "../components/AsyncState";
 import { useAuth } from "../context/AuthContext";
-import { getCases } from "../services/api";
+import { getCases, seedDemoData } from "../services/api";
 import type { CaseSummary } from "../types/workspace";
 
 type CaseFilter = "MY_CASES" | "ALL" | "ACTIVE" | "COMPLETED" | "ARCHIVED";
@@ -12,10 +12,24 @@ export function CasesPage() {
   const [rows, setRows] = useState<CaseSummary[] | null>(null);
   const [filter, setFilter] = useState<CaseFilter>("MY_CASES");
   const [error, setError] = useState("");
+  const [seeding, setSeeding] = useState(false);
   const load = () => {
     setError("");
     getCases().then(setRows).catch((reason: unknown) => setError(reason instanceof Error ? reason.message : "Unable to load assigned cases."));
   };
+
+  async function loadDemoData() {
+    setSeeding(true);
+    setError("");
+    try {
+      await seedDemoData(false);
+      load();
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Unable to seed synthetic demonstration data.");
+    } finally {
+      setSeeding(false);
+    }
+  }
 
   useEffect(load, []);
 
@@ -63,7 +77,14 @@ export function CasesPage() {
             ))}</tbody>
           </table>
         </div>
-      ) : <EmptyState label="No cases match this investigator filter. Seed demo data or switch to All." />}
+      ) : (
+        <div className="veil-panel">
+          <div className="panel-body stack-list">
+            <EmptyState label={rows.length ? "No cases match this investigator filter. Switch to All." : "No cases exist yet in this database."} />
+            {!rows.length ? <button className="veil-button" disabled={seeding} onClick={loadDemoData}>{seeding ? "Loading demo data..." : "Load synthetic demonstration data"}</button> : null}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
