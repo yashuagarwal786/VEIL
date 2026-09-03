@@ -6,8 +6,8 @@ import { useAuth } from "../context/AuthContext";
 export function LoginPage() {
   const { investigator, signIn, signInDemo } = useAuth();
   const location = useLocation();
-  const [email, setEmail] = useState("yash.agarwal@synthetic.veil");
-  const [password, setPassword] = useState("veil-demo-1042");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(true);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
