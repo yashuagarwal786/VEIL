@@ -22,7 +22,8 @@ export function LoginPage() {
     try {
       await signIn(email, password, remember);
     } catch (reason) {
-      setError(reason instanceof Error ? reason.message : "Unable to sign in.");
+      const message = reason instanceof Error ? reason.message : "Unable to sign in.";
+      setError(message.includes("401") ? "Backend investigator account is not seeded yet. In Render backend shell run: alembic upgrade head && python scripts/seed_demo.py --sync-graph" : message);
     } finally {
       setBusy(false);
     }
