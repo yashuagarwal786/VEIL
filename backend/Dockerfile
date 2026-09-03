@@ -7,6 +7,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/alembic.ini .
 COPY backend/alembic ./alembic
 COPY backend/app ./app
+COPY backend/start.sh ./start.sh
 COPY scripts ./scripts
 COPY data ./data
-CMD ["sh", "-c", "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+RUN chmod +x ./start.sh
+CMD ["./start.sh"]
