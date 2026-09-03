@@ -10,5 +10,5 @@ COPY backend/app ./app
 COPY backend/start.sh ./start.sh
 COPY scripts ./scripts
 COPY data ./data
-RUN chmod +x ./start.sh
-CMD ["./start.sh"]
+RUN sed -i 's/\r$//' ./start.sh && chmod +x ./start.sh
+CMD ["sh", "./start.sh"]

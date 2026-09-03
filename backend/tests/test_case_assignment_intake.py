@@ -13,6 +13,14 @@ from app.models.investigator import Investigator
 from app.security.passwords import hash_password
 
 
+def _empty_auth_client(monkeypatch):
+    engine = create_engine("sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool)
+    Base.metadata.create_all(engine)
+    TestingSession = sessionmaker(bind=engine)
+    monkeypatch.setattr("app.api.auth.SessionLocal", TestingSession)
+    return TestClient(app)
+
+
 def _client(monkeypatch):
     engine = create_engine("sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool)
     Base.metadata.create_all(engine)
@@ -73,6 +81,27 @@ def test_investigator_login_and_assigned_case_access(monkeypatch) -> None:
     response = client.get("/api/workspace/cases", headers={"Authorization": f"Bearer {token}"})
     assert response.status_code == 200
     assert response.json()[0]["case_number"] == "CASE-2026-0142"
+
+
+def test_first_run_investigator_setup(monkeypatch) -> None:
+    client = _empty_auth_client(monkeypatch)
+    assert client.get("/api/auth/setup-required").json() == {"required": True}
+    response = client.post(
+        "/api/auth/setup",
+        json={
+            "name": "Yash Agarwal",
+            "email": "yash.agarwal@example.com",
+            "password": "strong-pass-1042",
+            "investigator_id": "INV-1042",
+        },
+    )
+    assert response.status_code == 200
+    assert response.json()["access_token"] == "INV-1042"
+    assert client.get("/api/auth/setup-required").json() == {"required": False}
+    assert client.post(
+        "/api/auth/setup",
+        json={"name": "Second", "email": "second@example.com", "password": "strong-pass-2031"},
+    ).status_code == 409
 
 
 def test_invalid_login_and_unauthorized_case_access(monkeypatch) -> None:

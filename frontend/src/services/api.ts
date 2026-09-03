@@ -138,6 +138,10 @@ export function globalSearch(query: string): Promise<SearchResult[]> { return re
 export function loginInvestigator(email: string, password: string): Promise<{ investigator: Investigator; token_type: string; access_token: string }> {
   return request<{ investigator: Investigator; token_type: string; access_token: string }>("/api/auth/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, password }) });
 }
+export function getSetupRequired(): Promise<{ required: boolean }> { return request<{ required: boolean }>("/api/auth/setup-required"); }
+export function setupInitialInvestigator(payload: { name: string; email: string; password: string; investigator_id?: string }): Promise<{ investigator: Investigator; token_type: string; access_token: string }> {
+  return request<{ investigator: Investigator; token_type: string; access_token: string }>("/api/auth/setup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+}
 export function getInvestigator(investigatorId: string): Promise<Investigator> { return request<Investigator>(`/api/auth/me/${encodeURIComponent(investigatorId)}`); }
 export function getInvestigators(): Promise<Investigator[]> { return request<Investigator[]>("/api/auth/investigators"); }
 

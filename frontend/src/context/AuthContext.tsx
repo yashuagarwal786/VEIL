@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type PropsWithChildren } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { defaultInvestigator, demoInvestigators, demoPasswords } from "../data/demoInvestigators";
-import { AUTH_INVALID_EVENT, loginInvestigator } from "../services/api";
+import { AUTH_INVALID_EVENT, loginInvestigator, setupInitialInvestigator } from "../services/api";
 import type { AuditEvent, GeneratedReport, Investigator } from "../types/investigator";
 
 const SESSION_KEY = "veil.auth.session";
@@ -14,6 +14,7 @@ type AuthContextValue = {
   reports: GeneratedReport[];
   signIn: (email: string, password: string, remember: boolean) => Promise<void>;
   signInDemo: () => Promise<void>;
+  setupInitialAccount: (payload: { name: string; email: string; password: string; investigator_id?: string; remember: boolean }) => Promise<void>;
   signOut: () => void;
   recordAudit: (event: Omit<AuditEvent, "id" | "investigator_id" | "investigator_name" | "created_at">) => void;
   generateReport: (report: Omit<GeneratedReport, "id" | "investigator_id" | "created_at">) => GeneratedReport | null;
@@ -108,6 +109,21 @@ export function AuthProvider({ children }: PropsWithChildren) {
         action: "LOGIN",
         target_type: "AUTH",
         summary: "Seeded senior investigator session opened.",
+      });
+    },
+    async setupInitialAccount(payload) {
+      const response = await setupInitialInvestigator({
+        name: payload.name,
+        email: payload.email,
+        password: payload.password,
+        investigator_id: payload.investigator_id,
+      });
+      persistSession(response.investigator, payload.remember, response.access_token);
+      setInvestigator(response.investigator);
+      appendAudit(response.investigator, {
+        action: "LOGIN",
+        target_type: "AUTH",
+        summary: "Initial investigator account created and signed in.",
       });
     },
     signOut() {
