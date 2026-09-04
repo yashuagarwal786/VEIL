@@ -24,6 +24,8 @@ services:
         sync: false
       - key: NEO4J_PASSWORD
         sync: false
+      - key: SEED_DEMO_ON_STARTUP
+        value: "true"
 databases:
   - name: veil-postgres
     databaseName: veil
