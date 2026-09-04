@@ -59,6 +59,7 @@ export function CasesPage() {
           {(["MY_CASES", "ALL", "ACTIVE", "COMPLETED", "ARCHIVED"] as CaseFilter[]).map((item) => (
             <button className={`veil-button ${filter === item ? "" : "secondary"}`} key={item} onClick={() => setFilter(item)}>{item.replace("_", " ")}</button>
           ))}
+          <button className="veil-button secondary" disabled={seeding} onClick={loadDemoData} title="Re-sync synthetic demo cases into backend database">{seeding ? "Syncing..." : "Sync Demo Data"}</button>
         </div>
       </header>
       {visibleRows.length ? (
