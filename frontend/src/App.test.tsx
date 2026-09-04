@@ -33,4 +33,16 @@ describe("unified investigation shell", () => {
     expect(screen.getByText("11")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Network" })).toHaveAttribute("href", "/network");
   });
+
+  it("falls back gracefully when API connection fails for auth login", async () => {
+    vi.stubGlobal("fetch", vi.fn((url: string) => {
+      if (url.includes("/api/auth/login")) return Promise.reject(new TypeError("Failed to fetch"));
+      if (url.includes("/api/workspace/cases")) return Promise.resolve({ ok: true, json: () => Promise.resolve(caseRows) });
+      if (url.includes("/api/workspace/dashboard")) return Promise.resolve({ ok: true, json: () => Promise.resolve(dashboard) });
+      return Promise.resolve({ ok: true, json: () => Promise.resolve({}) });
+    }));
+    render(<MemoryRouter initialEntries={["/dashboard"]}><App /></MemoryRouter>);
+    fireEvent.click(await screen.findByRole("button", { name: /Use seeded senior investigator account/i }));
+    expect(await screen.findByRole("heading", { name: "Yash Agarwal" })).toBeInTheDocument();
+  });
 });
