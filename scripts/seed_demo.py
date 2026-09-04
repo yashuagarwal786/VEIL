@@ -157,6 +157,146 @@ def backfill_assignment_metadata(session) -> None:
         document.checksum_sha256 = document.checksum_sha256 or f"synthetic-{document.id:056d}"[-64:]
 
 
+def seed_missing_india_cyber_case(session, dataset: dict[str, list[dict[str, Any]]]) -> None:
+    if session.query(Case).filter(Case.case_number == "CYBER-2026-009").one_or_none():
+        case = session.query(Case).filter(Case.case_number == "CYBER-2026-009").one()
+        existing_entities = {
+            row.entity_id
+            for row in session.query(CaseEntity).filter(
+                CaseEntity.case_id == case.id,
+                CaseEntity.entity_type == "person",
+            )
+        }
+        session.add_all(
+            CaseEntity(case_id=case.id, entity_type="person", entity_id=entity_id)
+            for entity_id in [76, 77, 78, 79, 80, 81, 82]
+            if entity_id not in existing_entities
+        )
+        return
+
+    case_row = next(row for row in dataset["cases"] if row["case_number"] == "CYBER-2026-009")
+    case = Case(
+        case_number=case_row["case_number"],
+        title=case_row["title"],
+        description=case_row["description"],
+        status=case_row["status"],
+        case_type=case_row.get("case_type", "CYBER_FRAUD"),
+        priority=case_row.get("priority", "CRITICAL"),
+        created_by_investigator_id="INV-0001",
+        assigned_investigator_id="INV-1042",
+        assigned_at=_datetime("2026-09-03T09:00:00+00:00"),
+        jurisdiction="Synthetic Demonstration Region",
+        sensitivity="SYNTHETIC_DEMO",
+    )
+    session.add(case)
+    session.flush()
+
+    existing_phones = {row.number for row in session.query(Phone).all()}
+    session.add_all(
+        Phone(number=row["number"], carrier=row["carrier"], metadata_=_metadata(row))
+        for row in dataset["phones"]
+        if (row.get("metadata") or {}).get("scenario") == "india_voice_phishing" and row["number"] not in existing_phones
+    )
+    existing_people = {row.email for row in session.query(Person).all()}
+    session.add_all(
+        Person(
+            id=row["id"],
+            name=row["name"],
+            aliases=row["aliases"],
+            phone=row["phone"],
+            email=row["email"],
+            date_of_birth=_date(row["date_of_birth"]),
+            address=row["address"],
+            metadata_=_metadata(row),
+        )
+        for row in dataset["persons"]
+        if (row.get("metadata") or {}).get("network", "").startswith("india_scam") and row["email"] not in existing_people
+    )
+    existing_accounts = {row.account_number_masked for row in session.query(BankAccount).all()}
+    session.add_all(
+        BankAccount(id=row["id"], account_number_masked=row["account_number_masked"], bank_name=row["bank_name"], metadata_=_metadata(row))
+        for row in dataset["bank_accounts"]
+        if (row.get("metadata") or {}).get("scenario") == "india_voice_phishing" and row["account_number_masked"] not in existing_accounts
+    )
+    existing_locations = {row.name for row in session.query(Location).all()}
+    session.add_all(
+        Location(id=row["id"], name=row["name"], latitude=_decimal(row["latitude"]), longitude=_decimal(row["longitude"]), address=row["address"], metadata_=_metadata(row))
+        for row in dataset["locations"]
+        if (row.get("metadata") or {}).get("scenario") == "india_voice_phishing" and row["name"] not in existing_locations
+    )
+    session.flush()
+
+    existing_communication_ids = {row.id for row in session.query(Communication.id).all()}
+    session.add_all(
+        Communication(
+            id=row["id"],
+            caller_entity_id=row["caller_entity_id"],
+            receiver_entity_id=row["receiver_entity_id"],
+            timestamp=_datetime(row["timestamp"]),
+            duration_seconds=row["duration_seconds"],
+            communication_type=row["communication_type"],
+            metadata_=_metadata(row),
+        )
+        for row in dataset["communications"]
+        if (row.get("metadata") or {}).get("scenario") == "india_voice_phishing" and row["id"] not in existing_communication_ids
+    )
+    existing_transaction_ids = {row.id for row in session.query(Transaction.id).all()}
+    session.add_all(
+        Transaction(
+            id=row["id"],
+            sender_entity_id=row["sender_entity_id"],
+            receiver_entity_id=row["receiver_entity_id"],
+            amount=_decimal(row["amount"]),
+            transaction_type=row["transaction_type"],
+            timestamp=_datetime(row["timestamp"]),
+            metadata_=_metadata(row),
+        )
+        for row in dataset["transactions"]
+        if (row.get("metadata") or {}).get("scenario") == "india_voice_phishing" and row["id"] not in existing_transaction_ids
+    )
+    existing_filenames = {row.filename for row in session.query(Document).all()}
+    session.add_all(
+        Document(
+            id=row["id"],
+            case_id=case.id,
+            filename=row["filename"],
+            original_filename=row["filename"],
+            document_type=row["document_type"],
+            data_category=row.get("data_category", "OTHER"),
+            source_description=row.get("source_description"),
+            uploaded_by_investigator_id="INV-1042",
+            text=row["text"],
+            processing_status=row["processing_status"],
+            checksum_sha256=f"synthetic-{row['id']:056d}"[-64:],
+            metadata_=_metadata(row),
+        )
+        for row in dataset["documents"]
+        if row["case_id"] == 13 and row["filename"] not in existing_filenames
+    )
+    existing_evidence_ids = {row.id for row in session.query(Evidence.id).all()}
+    session.add_all(
+        Evidence(
+            id=row["id"],
+            case_id=case.id,
+            document_id=row["document_id"],
+            evidence_type=row["evidence_type"],
+            source_reference=row["source_reference"],
+            content=row["content"],
+            confidence=row["confidence"],
+            metadata_=_metadata(row),
+        )
+        for row in dataset["evidence"]
+        if row["case_id"] == 13 and row["id"] not in existing_evidence_ids
+    )
+    existing_alert_ids = {row.id for row in session.query(Alert.id).all()}
+    session.add_all(
+        Alert(id=row["id"], case_id=case.id, entity_id=row["entity_id"], alert_type=row["alert_type"], severity=row["severity"], score=row["score"], explanation=row["explanation"], status=row["status"], metadata_=_metadata(row))
+        for row in dataset["alerts"]
+        if row["case_id"] == 13 and row["id"] not in existing_alert_ids
+    )
+    session.add_all(CaseEntity(case_id=case.id, entity_type="person", entity_id=entity_id) for entity_id in [76, 77, 78, 79, 80, 81, 82])
+
+
 def seed(reset: bool = False, export_only: bool = False) -> dict[str, int]:
     dataset = generate_dataset()
     export_dataset(dataset)
@@ -171,6 +311,7 @@ def seed(reset: bool = False, export_only: bool = False) -> dict[str, int]:
     with SessionLocal() as session:
         seed_investigators(session)
         if session.query(Case).filter(Case.case_number == "VEIL-2026-001").one_or_none():
+            seed_missing_india_cyber_case(session, dataset)
             backfill_assignment_metadata(session)
             session.commit()
             return {**{key: len(value) for key, value in dataset.items()}, "investigators": len(DEMO_INVESTIGATORS)}
