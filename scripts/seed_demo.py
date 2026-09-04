@@ -138,8 +138,8 @@ def backfill_assignment_metadata(session) -> None:
     for case in session.query(Case).all():
         if not case.created_by_investigator_id:
             case.created_by_investigator_id = "INV-0001"
-        if not case.assigned_investigator_id:
-            case.assigned_investigator_id = "INV-1042" if case.id in {1, 2} or case.id % 2 == 0 else "INV-2031"
+        if not case.assigned_investigator_id or case.case_number == "CYBER-2026-009":
+            case.assigned_investigator_id = "INV-1042" if case.id in {1, 2, 13} or case.case_number == "CYBER-2026-009" or case.id % 2 == 0 else "INV-2031"
         if not case.assigned_at:
             case.assigned_at = _datetime("2026-09-03T09:00:00+00:00")
         if not case.case_type:
