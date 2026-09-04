@@ -67,8 +67,10 @@ class GraphSyncService:
 
         self._sync_entities()
         self._sync_case_entities()
+        self._sync_identity_assets()
         self._sync_communications()
         self._sync_transactions()
+        self._sync_transaction_locations()
         self._sync_evidence_relationships()
         self._sync_extracted_relationships()
         logger.info("Graph synchronization completed")
@@ -145,6 +147,40 @@ class GraphSyncService:
             case = self._node("Case", row.case_id, {})
             self._upsert_relationship(start, "LINKED_TO_CASE", case, {"id": f"CASE_ENTITY_{row.case_id}_{row.entity_type}_{row.entity_id}", "source_id": f"CASE_ENTITY_{row.id}", "confidence": 1.0})
 
+    def _sync_identity_assets(self) -> None:
+        people_by_phone = {person.phone: person.id for person in self.session.query(Person).all() if person.phone}
+        for phone in self.session.query(Phone).all():
+            owner_id = (phone.metadata_ or {}).get("owner_person_id") or people_by_phone.get(phone.number)
+            if not owner_id:
+                continue
+            self._upsert_relationship(
+                self._node("Person", int(owner_id), {}),
+                "HAS_PHONE",
+                self._node("Phone", phone.id, {}),
+                {
+                    "id": f"PERSON_PHONE_{owner_id}_{phone.id}",
+                    "source_id": f"PHONE_{phone.id}",
+                    "confidence": 0.96,
+                    "scenario": (phone.metadata_ or {}).get("scenario"),
+                },
+            )
+        for account in self.session.query(BankAccount).all():
+            owner_id = (account.metadata_ or {}).get("owner_person_id")
+            if not owner_id:
+                continue
+            self._upsert_relationship(
+                self._node("Person", int(owner_id), {}),
+                "OWNS_ACCOUNT",
+                self._node("BankAccount", account.id, {}),
+                {
+                    "id": f"PERSON_ACCOUNT_{owner_id}_{account.id}",
+                    "source_id": f"BANK_ACCOUNT_{account.id}",
+                    "confidence": 0.92,
+                    "account_role": (account.metadata_ or {}).get("account_role"),
+                    "scenario": (account.metadata_ or {}).get("scenario"),
+                },
+            )
+
     def _sync_communications(self) -> None:
         for comm in self.session.query(Communication).all():
             start = self._node("Person", comm.caller_entity_id, {})
@@ -161,6 +197,26 @@ class GraphSyncService:
                     "timestamp": comm.timestamp,
                     "duration_seconds": comm.duration_seconds,
                     "confidence": 0.97,
+                },
+            )
+
+    def _sync_transaction_locations(self) -> None:
+        for tx in self.session.query(Transaction).all():
+            location_id = (tx.metadata_ or {}).get("location_id")
+            if not location_id:
+                continue
+            self._upsert_relationship(
+                self._node("Person", tx.sender_entity_id, {}),
+                "OBSERVED_AT",
+                self._node("Location", int(location_id), {}),
+                {
+                    "id": f"TX_LOCATION_{tx.id:03d}",
+                    "source_id": f"TX_{tx.id:03d}",
+                    "transaction_id": tx.id,
+                    "amount": tx.amount,
+                    "timestamp": tx.timestamp,
+                    "confidence": 0.88,
+                    "scenario": (tx.metadata_ or {}).get("scenario"),
                 },
             )
 

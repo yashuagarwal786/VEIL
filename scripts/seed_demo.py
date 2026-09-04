@@ -13,6 +13,7 @@ BACKEND_ROOT = ROOT / "backend"
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(BACKEND_ROOT))
 
+import app.db.base  # noqa: F401
 from app.db.session import Base, SessionLocal, engine
 from app.models.alert import Alert
 from app.models.bank_account import BankAccount
@@ -270,11 +271,12 @@ def seed(reset: bool = False, export_only: bool = False) -> dict[str, int]:
         )
         session.flush()
         documents = {doc.filename: doc.id for doc in session.query(Document).all()}
+        document_filename_by_dataset_id = {row["id"]: row["filename"] for row in dataset["documents"]}
 
         session.add_all(
             Evidence(
                 case_id=cases[dataset["cases"][row["case_id"] - 1]["case_number"]],
-                document_id=documents[f"synthetic_source_{row['document_id']:02d}.txt"],
+                document_id=documents[document_filename_by_dataset_id[row["document_id"]]],
                 evidence_type=row["evidence_type"],
                 source_reference=row["source_reference"],
                 content=row["content"],
@@ -301,6 +303,12 @@ def seed(reset: bool = False, export_only: bool = False) -> dict[str, int]:
             CaseEntity(case_id=project_eclipse_id, entity_type="person", entity_id=entity_id)
             for entity_id in [1, 2, 3, 4, 5, 14, 15, 23, 24, 25, 31, 32, 45, 74]
         )
+        cyber_scam_id = cases.get("CYBER-2026-009")
+        if cyber_scam_id:
+            session.add_all(
+                CaseEntity(case_id=cyber_scam_id, entity_type="person", entity_id=entity_id)
+                for entity_id in [76, 77, 78, 79, 80, 81, 82]
+            )
         backfill_assignment_metadata(session)
         session.commit()
 

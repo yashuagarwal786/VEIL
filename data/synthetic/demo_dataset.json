@@ -107,6 +107,15 @@
       "status": "ACTIVE",
       "case_type": "GENERAL",
       "priority": "HIGH"
+    },
+    {
+      "id": 13,
+      "case_number": "CYBER-2026-009",
+      "title": "India Voice Phishing Call Network",
+      "description": "Synthetic cybercrime investigation into callers impersonating bank support teams, targeting people in India, routing funds through mule accounts, and coordinating cash-out activity.",
+      "status": "ACTIVE",
+      "case_type": "CYBER_FRAUD",
+      "priority": "CRITICAL"
     }
   ],
   "persons": [
@@ -445,7 +454,7 @@
       "id": 26,
       "name": "Logan Quill 26",
       "aliases": [],
-      "phone": "+1-555-01001",
+      "phone": "+91-98765-21001",
       "email": "synthetic.person26@example.test",
       "date_of_birth": "1971-03-27",
       "address": "126 Demo Street, Sample City",
@@ -461,7 +470,7 @@
         "Marlow-27",
         "Node-B-27"
       ],
-      "phone": "+1-555-01002",
+      "phone": "+91-98765-21002",
       "email": "synthetic.person27@example.test",
       "date_of_birth": "1972-04-01",
       "address": "127 Demo Street, Sample City",
@@ -474,7 +483,7 @@
       "id": 28,
       "name": "Nico North 28",
       "aliases": [],
-      "phone": "+1-555-01003",
+      "phone": "+91-98765-21003",
       "email": "synthetic.person28@example.test",
       "date_of_birth": "1973-05-02",
       "address": "128 Demo Street, Sample City",
@@ -487,7 +496,7 @@
       "id": 29,
       "name": "Oakley Pike 29",
       "aliases": [],
-      "phone": "+1-555-01004",
+      "phone": "+91-98765-21004",
       "email": "synthetic.person29@example.test",
       "date_of_birth": "1974-06-03",
       "address": "129 Demo Street, Sample City",
@@ -500,7 +509,7 @@
       "id": 30,
       "name": "Avery Vale 30",
       "aliases": [],
-      "phone": "+1-555-01005",
+      "phone": "+91-98765-21005",
       "email": "synthetic.person30@example.test",
       "date_of_birth": "1975-07-04",
       "address": "130 Demo Street, Sample City",
@@ -513,7 +522,7 @@
       "id": 31,
       "name": "Blair Cross 31",
       "aliases": [],
-      "phone": "+1-555-01006",
+      "phone": "+91-98765-21006",
       "email": "synthetic.person31@example.test",
       "date_of_birth": "1976-08-05",
       "address": "131 Demo Street, Sample City",
@@ -526,7 +535,7 @@
       "id": 32,
       "name": "Casey Stone 32",
       "aliases": [],
-      "phone": "+1-555-01007",
+      "phone": "+91-98765-21007",
       "email": "synthetic.person32@example.test",
       "date_of_birth": "1977-09-06",
       "address": "132 Demo Street, Sample City",
@@ -539,7 +548,7 @@
       "id": 33,
       "name": "Devon Reed 33",
       "aliases": [],
-      "phone": "+1-555-01008",
+      "phone": "+1-555-01001",
       "email": "synthetic.person33@example.test",
       "date_of_birth": "1978-10-07",
       "address": "133 Demo Street, Sample City",
@@ -552,7 +561,7 @@
       "id": 34,
       "name": "Ellis Lane 34",
       "aliases": [],
-      "phone": "+1-555-01009",
+      "phone": "+1-555-01002",
       "email": "synthetic.person34@example.test",
       "date_of_birth": "1979-11-08",
       "address": "134 Demo Street, Sample City",
@@ -565,7 +574,7 @@
       "id": 35,
       "name": "Finley Frost 35",
       "aliases": [],
-      "phone": "+1-555-01010",
+      "phone": "+1-555-01003",
       "email": "synthetic.person35@example.test",
       "date_of_birth": "1980-12-09",
       "address": "135 Demo Street, Sample City",
@@ -581,7 +590,7 @@
         "Gray-36",
         "Node-B-36"
       ],
-      "phone": "+1-555-01011",
+      "phone": "+1-555-01004",
       "email": "synthetic.person36@example.test",
       "date_of_birth": "1981-01-10",
       "address": "136 Demo Street, Sample City",
@@ -594,7 +603,7 @@
       "id": 37,
       "name": "Harper Hart 37",
       "aliases": [],
-      "phone": "+1-555-01012",
+      "phone": "+1-555-01005",
       "email": "synthetic.person37@example.test",
       "date_of_birth": "1982-02-11",
       "address": "137 Demo Street, Sample City",
@@ -607,7 +616,7 @@
       "id": 38,
       "name": "Indigo North 38",
       "aliases": [],
-      "phone": "+1-555-01013",
+      "phone": "+1-555-01006",
       "email": "synthetic.person38@example.test",
       "date_of_birth": "1983-03-12",
       "address": "138 Demo Street, Sample City",
@@ -620,7 +629,7 @@
       "id": 39,
       "name": "Jules Pike 39",
       "aliases": [],
-      "phone": "+1-555-01014",
+      "phone": "+1-555-01007",
       "email": "synthetic.person39@example.test",
       "date_of_birth": "1984-04-13",
       "address": "139 Demo Street, Sample City",
@@ -633,7 +642,7 @@
       "id": 40,
       "name": "Kai Vale 40",
       "aliases": [],
-      "phone": "+1-555-01015",
+      "phone": "+1-555-01008",
       "email": "synthetic.person40@example.test",
       "date_of_birth": "1985-05-14",
       "address": "140 Demo Street, Sample City",
@@ -646,7 +655,7 @@
       "id": 41,
       "name": "Logan Cross 41",
       "aliases": [],
-      "phone": "+1-555-01016",
+      "phone": "+1-555-01009",
       "email": "synthetic.person41@example.test",
       "date_of_birth": "1986-06-15",
       "address": "141 Demo Street, Sample City",
@@ -659,7 +668,7 @@
       "id": 42,
       "name": "Marlow Stone 42",
       "aliases": [],
-      "phone": "+1-555-01017",
+      "phone": "+1-555-01010",
       "email": "synthetic.person42@example.test",
       "date_of_birth": "1987-07-16",
       "address": "142 Demo Street, Sample City",
@@ -672,7 +681,7 @@
       "id": 43,
       "name": "Nico Reed 43",
       "aliases": [],
-      "phone": "+1-555-01018",
+      "phone": "+1-555-01011",
       "email": "synthetic.person43@example.test",
       "date_of_birth": "1988-08-17",
       "address": "143 Demo Street, Sample City",
@@ -685,7 +694,7 @@
       "id": 44,
       "name": "Oakley Lane 44",
       "aliases": [],
-      "phone": "+1-555-01019",
+      "phone": "+1-555-01012",
       "email": "synthetic.person44@example.test",
       "date_of_birth": "1989-09-18",
       "address": "144 Demo Street, Sample City",
@@ -701,7 +710,7 @@
         "Avery-45",
         "Node-C-45"
       ],
-      "phone": "+1-555-01020",
+      "phone": "+1-555-01013",
       "email": "synthetic.person45@example.test",
       "date_of_birth": "1990-10-19",
       "address": "145 Demo Street, Sample City",
@@ -714,7 +723,7 @@
       "id": 46,
       "name": "Blair Quill 46",
       "aliases": [],
-      "phone": "+1-555-01021",
+      "phone": "+1-555-01014",
       "email": "synthetic.person46@example.test",
       "date_of_birth": "1991-11-20",
       "address": "146 Demo Street, Sample City",
@@ -727,7 +736,7 @@
       "id": 47,
       "name": "Casey Hart 47",
       "aliases": [],
-      "phone": "+1-555-01022",
+      "phone": "+1-555-01015",
       "email": "synthetic.person47@example.test",
       "date_of_birth": "1992-12-21",
       "address": "147 Demo Street, Sample City",
@@ -740,7 +749,7 @@
       "id": 48,
       "name": "Devon North 48",
       "aliases": [],
-      "phone": "+1-555-01023",
+      "phone": "+1-555-01016",
       "email": "synthetic.person48@example.test",
       "date_of_birth": "1993-01-22",
       "address": "148 Demo Street, Sample City",
@@ -753,7 +762,7 @@
       "id": 49,
       "name": "Ellis Pike 49",
       "aliases": [],
-      "phone": "+1-555-01024",
+      "phone": "+1-555-01017",
       "email": "synthetic.person49@example.test",
       "date_of_birth": "1994-02-23",
       "address": "149 Demo Street, Sample City",
@@ -766,7 +775,7 @@
       "id": 50,
       "name": "Finley Vale 50",
       "aliases": [],
-      "phone": "+1-555-01025",
+      "phone": "+1-555-01018",
       "email": "synthetic.person50@example.test",
       "date_of_birth": "1970-03-24",
       "address": "150 Demo Street, Sample City",
@@ -1108,6 +1117,121 @@
         "synthetic": true,
         "network": "control"
       }
+    },
+    {
+      "id": 76,
+      "name": "Rohan Malhotra",
+      "aliases": [
+        "VoiceDesk-Rohan",
+        "Lead Caller"
+      ],
+      "phone": "+91-98765-21001",
+      "email": "rohan.malhotra@synthetic.veil",
+      "date_of_birth": "1991-04-12",
+      "address": "Synthetic Call Hub, Gurugram, Haryana",
+      "metadata": {
+        "synthetic": true,
+        "network": "india_scam",
+        "role": "call_floor_lead"
+      }
+    },
+    {
+      "id": 77,
+      "name": "Kavya Nair",
+      "aliases": [
+        "KYC Desk",
+        "Script Handler"
+      ],
+      "phone": "+91-98765-21002",
+      "email": "kavya.nair@synthetic.veil",
+      "date_of_birth": "1994-08-23",
+      "address": "Synthetic Worksite, Noida, Uttar Pradesh",
+      "metadata": {
+        "synthetic": true,
+        "network": "india_scam",
+        "role": "caller"
+      }
+    },
+    {
+      "id": 78,
+      "name": "Imran Qureshi",
+      "aliases": [
+        "Wallet Bridge",
+        "Account Router"
+      ],
+      "phone": "+91-98765-21003",
+      "email": "imran.qureshi@synthetic.veil",
+      "date_of_birth": "1988-02-17",
+      "address": "Synthetic Residence, Lucknow, Uttar Pradesh",
+      "metadata": {
+        "synthetic": true,
+        "network": "india_scam",
+        "role": "fund_router"
+      }
+    },
+    {
+      "id": 79,
+      "name": "Meera Singh",
+      "aliases": [
+        "Mule Coordinator"
+      ],
+      "phone": "+91-98765-21004",
+      "email": "meera.singh@synthetic.veil",
+      "date_of_birth": "1996-11-05",
+      "address": "Synthetic Flat, Jaipur, Rajasthan",
+      "metadata": {
+        "synthetic": true,
+        "network": "india_scam",
+        "role": "mule_coordinator"
+      }
+    },
+    {
+      "id": 80,
+      "name": "Suresh Pawar",
+      "aliases": [
+        "Cashout Point"
+      ],
+      "phone": "+91-98765-21005",
+      "email": "suresh.pawar@synthetic.veil",
+      "date_of_birth": "1985-06-19",
+      "address": "Synthetic Market Lane, Mumbai, Maharashtra",
+      "metadata": {
+        "synthetic": true,
+        "network": "india_scam",
+        "role": "cashout_operator"
+      }
+    },
+    {
+      "id": 81,
+      "name": "Asha Verma",
+      "aliases": [
+        "Victim A"
+      ],
+      "phone": "+91-98765-21006",
+      "email": "asha.verma@example.test",
+      "date_of_birth": "1979-01-30",
+      "address": "Synthetic Colony, Pune, Maharashtra",
+      "metadata": {
+        "synthetic": true,
+        "network": "india_scam_victim",
+        "role": "victim"
+      }
+    },
+    {
+      "id": 82,
+      "name": "Nitin Rao",
+      "aliases": [
+        "Victim B"
+      ],
+      "phone": "+91-98765-21007",
+      "email": "nitin.rao@example.test",
+      "date_of_birth": "1982-09-14",
+      "address": "Synthetic Layout, Bengaluru, Karnataka",
+      "metadata": {
+        "synthetic": true,
+        "network": "india_scam_victim",
+        "role": "victim"
+      }
     }
   ],
   "organizations": [
@@ -1376,6 +1500,76 @@
       "metadata": {
         "synthetic": true
       }
+    },
+    {
+      "id": 26,
+      "number": "+91-98765-21001",
+      "carrier": "Bharat Mobile TestNet",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "owner_person_id": 76
+      }
+    },
+    {
+      "id": 27,
+      "number": "+91-98765-21002",
+      "carrier": "Bharat Mobile TestNet",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "owner_person_id": 77
+      }
+    },
+    {
+      "id": 28,
+      "number": "+91-98765-21003",
+      "carrier": "Metro India Sandbox",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "owner_person_id": 78
+      }
+    },
+    {
+      "id": 29,
+      "number": "+91-98765-21004",
+      "carrier": "Metro India Sandbox",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "owner_person_id": 79
+      }
+    },
+    {
+      "id": 30,
+      "number": "+91-98765-21005",
+      "carrier": "Civic India Wireless",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "owner_person_id": 80
+      }
+    },
+    {
+      "id": 31,
+      "number": "+91-98765-21006",
+      "carrier": "Civic India Wireless",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "owner_person_id": 81
+      }
+    },
+    {
+      "id": 32,
+      "number": "+91-98765-21007",
+      "carrier": "Bharat Mobile TestNet",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "owner_person_id": 82
+      }
     }
   ],
   "bank_accounts": [
@@ -1557,6 +1751,61 @@
       "metadata": {
         "synthetic": true,
         "owner_person_id": 61
+      }
+    },
+    {
+      "id": 21,
+      "account_number_masked": "****-****-9101",
+      "bank_name": "Bharat Demo Bank",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "owner_person_id": 78,
+        "account_role": "collection_wallet"
+      }
+    },
+    {
+      "id": 22,
+      "account_number_masked": "****-****-9102",
+      "bank_name": "Janata Sandbox Bank",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "owner_person_id": 79,
+        "account_role": "mule_account"
+      }
+    },
+    {
+      "id": 23,
+      "account_number_masked": "****-****-9103",
+      "bank_name": "Metro Cooperative Test Bank",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "owner_person_id": 80,
+        "account_role": "cashout_account"
+      }
+    },
+    {
+      "id": 24,
+      "account_number_masked": "****-****-9201",
+      "bank_name": "Citizen Sample Bank",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "owner_person_id": 81,
+        "account_role": "victim_account"
+      }
+    },
+    {
+      "id": 25,
+      "account_number_masked": "****-****-9202",
+      "bank_name": "South Demo Bank",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "owner_person_id": 82,
+        "account_role": "victim_account"
       }
     }
   ],
@@ -1834,6 +2083,66 @@
       "metadata": {
         "synthetic": true,
         "repeated_meeting_site": false
+      }
+    },
+    {
+      "id": 26,
+      "name": "Synthetic Call Hub - Gurugram",
+      "latitude": "28.459500",
+      "longitude": "77.026600",
+      "address": "Gurugram, Haryana, India",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "site_type": "call_hub"
+      }
+    },
+    {
+      "id": 27,
+      "name": "Synthetic Wallet Desk - Noida",
+      "latitude": "28.535500",
+      "longitude": "77.391000",
+      "address": "Noida, Uttar Pradesh, India",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "site_type": "wallet_desk"
+      }
+    },
+    {
+      "id": 28,
+      "name": "Synthetic Cashout Point - Mumbai",
+      "latitude": "19.076000",
+      "longitude": "72.877700",
+      "address": "Mumbai, Maharashtra, India",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "site_type": "cashout"
+      }
+    },
+    {
+      "id": 29,
+      "name": "Synthetic Victim Location - Pune",
+      "latitude": "18.520400",
+      "longitude": "73.856700",
+      "address": "Pune, Maharashtra, India",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "site_type": "victim_city"
+      }
+    },
+    {
+      "id": 30,
+      "name": "Synthetic Victim Location - Bengaluru",
+      "latitude": "12.971600",
+      "longitude": "77.594600",
+      "address": "Bengaluru, Karnataka, India",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "site_type": "victim_city"
       }
     }
   ],
@@ -4641,6 +4950,396 @@
         "synthetic": true,
         "pattern": "community"
       }
+    },
+    {
+      "id": 221,
+      "caller_entity_id": 76,
+      "receiver_entity_id": 81,
+      "timestamp": "2026-03-14T18:00:00+00:00",
+      "duration_seconds": 95,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "bank_kyc_update"
+      }
+    },
+    {
+      "id": 222,
+      "caller_entity_id": 77,
+      "receiver_entity_id": 81,
+      "timestamp": "2026-03-14T19:11:00+00:00",
+      "duration_seconds": 180,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "bank_kyc_update"
+      }
+    },
+    {
+      "id": 223,
+      "caller_entity_id": 76,
+      "receiver_entity_id": 82,
+      "timestamp": "2026-03-14T20:22:00+00:00",
+      "duration_seconds": 420,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "bank_kyc_update"
+      }
+    },
+    {
+      "id": 224,
+      "caller_entity_id": 77,
+      "receiver_entity_id": 82,
+      "timestamp": "2026-03-15T21:33:00+00:00",
+      "duration_seconds": 760,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "bank_kyc_update"
+      }
+    },
+    {
+      "id": 225,
+      "caller_entity_id": 76,
+      "receiver_entity_id": 78,
+      "timestamp": "2026-03-15T22:00:00+00:00",
+      "duration_seconds": 1180,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 226,
+      "caller_entity_id": 78,
+      "receiver_entity_id": 79,
+      "timestamp": "2026-03-15T23:11:00+00:00",
+      "duration_seconds": 95,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 227,
+      "caller_entity_id": 79,
+      "receiver_entity_id": 80,
+      "timestamp": "2026-03-16T18:22:00+00:00",
+      "duration_seconds": 180,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 228,
+      "caller_entity_id": 77,
+      "receiver_entity_id": 78,
+      "timestamp": "2026-03-16T19:33:00+00:00",
+      "duration_seconds": 420,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 229,
+      "caller_entity_id": 76,
+      "receiver_entity_id": 79,
+      "timestamp": "2026-03-16T20:00:00+00:00",
+      "duration_seconds": 760,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 230,
+      "caller_entity_id": 78,
+      "receiver_entity_id": 80,
+      "timestamp": "2026-03-17T21:11:00+00:00",
+      "duration_seconds": 1180,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 231,
+      "caller_entity_id": 76,
+      "receiver_entity_id": 81,
+      "timestamp": "2026-03-17T22:22:00+00:00",
+      "duration_seconds": 95,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "bank_kyc_update"
+      }
+    },
+    {
+      "id": 232,
+      "caller_entity_id": 77,
+      "receiver_entity_id": 81,
+      "timestamp": "2026-03-17T23:33:00+00:00",
+      "duration_seconds": 180,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "bank_kyc_update"
+      }
+    },
+    {
+      "id": 233,
+      "caller_entity_id": 76,
+      "receiver_entity_id": 82,
+      "timestamp": "2026-03-18T18:00:00+00:00",
+      "duration_seconds": 420,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "bank_kyc_update"
+      }
+    },
+    {
+      "id": 234,
+      "caller_entity_id": 77,
+      "receiver_entity_id": 82,
+      "timestamp": "2026-03-18T19:11:00+00:00",
+      "duration_seconds": 760,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "bank_kyc_update"
+      }
+    },
+    {
+      "id": 235,
+      "caller_entity_id": 76,
+      "receiver_entity_id": 78,
+      "timestamp": "2026-03-18T20:22:00+00:00",
+      "duration_seconds": 1180,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 236,
+      "caller_entity_id": 78,
+      "receiver_entity_id": 79,
+      "timestamp": "2026-03-19T21:33:00+00:00",
+      "duration_seconds": 95,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 237,
+      "caller_entity_id": 79,
+      "receiver_entity_id": 80,
+      "timestamp": "2026-03-19T22:00:00+00:00",
+      "duration_seconds": 180,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 238,
+      "caller_entity_id": 77,
+      "receiver_entity_id": 78,
+      "timestamp": "2026-03-19T23:11:00+00:00",
+      "duration_seconds": 420,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 239,
+      "caller_entity_id": 76,
+      "receiver_entity_id": 79,
+      "timestamp": "2026-03-20T18:22:00+00:00",
+      "duration_seconds": 760,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 240,
+      "caller_entity_id": 78,
+      "receiver_entity_id": 80,
+      "timestamp": "2026-03-20T19:33:00+00:00",
+      "duration_seconds": 1180,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 241,
+      "caller_entity_id": 76,
+      "receiver_entity_id": 81,
+      "timestamp": "2026-03-20T20:00:00+00:00",
+      "duration_seconds": 95,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "bank_kyc_update"
+      }
+    },
+    {
+      "id": 242,
+      "caller_entity_id": 77,
+      "receiver_entity_id": 81,
+      "timestamp": "2026-03-21T21:11:00+00:00",
+      "duration_seconds": 180,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "bank_kyc_update"
+      }
+    },
+    {
+      "id": 243,
+      "caller_entity_id": 76,
+      "receiver_entity_id": 82,
+      "timestamp": "2026-03-21T22:22:00+00:00",
+      "duration_seconds": 420,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "bank_kyc_update"
+      }
+    },
+    {
+      "id": 244,
+      "caller_entity_id": 77,
+      "receiver_entity_id": 82,
+      "timestamp": "2026-03-21T23:33:00+00:00",
+      "duration_seconds": 760,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "bank_kyc_update"
+      }
+    },
+    {
+      "id": 245,
+      "caller_entity_id": 76,
+      "receiver_entity_id": 78,
+      "timestamp": "2026-03-22T18:00:00+00:00",
+      "duration_seconds": 1180,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 246,
+      "caller_entity_id": 78,
+      "receiver_entity_id": 79,
+      "timestamp": "2026-03-22T19:11:00+00:00",
+      "duration_seconds": 95,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 247,
+      "caller_entity_id": 79,
+      "receiver_entity_id": 80,
+      "timestamp": "2026-03-22T20:22:00+00:00",
+      "duration_seconds": 180,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 248,
+      "caller_entity_id": 77,
+      "receiver_entity_id": 78,
+      "timestamp": "2026-03-23T21:33:00+00:00",
+      "duration_seconds": 420,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 249,
+      "caller_entity_id": 76,
+      "receiver_entity_id": 79,
+      "timestamp": "2026-03-23T22:00:00+00:00",
+      "duration_seconds": 760,
+      "communication_type": "SMS",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
+    },
+    {
+      "id": 250,
+      "caller_entity_id": 78,
+      "receiver_entity_id": 80,
+      "timestamp": "2026-03-23T23:11:00+00:00",
+      "duration_seconds": 1180,
+      "communication_type": "CALL",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing",
+        "call_script": "internal_coordination"
+      }
     }
   ],
   "transactions": [
@@ -6449,6 +7148,96 @@
         "synthetic": true,
         "unusual": false
       }
+    },
+    {
+      "id": 151,
+      "sender_entity_id": 81,
+      "receiver_entity_id": 78,
+      "amount": "78000.00",
+      "transaction_type": "UPI_TRANSFER",
+      "timestamp": "2026-03-15T22:17:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": true,
+        "location_id": 29,
+        "scenario": "india_voice_phishing",
+        "stage": "victim_to_collection"
+      }
+    },
+    {
+      "id": 152,
+      "sender_entity_id": 82,
+      "receiver_entity_id": 78,
+      "amount": "124500.00",
+      "transaction_type": "UPI_TRANSFER",
+      "timestamp": "2026-03-16T23:17:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": true,
+        "location_id": 30,
+        "scenario": "india_voice_phishing",
+        "stage": "victim_to_collection"
+      }
+    },
+    {
+      "id": 153,
+      "sender_entity_id": 78,
+      "receiver_entity_id": 79,
+      "amount": "95000.00",
+      "transaction_type": "BANK_TRANSFER",
+      "timestamp": "2026-03-18T00:17:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": true,
+        "location_id": 27,
+        "scenario": "india_voice_phishing",
+        "stage": "collection_to_mule"
+      }
+    },
+    {
+      "id": 154,
+      "sender_entity_id": 79,
+      "receiver_entity_id": 80,
+      "amount": "88000.00",
+      "transaction_type": "BANK_TRANSFER",
+      "timestamp": "2026-03-19T01:17:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": true,
+        "location_id": 28,
+        "scenario": "india_voice_phishing",
+        "stage": "mule_to_cashout"
+      }
+    },
+    {
+      "id": 155,
+      "sender_entity_id": 78,
+      "receiver_entity_id": 80,
+      "amount": "42000.00",
+      "transaction_type": "BANK_TRANSFER",
+      "timestamp": "2026-03-19T22:17:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": true,
+        "location_id": 28,
+        "scenario": "india_voice_phishing",
+        "stage": "direct_cashout"
+      }
+    },
+    {
+      "id": 156,
+      "sender_entity_id": 81,
+      "receiver_entity_id": 79,
+      "amount": "36000.00",
+      "transaction_type": "BANK_TRANSFER",
+      "timestamp": "2026-03-20T23:17:00+00:00",
+      "metadata": {
+        "synthetic": true,
+        "unusual": true,
+        "location_id": 29,
+        "scenario": "india_voice_phishing",
+        "stage": "second_push_payment"
+      }
     }
   ],
   "documents": [
@@ -6840,6 +7629,48 @@
       "processing_status": "COMPLETED",
       "metadata": {
         "synthetic": true
+      }
+    },
+    {
+      "id": 31,
+      "case_id": 13,
+      "filename": "india_voice_phishing_fir.txt",
+      "document_type": "FIR",
+      "data_category": "FIR_REPORT",
+      "source_description": "Synthetic FIR summary describing bank KYC impersonation calls to Indian residents.",
+      "text": "Complainants Asha Verma and Nitin Rao reported calls from Rohan Malhotra and Kavya Nair claiming urgent KYC verification. Funds moved to Imran Qureshi and onward to Meera Singh and Suresh Pawar.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing"
+      }
+    },
+    {
+      "id": 32,
+      "case_id": 13,
+      "filename": "cdr_cluster_india_voice_phishing.txt",
+      "document_type": "CALL_LOG",
+      "data_category": "CDR",
+      "source_description": "Synthetic call-detail cluster connecting caller phones, victims, and fund routers.",
+      "text": "Repeated call bursts from +91-98765-21001 and +91-98765-21002 preceded transfers by Asha Verma and Nitin Rao. Internal calls linked Rohan Malhotra, Imran Qureshi, Meera Singh, and Suresh Pawar.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing"
+      }
+    },
+    {
+      "id": 33,
+      "case_id": 13,
+      "filename": "upi_bank_flow_india_voice_phishing.txt",
+      "document_type": "BANK_SUMMARY",
+      "data_category": "FINANCIAL",
+      "source_description": "Synthetic UPI and bank transfer trail for the voice-phishing scenario.",
+      "text": "Victim transfers totaling 238500.00 moved to Imran Qureshi before layered transfers to mule and cashout operators.",
+      "processing_status": "COMPLETED",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing"
       }
     }
   ],
@@ -7623,6 +8454,45 @@
         "synthetic": true,
         "supports_project_eclipse": false
       }
+    },
+    {
+      "id": 61,
+      "case_id": 13,
+      "document_id": 31,
+      "evidence_type": "VICTIM_REPORT",
+      "source_reference": "india_voice_phishing_fir:line-4",
+      "content": "Victims described bank KYC impersonation calls followed by payment instructions.",
+      "confidence": 0.94,
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing"
+      }
+    },
+    {
+      "id": 62,
+      "case_id": 13,
+      "document_id": 32,
+      "evidence_type": "COMMUNICATION_PATTERN",
+      "source_reference": "cdr_cluster_india_voice_phishing:line-7",
+      "content": "Call bursts from Rohan Malhotra and Kavya Nair repeatedly preceded victim transfers.",
+      "confidence": 0.91,
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing"
+      }
+    },
+    {
+      "id": 63,
+      "case_id": 13,
+      "document_id": 33,
+      "evidence_type": "TRANSACTION_PATTERN",
+      "source_reference": "upi_bank_flow_india_voice_phishing:line-5",
+      "content": "Funds moved from victims to a collection wallet, then to mule and cash-out operators.",
+      "confidence": 0.93,
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing"
+      }
     }
   ],
   "alerts": [
@@ -7650,6 +8520,34 @@
       "status": "OPEN",
       "metadata": {
         "synthetic": true
+      }
+    },
+    {
+      "id": 3,
+      "case_id": 13,
+      "entity_id": 78,
+      "alert_type": "FUND_ROUTER",
+      "severity": "CRITICAL",
+      "score": 96.0,
+      "explanation": "Imran Qureshi receives victim transfers and forwards funds to mule and cash-out operators.",
+      "status": "OPEN",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing"
+      }
+    },
+    {
+      "id": 4,
+      "case_id": 13,
+      "entity_id": 76,
+      "alert_type": "CALL_SPIKE_BEFORE_TRANSFER",
+      "severity": "HIGH",
+      "score": 89.0,
+      "explanation": "Rohan Malhotra places repeated KYC-script calls shortly before reported victim payment activity.",
+      "status": "OPEN",
+      "metadata": {
+        "synthetic": true,
+        "scenario": "india_voice_phishing"
       }
     }
   ]

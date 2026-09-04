@@ -22,7 +22,7 @@ export function CasesPage() {
     setSeeding(true);
     setError("");
     try {
-      await seedDemoData(false);
+      await seedDemoData(true);
       load();
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Unable to seed synthetic demonstration data.");
