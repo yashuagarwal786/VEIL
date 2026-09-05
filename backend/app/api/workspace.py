@@ -126,6 +126,22 @@ def seed_demo_data(sync_graph: bool = Query(False), authorization: str | None = 
     return {"status": "seeded", "counts": counts, "graph": graph, "graph_warning": graph_warning}
 
 
+@router.post("/demo/sync-graph")
+def sync_demo_graph(reset: bool = Query(False), authorization: str | None = Header(default=None)) -> dict:
+    with SessionLocal() as session:
+        investigator = _current_investigator(session, authorization)
+        if not investigator.can_view_all_cases and investigator.role not in {"ADMINISTRATOR", "SUPERVISOR"}:
+            raise HTTPException(status_code=403, detail="Senior investigator access required.")
+
+    from scripts.seed_demo import sync_graph
+
+    try:
+        nodes, relationships, cases_represented = sync_graph(reset=reset)
+    except Exception as exc:  # pragma: no cover - depends on external Neo4j availability
+        raise HTTPException(status_code=502, detail=f"Neo4j graph synchronization failed: {exc}") from exc
+    return {"status": "synced", "nodes": nodes, "relationships": relationships, "cases": cases_represented}
+
+
 @router.post("/cases")
 def create_case(payload: dict, authorization: str | None = Header(default=None)) -> dict:
     with SessionLocal() as session:
