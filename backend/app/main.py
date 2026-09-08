@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.analytics import router as analytics_router
@@ -10,6 +11,7 @@ from app.api.graph import router as graph_router
 from app.api.health import router as health_router
 from app.api.workspace import router as workspace_router
 from app.core.config import settings
+from app.graph.client import GraphUnavailableError
 
 
 app = FastAPI(
@@ -21,11 +23,21 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,
-    allow_origin_regex=r"https://.*\.vercel\.app",
+    allow_origin_regex=settings.cors_origin_regex,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.exception_handler(GraphUnavailableError)
+async def graph_unavailable_handler(_: Request, __: GraphUnavailableError) -> JSONResponse:
+    return JSONResponse(
+        status_code=503,
+        content={
+            "detail": "Knowledge graph is temporarily unavailable. Verify Render NEO4J_URI, NEO4J_USER, and NEO4J_PASSWORD.",
+        },
+    )
 
 app.include_router(health_router, prefix="/api/health", tags=["health"])
 app.include_router(auth_router, prefix="/api/auth", tags=["auth"])

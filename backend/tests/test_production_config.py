@@ -61,3 +61,10 @@ def test_cors_origins_are_normalized_for_browser_origin_matching() -> None:
         NEO4J_PASSWORD="synthetic-production-password",
     )
     assert settings.cors_origins == ["https://veil.example"]
+
+
+def test_vercel_preview_origin_regex_is_scoped_to_veil_deployments() -> None:
+    settings = Settings()
+
+    assert settings.cors_origin_regex
+    assert "yashuagarwal786s-projects" in settings.cors_origin_regex

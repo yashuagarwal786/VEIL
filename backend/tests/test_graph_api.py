@@ -1,5 +1,6 @@
 from fastapi.testclient import TestClient
 
+from app.graph.client import GraphUnavailableError
 from app.graph.models import GraphRecordEdge, GraphRecordNode
 from app.main import app
 
@@ -89,3 +90,19 @@ def test_shortest_path_rejects_same_source_target(monkeypatch) -> None:
     response = client.get("/api/graph/path?source_id=P001&target_id=P001")
 
     assert response.status_code == 400
+
+
+def test_graph_unavailable_returns_cors_enabled_service_unavailable(monkeypatch) -> None:
+    class UnavailableGraphService:
+        def get_case_graph(self, *_args, **_kwargs):
+            raise GraphUnavailableError("Neo4j is unavailable.")
+
+    monkeypatch.setattr("app.api.graph.GraphService", lambda: UnavailableGraphService())
+    client = TestClient(app)
+    origin = "https://veil-frontend-av3z3o8jb-yashuagarwal786s-projects.vercel.app"
+
+    response = client.get("/api/graph/cases/C013", headers={"Origin": origin})
+
+    assert response.status_code == 503
+    assert response.headers["access-control-allow-origin"] == origin
+    assert "Knowledge graph is temporarily unavailable" in response.json()["detail"]

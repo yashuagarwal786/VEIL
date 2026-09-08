@@ -32,6 +32,10 @@ class Settings(BaseSettings):
         default="http://localhost:5173,http://127.0.0.1:5173",
         alias="CORS_ORIGINS",
     )
+    cors_origin_regex: str | None = Field(
+        default=r"^https://(?:veil-frontend-wine|veil-frontend-[a-z0-9-]+-yashuagarwal786s-projects)\.vercel\.app$",
+        alias="CORS_ORIGIN_REGEX",
+    )
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 

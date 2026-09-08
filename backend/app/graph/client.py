@@ -1,9 +1,13 @@
 from typing import Any
 
 from neo4j import GraphDatabase
-from neo4j.exceptions import Neo4jError
+from neo4j.exceptions import AuthError, Neo4jError, ServiceUnavailable, SessionExpired
 
 from app.core.config import settings
+
+
+class GraphUnavailableError(RuntimeError):
+    """Raised when the configured Neo4j service cannot be reached."""
 
 
 class GraphClient:
@@ -14,12 +18,17 @@ class GraphClient:
         )
 
     def verify_connectivity(self) -> None:
-        self._driver.verify_connectivity()
+        try:
+            self._driver.verify_connectivity()
+        except (AuthError, OSError, ServiceUnavailable, SessionExpired) as exc:
+            raise GraphUnavailableError("Neo4j is unavailable or credentials are invalid.") from exc
 
     def execute_write(self, query: str, parameters: dict[str, Any] | None = None) -> None:
         try:
             with self._driver.session() as session:
                 session.execute_write(lambda tx: tx.run(query, parameters or {}).consume())
+        except (AuthError, OSError, ServiceUnavailable, SessionExpired) as exc:
+            raise GraphUnavailableError("Neo4j is unavailable or credentials are invalid.") from exc
         except Neo4jError:
             raise
 
@@ -28,6 +37,8 @@ class GraphClient:
             with self._driver.session() as session:
                 result = session.execute_read(lambda tx: list(tx.run(query, parameters or {})))
             return [record.data() for record in result]
+        except (AuthError, OSError, ServiceUnavailable, SessionExpired) as exc:
+            raise GraphUnavailableError("Neo4j is unavailable or credentials are invalid.") from exc
         except Neo4jError:
             raise
 

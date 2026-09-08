@@ -16,6 +16,8 @@ services:
         value: https://veil-frontend-wine.vercel.app
       - key: CORS_ORIGINS
         value: https://veil-frontend-wine.vercel.app
+      - key: CORS_ORIGIN_REGEX
+        value: ^https://(?:veil-frontend-wine|veil-frontend-[a-z0-9-]+-yashuagarwal786s-projects)\.vercel\.app$
       - key: SECRET_KEY
         generateValue: true
       - key: NEO4J_URI
