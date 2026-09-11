@@ -30,9 +30,24 @@ app.add_middleware(
 )
 
 
+import re
+
+
+def _cors_response(request: Request, status_code: int, content: dict) -> JSONResponse:
+    origin = request.headers.get("origin")
+    headers: dict[str, str] = {}
+    if origin and (origin in settings.cors_origins or (settings.cors_origin_regex and re.match(settings.cors_origin_regex, origin))):
+        headers["Access-Control-Allow-Origin"] = origin
+        headers["Access-Control-Allow-Credentials"] = "true"
+        headers["Access-Control-Allow-Methods"] = "*"
+        headers["Access-Control-Allow-Headers"] = "*"
+    return JSONResponse(status_code=status_code, content=content, headers=headers)
+
+
 @app.exception_handler(GraphUnavailableError)
-async def graph_unavailable_handler(_: Request, __: GraphUnavailableError) -> JSONResponse:
-    return JSONResponse(
+async def graph_unavailable_handler(request: Request, __: GraphUnavailableError) -> JSONResponse:
+    return _cors_response(
+        request,
         status_code=503,
         content={
             "detail": "Knowledge graph is temporarily unavailable. Verify Render NEO4J_URI, NEO4J_USER, and NEO4J_PASSWORD.",
@@ -41,8 +56,9 @@ async def graph_unavailable_handler(_: Request, __: GraphUnavailableError) -> JS
 
 
 @app.exception_handler(Exception)
-async def global_exception_handler(_: Request, exc: Exception) -> JSONResponse:
-    return JSONResponse(
+async def global_exception_handler(request: Request, exc: Exception) -> JSONResponse:
+    return _cors_response(
+        request,
         status_code=500,
         content={"detail": f"Internal Server Error: {str(exc)}"},
     )
