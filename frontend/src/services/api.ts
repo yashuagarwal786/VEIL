@@ -126,6 +126,22 @@ export function searchGraph(query: string, caseId = "C001"): Promise<GraphRespon
 
 export function getDashboard(caseId = 1): Promise<DashboardData> { return request<DashboardData>(`/api/workspace/dashboard?case_id=${caseId}`); }
 export function getCases(): Promise<CaseSummary[]> { return request<CaseSummary[]>("/api/workspace/cases"); }
+export function createCase(payload: {
+  title: string;
+  case_reference?: string;
+  description?: string;
+  case_type?: string;
+  priority?: string;
+  jurisdiction?: string;
+  sensitivity?: string;
+  assigned_investigator_id?: string;
+}): Promise<CaseSummary> {
+  return request<CaseSummary>("/api/workspace/cases", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+}
 export function getCaseDetail(caseId: number): Promise<CaseSummary> { return request<CaseSummary>(`/api/workspace/cases/${caseId}`); }
 export function getCaseSources(caseId: number): Promise<CaseDataSource[]> { return request<CaseDataSource[]>(`/api/workspace/cases/${caseId}/sources`); }
 export function getCaseActivity(caseId: number): Promise<ProcessingActivity[]> { return request<ProcessingActivity[]>(`/api/workspace/cases/${caseId}/activity`); }

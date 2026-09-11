@@ -39,15 +39,21 @@ export function CaseOverviewPage() {
   if (error) return <ErrorState label="Unable to load case overview." retry={load} />;
   if (!item) return <LoadingState />;
 
+  const [uploadSuccess, setUploadSuccess] = useState<string | null>(null);
+
   async function uploadSource() {
     if (!file) return;
     setUploading(true);
+    setUploadSuccess(null);
     try {
       const result = await uploadCaseSource(id, file, category, description);
-      await processCaseSource(result.source.id);
+      const processed = await processCaseSource(result.source.id);
       setFile(null);
       setDescription("");
       load();
+      setUploadSuccess(`Successfully ingested ${file.name}. Extracted ${(processed as any)?.processing?.entities_found ?? "new"} entities and updated Neo4j Knowledge Graph.`);
+    } catch (err) {
+      setError(true);
     } finally {
       setUploading(false);
     }
@@ -62,8 +68,24 @@ export function CaseOverviewPage() {
           <h1>{item.title}</h1>
           <p className="muted">{item.description}</p>
         </div>
-        <span className={`status-pill ${item.status}`}>{item.status}</span>
+        <div className="quick-links">
+          <Link className="veil-button" to={`/network?case=${encodeURIComponent(item.case_number)}&case_id=${item.id}`}><Network size={15} /> Explore Network Graph</Link>
+          <span className={`status-pill ${item.status}`}>{item.status}</span>
+        </div>
       </header>
+
+      {uploadSuccess && (
+        <div className="veil-panel" style={{ borderLeft: "4px solid #10b981", background: "#06221d", padding: "12px 18px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div>
+            <strong style={{ color: "#34d399" }}>✓ Document Ingested & Graph Synced: </strong>
+            <span style={{ color: "#ecfdf5" }}>{uploadSuccess}</span>
+          </div>
+          <Link className="veil-button" to={`/network?case=${encodeURIComponent(item.case_number)}&case_id=${item.id}`}>
+            <Network size={14} /> Open Knowledge Graph
+          </Link>
+        </div>
+      )}
+
       <div className="metric-grid">
         {Object.entries(item.metrics ?? {}).map(([label, value]) => <div className="metric" key={label}><span>{label}</span><strong>{value}</strong></div>)}
         <div className="metric"><span>Priority</span><strong>{item.priority_score ?? 0}</strong></div>
@@ -85,8 +107,8 @@ export function CaseOverviewPage() {
           <div className="panel-head"><h2>Investigation paths</h2></div>
           <div className="panel-body quick-links">
             <Link className="veil-button" to={`/cases/${id}/intelligence`}><BrainCircuit size={15} /> Intelligence dossier</Link>
-            <Link className="veil-button secondary" to="/network"><Network size={15} /> Explore network</Link>
-            <Link className="veil-button secondary" to="/timeline">View timeline</Link>
+            <Link className="veil-button secondary" to={`/network?case=${encodeURIComponent(item.case_number)}&case_id=${item.id}`}><Network size={15} /> Explore network</Link>
+            <Link className="veil-button secondary" to={`/timeline?case=${id}`}>View timeline</Link>
             <Link className="veil-button secondary" to="/documents"><FileText size={15} /> View documents</Link>
           </div>
         </section>
@@ -112,7 +134,7 @@ export function CaseOverviewPage() {
             <label>Data category<select className="veil-select" value={category} onChange={(event) => setCategory(event.target.value)}><option value="FIR_REPORT">FIR / Report</option><option value="CDR">Call Detail Records</option><option value="FINANCIAL">Financial</option><option value="SURVEILLANCE">Surveillance</option><option value="CRIMINAL_HISTORY">Criminal History</option><option value="INTELLIGENCE">Intelligence</option><option value="OTHER">Other</option></select></label>
             <label>Upload file<input className="veil-input" type="file" accept=".pdf,.txt,.csv,.json,.xlsx" onChange={(event) => setFile(event.target.files?.[0] ?? null)} /></label>
             <label>Description<input className="veil-input" value={description} onChange={(event) => setDescription(event.target.value)} placeholder="Source reference, collection context, or intake note" /></label>
-            <button className="veil-button" disabled={!file || uploading} onClick={uploadSource}>{uploading ? "Processing..." : "Upload and process"}</button>
+            <button className="veil-button" disabled={!file || uploading} onClick={uploadSource}>{uploading ? "Processing & Syncing Graph..." : "Upload and process"}</button>
           </div>
         </section>
       </div>

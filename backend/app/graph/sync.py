@@ -138,14 +138,30 @@ class GraphSyncService:
         return values
 
     def _sync_case_entities(self) -> None:
+        type_mapping = {
+            "person": "Person",
+            "phone": "Phone",
+            "bank_account": "BankAccount",
+            "location": "Location",
+            "organization": "Organization",
+            "vehicle": "Vehicle",
+        }
         for row in self.session.query(CaseEntity).all():
-            label = row.entity_type[:1].upper() + row.entity_type[1:]
-            if label == "Person":
-                start = self._node("Person", row.entity_id, {})
-            else:
+            label = type_mapping.get(row.entity_type.lower())
+            if not label:
                 continue
+            start = self._node(label, row.entity_id, {})
             case = self._node("Case", row.case_id, {})
-            self._upsert_relationship(start, "LINKED_TO_CASE", case, {"id": f"CASE_ENTITY_{row.case_id}_{row.entity_type}_{row.entity_id}", "source_id": f"CASE_ENTITY_{row.id}", "confidence": 1.0})
+            self._upsert_relationship(
+                start,
+                "LINKED_TO_CASE",
+                case,
+                {
+                    "id": f"CASE_ENTITY_{row.case_id}_{row.entity_type}_{row.entity_id}",
+                    "source_id": f"CASE_ENTITY_{row.id}",
+                    "confidence": 1.0,
+                },
+            )
 
     def _sync_identity_assets(self) -> None:
         people_by_phone = {person.phone: person.id for person in self.session.query(Person).all() if person.phone}

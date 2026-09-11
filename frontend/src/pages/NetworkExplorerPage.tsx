@@ -110,11 +110,13 @@ export function NetworkExplorerPage() {
     setPathMessage("");
     getCases()
       .then(async (caseRows) => {
-        const requested = params.get("case");
+        const requestedCase = params.get("case");
+        const requestedId = params.get("case_id");
         const selected =
-          caseRows.find((item) => item.case_number === requested) ??
-          caseRows.find((item) => item.case_number === CYBER_CASE_NUMBER) ??
+          (requestedCase ? caseRows.find((item) => item.case_number === requestedCase || String(item.id) === requestedCase) : null) ??
+          (requestedId ? caseRows.find((item) => String(item.id) === requestedId || item.case_number === requestedId) : null) ??
           caseRows.find((item) => item.id === caseId) ??
+          caseRows.find((item) => item.case_number === CYBER_CASE_NUMBER) ??
           caseRows[0] ??
           null;
 

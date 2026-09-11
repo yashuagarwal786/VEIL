@@ -127,7 +127,9 @@ class GraphRepository:
             rel_where = "WHERE type(r) = $relationship_type"
         rows = self.client.execute_read(
             f"""
-            MATCH (c:Case {{id: $case_id}})<-[:LINKED_TO_CASE]-(n)
+            MATCH (c:Case)
+            WHERE c.id = $case_id OR c.case_number = $case_id OR toString(c.source_id) = $case_id
+            MATCH (c)<-[:LINKED_TO_CASE]-(n)
             {label_filter}
             WITH collect(DISTINCT n)[0..$limit] AS case_nodes, c
             UNWIND case_nodes AS n

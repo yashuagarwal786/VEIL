@@ -1,21 +1,46 @@
-import { useState } from "react";
-import type { DragEvent, ReactNode } from "react";
+import { useEffect, useState } from "react";
+import type { DragEvent } from "react";
+import { ArrowRight, CheckCircle2, FileText, Network, Sparkles, UploadCloud } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import {
+  getCases,
   getDocumentExtractions,
   getEntityMatches,
   processDocument,
-  reviewExtraction,
   reviewEntityMatch,
+  reviewExtraction,
   reviewRelationship,
   uploadDocument,
 } from "../services/api";
 import type { DocumentExtractions, DocumentProcessingResult, DocumentUploadResult, EntityMatch, ReviewDecision } from "../types/documents";
+import type { CaseSummary } from "../types/workspace";
 
 const maxSizeBytes = 10 * 1024 * 1024;
 const supportedExtensions = [".pdf", ".txt", ".csv", ".json"];
 
+const SAMPLE_FIR_TEXT = `FIRST INFORMATION REPORT & INTERROGATION SUMMARY
+Case Reference: CYBER-2026-022
+Jurisdiction: Special Cyber Cell, Delhi
+
+During the raid on 12th March 2026 at Sector 62 Noida, suspect Rajesh Sharma (Phone: +91-9811223344) was apprehended operating a VoIP gateway.
+Rajesh Sharma disclosed that he works for Vikram Malhotra and routinely transferred ₹2,50,000 to Vikram Malhotra via UPI ID vikram.malhotra@okhdfcbank.
+
+Further analysis of CDR records revealed that Rajesh Sharma called Amit Verma (+91-9876543210) over 45 times in the last 7 days.
+Amit Verma operates dummy bank account no. 918273645019 at HDFC Bank Connaught Place and transferred ₹1,80,000 to Meera Kapoor.
+Suspect vehicle DL-01-AB-1234 registered to Sanjay Gupta was spotted near Jaipur Railway Station meeting Amit Verma.`;
+
+const SAMPLE_HAWALA_TEXT = `FINANCIAL INTELLIGENCE NOTE - CRYPTO & HAWALA ROUTING
+Case Reference: HAWALA-2026-088
+Reporting Unit: Enforcement & Economic Intelligence
+
+Interrogation of Mule Account Holder Tariq Khan (Phone: +91-9988776655, Account: 50100492817263 at Axis Bank Mumbai):
+Tariq Khan confirmed he received multiple deposits totaling ₹15,00,000 from Rohit Kapoor and transferred ₹12,00,000 to Imran Qureshi.
+Imran Qureshi operates from Bandra Kurla Complex and frequently contacted Deepak Agarwal for crypto conversion.
+Deepak Agarwal transferred ₹8,50,000 to Sunita Rawat towards settlement of offshore SIM box logistics.`;
+
 export function DocumentIntelligencePage() {
+  const [cases, setCases] = useState<CaseSummary[]>([]);
   const [caseId, setCaseId] = useState(1);
   const [file, setFile] = useState<File | null>(null);
   const [upload, setUpload] = useState<DocumentUploadResult | null>(null);
@@ -25,6 +50,17 @@ export function DocumentIntelligencePage() {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
+  useEffect(() => {
+    getCases().then((rows) => {
+      setCases(rows);
+      if (rows.length && !rows.some((c) => c.id === caseId)) {
+        setCaseId(rows[0].id);
+      }
+    }).catch(() => {});
+  }, []);
+
+  const currentCase = cases.find((c) => c.id === caseId);
+
   function selectFile(nextFile: File | null) {
     setError(null);
     if (!nextFile) {
@@ -33,7 +69,7 @@ export function DocumentIntelligencePage() {
     }
     const extension = nextFile.name.slice(nextFile.name.lastIndexOf(".")).toLowerCase();
     if (!supportedExtensions.includes(extension)) {
-      setError("Unsupported file type.");
+      setError("Unsupported file type. Please upload a PDF, TXT, CSV, or JSON document.");
       return;
     }
     if (nextFile.size > maxSizeBytes) {
@@ -43,6 +79,12 @@ export function DocumentIntelligencePage() {
     setFile(nextFile);
   }
 
+  function loadSample(sampleText: string, sampleFilename: string) {
+    const blob = new Blob([sampleText], { type: "text/plain" });
+    const sampleFile = new File([blob], sampleFilename, { type: "text/plain" });
+    selectFile(sampleFile);
+  }
+
   function onDrop(event: DragEvent<HTMLDivElement>) {
     event.preventDefault();
     selectFile(event.dataTransfer.files[0] ?? null);
@@ -50,7 +92,7 @@ export function DocumentIntelligencePage() {
 
   async function uploadAndProcess() {
     if (!file) {
-      setError("Choose a document first.");
+      setError("Choose or load a document first.");
       return;
     }
     setBusy(true);
@@ -89,125 +131,169 @@ export function DocumentIntelligencePage() {
   }
 
   return (
-    <section className="flex flex-col gap-6 py-8">
-      <div>
-        <p className="text-sm font-semibold uppercase tracking-[0.16em] text-signal">Document Intelligence</p>
-        <h1 className="mt-2 text-3xl font-semibold">Extract, Review, Preserve Provenance</h1>
-      </div>
-
-      <div className="rounded-lg border border-ink/10 bg-white p-5">
-        <div className="grid gap-4 md:grid-cols-[160px_1fr_auto] md:items-end">
-          <label className="flex flex-col gap-1 text-sm font-medium">
-            Case ID
-            <input className="h-10 rounded-md border border-ink/15 px-3" min={1} type="number" value={caseId} onChange={(event) => setCaseId(Number(event.target.value))} />
-          </label>
-          <div
-            className="flex min-h-28 items-center justify-center rounded-lg border border-dashed border-ink/25 bg-surface px-4 text-center"
-            onDragOver={(event) => event.preventDefault()}
-            onDrop={onDrop}
-          >
-            <label className="cursor-pointer text-sm">
-              <input className="hidden" type="file" accept=".pdf,.txt,.csv,.json" onChange={(event) => selectFile(event.target.files?.[0] ?? null)} />
-              {file ? file.name : "Drop a PDF, TXT, CSV, or JSON document here, or choose a file"}
-            </label>
-          </div>
-          <button className="h-10 rounded-md bg-signal px-4 font-semibold text-white disabled:opacity-60" disabled={busy} onClick={() => void uploadAndProcess()}>
-            {busy ? "Processing" : "Upload & Process"}
-          </button>
+    <section className="page">
+      <header className="page-header">
+        <div>
+          <p className="eyebrow">Document Intelligence & Knowledge Graph Ingestion</p>
+          <h1>Ingest & Extract Provenance</h1>
+          <p className="muted">Extract entities, trace relationships, and synchronize automatically to the Neo4j Knowledge Graph</p>
         </div>
-        {error ? <div className="mt-4 rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700">{error}</div> : null}
+        {processing?.status === "COMPLETED" && currentCase && (
+          <Link className="veil-button" to={`/network?case=${encodeURIComponent(currentCase.case_number)}&case_id=${currentCase.id}`}>
+            <Network size={15} /> Explore Case Graph <ArrowRight size={14} />
+          </Link>
+        )}
+      </header>
+
+      <div className="veil-panel">
+        <div className="panel-head"><h2><UploadCloud size={16} style={{ display: "inline", marginRight: "6px", verticalAlign: "middle" }} /> Ingest Investigation Document</h2></div>
+        <div className="panel-body form-stack">
+          <div style={{ display: "grid", gridTemplateColumns: "240px 1fr auto", gap: "16px", alignItems: "end" }}>
+            <label>
+              Target Investigation Case
+              <select className="veil-select" value={caseId} onChange={(e) => setCaseId(Number(e.target.value))}>
+                {cases.map((c) => (
+                  <option key={c.id} value={c.id}>{c.case_number} - {c.title.slice(0, 32)}</option>
+                ))}
+              </select>
+            </label>
+
+            <div
+              style={{
+                border: "2px dashed #1e3a47",
+                borderRadius: "8px",
+                padding: "20px",
+                textAlign: "center",
+                backgroundColor: "#07141b",
+                cursor: "pointer",
+              }}
+              onDragOver={(event) => event.preventDefault()}
+              onDrop={onDrop}
+            >
+              <label style={{ cursor: "pointer", display: "block" }}>
+                <input className="hidden" style={{ display: "none" }} type="file" accept=".pdf,.txt,.csv,.json" onChange={(event) => selectFile(event.target.files?.[0] ?? null)} />
+                <FileText size={24} style={{ margin: "0 auto 6px", color: "#67d3e7" }} />
+                <div>{file ? <strong style={{ color: "#ecf5f7" }}>{file.name} ({(file.size / 1024).toFixed(1)} KB)</strong> : "Drag & drop PDF, TXT, CSV, or click to browse"}</div>
+              </label>
+            </div>
+
+            <button className="veil-button" style={{ height: "42px" }} disabled={busy || !file} onClick={() => void uploadAndProcess()}>
+              {busy ? "Processing & Syncing..." : "Upload & Sync Graph"}
+            </button>
+          </div>
+
+          <div style={{ display: "flex", gap: "10px", alignItems: "center", marginTop: "8px" }}>
+            <span style={{ fontSize: "12px", color: "#849ba5" }}><Sparkles size={12} style={{ display: "inline", marginRight: "4px" }} /> Quick Demo Templates:</span>
+            <button type="button" className="veil-button secondary" style={{ fontSize: "11px", padding: "3px 8px" }} onClick={() => loadSample(SAMPLE_FIR_TEXT, "FIR_Raid_Interrogation_Noida.txt")}>
+              Load Sample FIR / Interrogation Note
+            </button>
+            <button type="button" className="veil-button secondary" style={{ fontSize: "11px", padding: "3px 8px" }} onClick={() => loadSample(SAMPLE_HAWALA_TEXT, "Hawala_Crypto_Routing_Log.txt")}>
+              Load Financial / Hawala Ledger
+            </button>
+          </div>
+
+          {error && <div className="veil-error" style={{ marginTop: "10px" }}>{error}</div>}
+        </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-4">
-        <Metric label="Document" value={upload?.filename ?? "None"} />
-        <Metric label="Status" value={processing?.status ?? upload?.status ?? "Idle"} />
-        <Metric label="Entities" value={processing?.entities_found ?? 0} />
-        <Metric label="Relationships" value={processing?.relationships_found ?? 0} />
-      </div>
-      <div className="grid gap-4 md:grid-cols-2">
-        <Metric label="Evidence Created" value={processing?.evidence_created ?? 0} />
-        <Metric label="Review Required" value={processing?.review_required ?? 0} />
-      </div>
+      {processing && (
+        <div className="metric-grid">
+          <div className="metric"><span>Document</span><strong>{upload?.filename ?? "None"}</strong></div>
+          <div className="metric"><span>Status</span><strong><span className="status-pill COMPLETED">{processing.status}</span></strong></div>
+          <div className="metric"><span>Entities Extracted</span><strong>{processing.entities_found}</strong></div>
+          <div className="metric"><span>Relationships</span><strong>{processing.relationships_found}</strong></div>
+          <div className="metric"><span>Neo4j Graph Status</span><strong><span className="status-pill ACTIVE">{processing.graph_sync_status}</span></strong></div>
+        </div>
+      )}
+
+      {processing?.status === "COMPLETED" && currentCase && (
+        <div className="veil-panel" style={{ borderLeft: "4px solid #34d399", background: "#06231c", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <CheckCircle2 size={24} style={{ color: "#34d399" }} />
+            <div>
+              <strong style={{ color: "#ecfdf5", fontSize: "15px" }}>Knowledge Graph Generated & Synced in Neo4j</strong>
+              <p style={{ color: "#a7f3d0", fontSize: "12px", margin: "2px 0 0" }}>All extracted suspects, accounts, phones, and transactions have been linked to {currentCase.case_number}.</p>
+            </div>
+          </div>
+          <Link className="veil-button" to={`/network?case=${encodeURIComponent(currentCase.case_number)}&case_id=${currentCase.id}`}>
+            <Network size={15} /> View in Interactive Graph
+          </Link>
+        </div>
+      )}
 
       {extractions ? (
-        <div className="grid gap-4 lg:grid-cols-2">
-          <Panel title="Entities">
-            {extractions.entities.map((item) => (
-              <div key={item.id} className="mb-3 rounded-md bg-surface p-3 text-sm">
-                <div className="flex justify-between gap-3 font-semibold">
-                  <span>{item.text}</span>
-                  <span>{Math.round(item.confidence * 100)}%</span>
+        <div className="veil-grid-2">
+          <section className="veil-panel">
+            <div className="panel-head"><h2>Extracted Entities ({extractions.entities.length})</h2></div>
+            <div className="panel-body stack-list">
+              {extractions.entities.map((item) => (
+                <div key={item.id} className="stack-row">
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <strong style={{ color: "#ecf5f7" }}>{item.text}</strong>
+                    <span className="status-pill">{Math.round(item.confidence * 100)}%</span>
+                  </div>
+                  <small className="muted">{item.entity_type} · {item.source_reference}</small>
+                  <p style={{ fontSize: "11px", color: "#8ea3ad", margin: "4px 0" }}>{item.source_context}</p>
+                  <div className="quick-links" style={{ marginTop: "4px" }}>
+                    {(["ACCEPT", "REJECT", "DEFER"] as ReviewDecision[]).map((decision) => (
+                      <button key={decision} className="veil-button secondary" style={{ fontSize: "10px", padding: "2px 6px" }} onClick={() => void reviewEntityExtraction(item.id, decision)}>
+                        {decision}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-                <div className="mt-1 text-ink/60">{item.entity_type} · {item.source_reference}</div>
-                <div className="mt-2 text-xs text-ink/70">{item.source_context}</div>
-                <ReviewButtons onReview={(decision) => void reviewEntityExtraction(item.id, decision)} />
-              </div>
-            ))}
-          </Panel>
-          <Panel title="Relationships">
-            {extractions.relationships.map((item) => (
-              <div key={item.id} className="mb-3 rounded-md bg-surface p-3 text-sm">
-                <div className="font-semibold">
-                  {item.source_entity} &gt; {item.relationship_type} &gt; {item.target_entity}
+              ))}
+              {!extractions.entities.length && <p className="muted">No entities extracted.</p>}
+            </div>
+          </section>
+
+          <section className="veil-panel">
+            <div className="panel-head"><h2>Extracted Relationships ({extractions.relationships.length})</h2></div>
+            <div className="panel-body stack-list">
+              {extractions.relationships.map((item) => (
+                <div key={item.id} className="stack-row">
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <strong style={{ color: "#38bdf8" }}>{item.source_entity} &rarr; [{item.relationship_type}] &rarr; {item.target_entity}</strong>
+                    <span className="status-pill">{Math.round(item.confidence * 100)}%</span>
+                  </div>
+                  <p style={{ fontSize: "11px", color: "#8ea3ad", margin: "4px 0" }}>{item.source_text}</p>
+                  <div className="quick-links" style={{ marginTop: "4px" }}>
+                    {(["ACCEPT", "REJECT", "DEFER"] as ReviewDecision[]).map((decision) => (
+                      <button key={decision} className="veil-button secondary" style={{ fontSize: "10px", padding: "2px 6px" }} onClick={() => void reviewRelationshipExtraction(item.id, decision)}>
+                        {decision}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-                <div className="mt-1 text-ink/60">Extraction Confidence {Math.round(item.confidence * 100)}% · {item.source_reference}</div>
-                <div className="mt-2 text-xs text-ink/70">{item.source_text}</div>
-                <ReviewButtons onReview={(decision) => void reviewRelationshipExtraction(item.id, decision)} />
-              </div>
-            ))}
-          </Panel>
+              ))}
+              {!extractions.relationships.length && <p className="muted">No relationships extracted.</p>}
+            </div>
+          </section>
         </div>
       ) : null}
 
-      <Panel title="Entity Resolution Review">
-        {matches.map((match) => (
-          <div key={match.id} className="mb-3 rounded-md bg-surface p-3 text-sm">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div>
-                <div className="font-semibold">{match.candidate_label ?? "No existing entity"}</div>
-                <div className="text-ink/60">{match.match_type} · {Math.round(match.confidence * 100)}% · {match.status}</div>
+      {matches.length > 0 && (
+        <section className="veil-panel">
+          <div className="panel-head"><h2>Entity Resolution Matches ({matches.length})</h2></div>
+          <div className="panel-body stack-list">
+            {matches.map((match) => (
+              <div key={match.id} className="stack-row" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div>
+                  <strong>{match.candidate_label ?? "No existing entity"}</strong>
+                  <small className="muted"> {match.match_type} · {Math.round(match.confidence * 100)}% · {match.status}</small>
+                </div>
+                <div className="quick-links">
+                  {(["ACCEPT", "REJECT", "DEFER"] as ReviewDecision[]).map((decision) => (
+                    <button key={decision} className="veil-button secondary" style={{ fontSize: "11px", padding: "3px 8px" }} onClick={() => void review(match.id, decision)}>
+                      {decision}
+                    </button>
+                  ))}
+                </div>
               </div>
-              <div className="flex gap-2">
-                {(["ACCEPT", "REJECT", "DEFER"] as ReviewDecision[]).map((decision) => (
-                  <button key={decision} className="rounded-md border border-ink/15 px-3 py-2 text-xs font-semibold" onClick={() => void review(match.id, decision)}>
-                    {decision}
-                  </button>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
-        ))}
-      </Panel>
+        </section>
+      )}
     </section>
-  );
-}
-
-function ReviewButtons({ onReview }: { onReview: (decision: ReviewDecision) => void }) {
-  return (
-    <div className="mt-3 flex flex-wrap gap-2">
-      {(["ACCEPT", "REJECT", "DEFER"] as ReviewDecision[]).map((decision) => (
-        <button key={decision} className="rounded-md border border-ink/15 px-3 py-1.5 text-xs font-semibold" onClick={() => onReview(decision)}>
-          {decision}
-        </button>
-      ))}
-    </div>
-  );
-}
-
-function Metric({ label, value }: { label: string; value: string | number }) {
-  return (
-    <div className="rounded-lg border border-ink/10 bg-white p-4">
-      <p className="text-sm text-ink/60">{label}</p>
-      <p className="mt-1 break-words text-xl font-semibold">{value}</p>
-    </div>
-  );
-}
-
-function Panel({ title, children }: { title: string; children: ReactNode }) {
-  return (
-    <div className="rounded-lg border border-ink/10 bg-white p-4">
-      <h2 className="font-semibold">{title}</h2>
-      <div className="mt-3 max-h-96 overflow-auto">{children}</div>
-    </div>
   );
 }

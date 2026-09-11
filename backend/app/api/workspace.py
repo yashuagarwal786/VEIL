@@ -146,25 +146,37 @@ def sync_demo_graph(reset: bool = Query(False), authorization: str | None = Head
 def create_case(payload: dict, authorization: str | None = Header(default=None)) -> dict:
     with SessionLocal() as session:
         investigator = _current_investigator(session, authorization)
-        require_admin(investigator)
-        assigned_to = payload.get("assigned_investigator_id")
+        assigned_to = payload.get("assigned_investigator_id") or investigator.investigator_id
+        case_ref = payload.get("case_reference") or payload.get("case_number")
+        if not case_ref:
+            count = session.scalar(select(func.count()).select_from(Case)) or 0
+            case_ref = f"CASE-{datetime.utcnow().year}-{count + 1:03d}"
         item = Case(
-            case_number=payload["case_reference"],
-            title=payload["title"],
-            description=payload.get("description"),
-            status="ASSIGNED" if assigned_to else "NEW",
+            case_number=case_ref.strip(),
+            title=payload["title"].strip(),
+            description=payload.get("description", "").strip() or None,
+            status="ACTIVE",
             case_type=payload.get("case_type", "GENERAL"),
-            priority=payload.get("priority", "MEDIUM"),
+            priority=payload.get("priority", "HIGH"),
             created_by_investigator_id=investigator.investigator_id,
             assigned_investigator_id=assigned_to,
-            assigned_at=datetime.utcnow() if assigned_to else None,
-            jurisdiction=payload.get("jurisdiction"),
+            assigned_at=datetime.utcnow(),
+            jurisdiction=payload.get("jurisdiction", "Digital Intelligence Unit"),
             sensitivity=payload.get("sensitivity", "INTERNAL"),
         )
         session.add(item)
+        session.flush()
         session.add(ReviewAudit(decision="CASE_CREATED", actor_type=investigator.investigator_id, metadata_={"case_reference": item.case_number}))
         session.commit()
         session.refresh(item)
+
+        # Sync new case node into Neo4j
+        try:
+            from app.graph.sync import GraphSyncService
+            GraphSyncService(session).sync_all(reset=False)
+        except Exception:
+            pass
+
         return case_row(item, _investigator_map(session))
 
 

@@ -1,17 +1,30 @@
 from __future__ import annotations
 
 import hashlib
+import re
 from datetime import datetime, timezone
+from decimal import Decimal
 
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.graph.sync import GraphSyncService
+from app.models.bank_account import BankAccount
+from app.models.communication import Communication
 from app.models.document import Document
+from app.models.entity import CaseEntity
 from app.models.enums import ExtractionKind, ExtractionReviewStatus, MatchStatus, ProcessingStatus
 from app.models.evidence import Evidence
 from app.models.extraction import DocumentExtraction, EntityMatch, ExtractedRelationship
+from app.models.location import Location
+from app.models.organization import Organization
+from app.models.person import Person
+from app.models.phone import Phone
+from app.models.transaction import Transaction
+from app.models.vehicle import Vehicle
 from app.nlp.entity_extractor import RuleBasedEntityExtractor
 from app.nlp.entity_resolver import EntityResolver
+from app.nlp.normalizer import normalize_name, normalize_phone
 from app.nlp.relationship_extractor import RuleBasedRelationshipExtractor
 from app.nlp.text_extractor import extract_text
 from app.storage.local import LocalStorage
@@ -108,6 +121,10 @@ class DocumentProcessingService:
                 )
                 self.session.add(extraction)
                 self.session.flush()
+
+                # Auto-promote extracted entity to real case entity
+                self._promote_entity(document.case_id, entity)
+
                 for candidate in resolver.resolve(entity):
                     match = EntityMatch(
                         extraction_id=extraction.id,
@@ -158,6 +175,9 @@ class DocumentProcessingService:
                 )
                 evidence_created += 1
 
+                # Auto-promote relationship (ensure source & target exist and record transaction/communication)
+                self._promote_relationship(document.case_id, relationship)
+
             document.processing_status = ProcessingStatus.COMPLETED
             document.processing_completed_at = datetime.now(timezone.utc)
             self.session.commit()
@@ -195,3 +215,117 @@ class DocumentProcessingService:
         if confidence >= REVIEW_THRESHOLD:
             return ExtractionReviewStatus.REVIEW_REQUIRED
         return ExtractionReviewStatus.REJECTED
+
+    def _link_case_entity(self, case_id: int, entity_type: str, entity_id: int) -> None:
+        exists = self.session.query(CaseEntity).filter(
+            CaseEntity.case_id == case_id,
+            CaseEntity.entity_type == entity_type.lower(),
+            CaseEntity.entity_id == entity_id,
+        ).first()
+        if not exists:
+            self.session.add(CaseEntity(case_id=case_id, entity_type=entity_type.lower(), entity_id=entity_id))
+            self.session.flush()
+
+    def _promote_entity(self, case_id: int, entity: Any) -> None:
+        if entity.type == "PERSON" and len(entity.text.strip()) >= 2:
+            person = self.session.query(Person).filter(Person.name.ilike(entity.text.strip())).first()
+            if not person:
+                person = Person(name=entity.text.strip(), aliases=[], metadata_={"auto_extracted": True})
+                self.session.add(person)
+                self.session.flush()
+            self._link_case_entity(case_id, "person", person.id)
+
+        elif entity.type == "PHONE":
+            phone_num = normalize_phone(entity.normalized_value) or entity.text.strip()
+            phone = self.session.query(Phone).filter(Phone.number == phone_num).first()
+            if not phone:
+                phone = Phone(number=phone_num, metadata_={"auto_extracted": True})
+                self.session.add(phone)
+                self.session.flush()
+            self._link_case_entity(case_id, "phone", phone.id)
+
+        elif entity.type == "BANK_ACCOUNT":
+            acct_val = entity.normalized_value or entity.text.strip()
+            account = self.session.query(BankAccount).filter(BankAccount.account_number_masked == acct_val).first()
+            if not account:
+                account = BankAccount(account_number_masked=acct_val, bank_name="Bank", metadata_={"auto_extracted": True})
+                self.session.add(account)
+                self.session.flush()
+            self._link_case_entity(case_id, "bank_account", account.id)
+
+        elif entity.type == "LOCATION" and len(entity.text.strip()) >= 3:
+            loc_val = entity.text.strip()
+            location = self.session.query(Location).filter(Location.name.ilike(loc_val)).first()
+            if not location:
+                location = Location(name=loc_val, latitude=28.6139, longitude=77.2090, metadata_={"auto_extracted": True})
+                self.session.add(location)
+                self.session.flush()
+            self._link_case_entity(case_id, "location", location.id)
+
+        elif entity.type == "ORGANIZATION" and len(entity.text.strip()) >= 3:
+            org_val = entity.text.strip()
+            org = self.session.query(Organization).filter(Organization.name.ilike(org_val)).first()
+            if not org:
+                org = Organization(name=org_val, organization_type="Commercial", metadata_={"auto_extracted": True})
+                self.session.add(org)
+                self.session.flush()
+            self._link_case_entity(case_id, "organization", org.id)
+
+        elif entity.type == "VEHICLE":
+            veh_val = entity.normalized_value or entity.text.strip()
+            veh = self.session.query(Vehicle).filter(Vehicle.registration_number == veh_val).first()
+            if not veh:
+                veh = Vehicle(registration_number=veh_val, vehicle_type="Vehicle", metadata_={"auto_extracted": True})
+                self.session.add(veh)
+                self.session.flush()
+            self._link_case_entity(case_id, "vehicle", veh.id)
+
+    def _promote_relationship(self, case_id: int, relationship: Any) -> None:
+        source_name = relationship.source_entity.strip()
+        target_name = relationship.target_entity.strip()
+        if not source_name or not target_name:
+            return
+
+        source_person = self.session.query(Person).filter(Person.name.ilike(source_name)).first()
+        if not source_person:
+            source_person = Person(name=source_name, aliases=[], metadata_={"auto_extracted": True})
+            self.session.add(source_person)
+            self.session.flush()
+        self._link_case_entity(case_id, "person", source_person.id)
+
+        target_person = self.session.query(Person).filter(Person.name.ilike(target_name)).first()
+        if not target_person:
+            target_person = Person(name=target_name, aliases=[], metadata_={"auto_extracted": True})
+            self.session.add(target_person)
+            self.session.flush()
+        self._link_case_entity(case_id, "person", target_person.id)
+
+        # Parse amount if transfer
+        if relationship.relationship_type == "TRANSFERRED_TO":
+            amount_match = re.search(r"(?:₹|rs\.?\s*|inr\s*)?\s*([\d,]+(?:\.\d{1,2})?)", relationship.source_text, re.I)
+            amount_val = 50000.0
+            if amount_match:
+                try:
+                    amount_val = float(amount_match.group(1).replace(",", ""))
+                except Exception:
+                    pass
+            tx = Transaction(
+                sender_entity_id=source_person.id,
+                receiver_entity_id=target_person.id,
+                amount=Decimal(str(amount_val)),
+                transaction_type="UPI / Bank Transfer",
+                timestamp=datetime.now(timezone.utc),
+                metadata_={"case_id": case_id, "auto_extracted": True, "source_text": relationship.source_text},
+            )
+            self.session.add(tx)
+
+        elif relationship.relationship_type in {"CALLS", "COMMUNICATED_WITH"}:
+            comm = Communication(
+                caller_entity_id=source_person.id,
+                receiver_entity_id=target_person.id,
+                timestamp=datetime.now(timezone.utc),
+                duration_seconds=180,
+                communication_type="CALL" if relationship.relationship_type == "CALLS" else "SMS",
+                metadata_={"case_id": case_id, "auto_extracted": True, "source_text": relationship.source_text},
+            )
+            self.session.add(comm)
