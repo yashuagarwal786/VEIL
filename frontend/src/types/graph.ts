@@ -26,6 +26,16 @@ export type CentralityResult = {
   degree?: number | null;
 };
 
+export type KeyEntityResult = {
+  entity_id: string;
+  name: string;
+  entity_type: string;
+  degree_score: number;
+  betweenness_score: number;
+  pagerank_score: number;
+  structural_importance: number;
+};
+
 export type Community = {
   id: number;
   size: number;

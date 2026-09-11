@@ -3,6 +3,7 @@ import type {
   CentralityResult,
   CommunitiesResponse,
   GraphResponse,
+  KeyEntityResult,
   NetworkSummary,
   PathResponse,
   RelationshipEvidence,
@@ -113,6 +114,10 @@ export function getNetworkSummary(caseId: string): Promise<NetworkSummary> {
 
 export function getBridgeEntities(caseId: string): Promise<BridgeEntity[]> {
   return request<BridgeEntity[]>(`/api/analytics/bridge-entities?case_id=${encodeURIComponent(caseId)}&limit=5`);
+}
+
+export function getKeyEntities(caseId: string, limit = 10): Promise<KeyEntityResult[]> {
+  return request<KeyEntityResult[]>(`/api/analytics/key-entities?case_id=${encodeURIComponent(caseId)}&limit=${limit}`);
 }
 
 export function findShortestPath(sourceId: string, targetId: string, maxDepth = 6): Promise<PathResponse> { return request<PathResponse>(`/api/graph/path?source_id=${encodeURIComponent(sourceId)}&target_id=${encodeURIComponent(targetId)}&max_depth=${maxDepth}`); }
