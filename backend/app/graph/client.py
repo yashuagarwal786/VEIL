@@ -36,7 +36,7 @@ class GraphClient:
         try:
             with self._driver.session() as session:
                 result = session.execute_read(lambda tx: list(tx.run(query, parameters or {})))
-            return [record.data() for record in result]
+            return [dict(record) for record in result]
         except (AuthError, OSError, ServiceUnavailable, SessionExpired) as exc:
             raise GraphUnavailableError("Neo4j is unavailable or credentials are invalid.") from exc
         except Neo4jError:

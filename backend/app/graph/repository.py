@@ -55,9 +55,9 @@ class GraphRepository:
         for label in ["Person", "Organization", "Phone", "BankAccount", "Vehicle", "Location", "Case", "Document"]:
             safe_label = _validate_token(label, "label")
             self.client.execute_write(f"CREATE CONSTRAINT {safe_label.lower()}_id IF NOT EXISTS FOR (n:{safe_label}) REQUIRE n.id IS UNIQUE")
-        self.client.execute_write("CREATE INDEX relationship_id IF NOT EXISTS FOR ()-[r]-() ON (r.id)")
-        self.client.execute_write("CREATE INDEX entity_label IF NOT EXISTS FOR (n) ON (n.label)")
-        self.client.execute_write("CREATE INDEX entity_normalized_name IF NOT EXISTS FOR (n) ON (n.normalized_name)")
+        self.client.execute_write("CREATE INDEX person_label IF NOT EXISTS FOR (n:Person) ON (n.label)")
+        self.client.execute_write("CREATE INDEX person_norm_name IF NOT EXISTS FOR (n:Person) ON (n.normalized_name)")
+        self.client.execute_write("CREATE INDEX case_number IF NOT EXISTS FOR (n:Case) ON (n.case_number)")
 
     def clear_graph(self) -> None:
         self.client.execute_write("MATCH (n) DETACH DELETE n")
