@@ -39,6 +39,14 @@ async def graph_unavailable_handler(_: Request, __: GraphUnavailableError) -> JS
         },
     )
 
+
+@app.exception_handler(Exception)
+async def global_exception_handler(_: Request, exc: Exception) -> JSONResponse:
+    return JSONResponse(
+        status_code=500,
+        content={"detail": f"Internal Server Error: {str(exc)}"},
+    )
+
 app.include_router(health_router, prefix="/api/health", tags=["health"])
 app.include_router(auth_router, prefix="/api/auth", tags=["auth"])
 app.include_router(graph_router, prefix="/api/graph", tags=["graph"])
