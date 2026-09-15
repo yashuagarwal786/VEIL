@@ -29,7 +29,7 @@ PATTERNS: list[tuple[str, re.Pattern[str], float]] = [
 ]
 
 PERSON_PATTERN = re.compile(
-    r"\b(?:(?:Mr\.|Ms\.|Mrs\.|Shri|Smt\.|Dr\.|Accused|Suspect|Victim|Complainant)\s+)?([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3})\b"
+    r"\b(?:(?:Mr\.|Ms\.|Mrs\.|Shri|Smt\.|Dr\.|Accused|Suspect|Victim|Complainant)\s+)?([A-Z][a-z]+(?:\s+(?:[A-Z][a-z]+|[A-Z]\.))+)"
 )
 LOCATION_HINT = re.compile(
     r"\b(?:near|at|from|to|in|located at|address:?)\s+([A-Z][A-Za-z0-9]+(?:\s+[A-Z][A-Za-z0-9]+){0,4}(?:\s+(?:Station|Market|Avenue|Street|District|Depot|Hub|Nagar|Colony|Sector\s*\d+|Vihar|Road|Marg|Chowk|Complex|Tower|Plaza|Enclave|City|Unit|Cell)))\b",
