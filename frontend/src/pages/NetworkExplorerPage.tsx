@@ -254,7 +254,24 @@ export function NetworkExplorerPage() {
         { selector: ":selected", style: { "border-color": "#ffffff", "border-width": 3, "line-color": "#67d3e7", "target-arrow-color": "#67d3e7", width: 3 } },
         { selector: ".path", style: { "background-color": "#ffffff", "line-color": "#f2b861", "target-arrow-color": "#f2b861", width: 4, "z-index": 10 } },
       ],
-      layout: { name: "cose", animate: false, padding: 35, nodeRepulsion: () => 7500, idealEdgeLength: () => 90 },
+      layout: {
+        name: "cose",
+        animate: false,
+        padding: 60,
+        randomize: true,
+        componentSpacing: 120,
+        nodeRepulsion: () => 550000,
+        nodeOverlap: 24,
+        idealEdgeLength: () => 130,
+        edgeElasticity: () => 45,
+        nestingFactor: 0.1,
+        gravity: 0.25,
+        numIter: 2000,
+        initialTemp: 200,
+        coolingFactor: 0.99,
+        minTemp: 1.0,
+        fit: true,
+      },
     });
 
     cy.on("tap", "node", (event) => {
@@ -382,7 +399,7 @@ export function NetworkExplorerPage() {
           <button aria-label="Zoom in" onClick={() => cyRef.current?.zoom(cyRef.current.zoom() * 1.2)}><ZoomIn size={17} /></button>
           <button aria-label="Zoom out" onClick={() => cyRef.current?.zoom(cyRef.current.zoom() / 1.2)}><ZoomOut size={17} /></button>
           <button aria-label="Fit graph" onClick={() => cyRef.current?.fit(undefined, 30)}><Focus size={17} /></button>
-          <button aria-label="Reset layout" onClick={() => cyRef.current?.layout({ name: "cose", animate: true }).run()}><LocateFixed size={17} /></button>
+          <button aria-label="Reset layout" onClick={() => cyRef.current?.layout({ name: "cose", animate: true, animationDuration: 600, padding: 60, randomize: true, componentSpacing: 120, nodeRepulsion: () => 550000, nodeOverlap: 24, idealEdgeLength: () => 130, edgeElasticity: () => 45, gravity: 0.25, numIter: 1500, fit: true } as any).run()}><LocateFixed size={17} /></button>
         </div>
       </header>
 

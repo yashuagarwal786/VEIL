@@ -23,8 +23,38 @@ import type { Investigator } from "../types/investigator";
 import type { CaseDataSource, CaseSummary, DashboardData, DocumentListItem, EntityDetail, EntitySummary, EvidenceItem, IntelligenceFinding, LocationEvent, ProcessingActivity, SearchResult, TimelineEvent } from "../types/workspace";
 
 const DEFAULT_DEV_API_BASE_URL = "http://localhost:8000";
-const REQUEST_TIMEOUT_MS = import.meta.env.DEV ? 15000 : 60000;
+// Reduced from 60s to 20s in prod — fail fast, show errors instead of hanging
+const REQUEST_TIMEOUT_MS = import.meta.env.DEV ? 10000 : 20000;
 export const AUTH_INVALID_EVENT = "veil:auth-invalid";
+
+// ── Simple in-memory GET cache (TTL = 30 s) ──────────────────────────────────
+const CACHE_TTL_MS = 30_000;
+type CacheEntry = { data: unknown; expiresAt: number };
+const _responseCache = new Map<string, CacheEntry>();
+
+function cacheGet<T>(key: string): T | null {
+  const entry = _responseCache.get(key);
+  if (!entry) return null;
+  if (Date.now() > entry.expiresAt) { _responseCache.delete(key); return null; }
+  return entry.data as T;
+}
+
+function cacheSet(key: string, data: unknown) {
+  // Evict oldest if cache grows large
+  if (_responseCache.size > 120) {
+    const oldest = [..._responseCache.entries()].sort((a, b) => a[1].expiresAt - b[1].expiresAt)[0];
+    if (oldest) _responseCache.delete(oldest[0]);
+  }
+  _responseCache.set(key, { data, expiresAt: Date.now() + CACHE_TTL_MS });
+}
+
+/** Bust all cached entries for a given path prefix (e.g. after a mutation). */
+export function invalidateCache(prefix: string) {
+  for (const key of _responseCache.keys()) {
+    if (key.startsWith(prefix)) _responseCache.delete(key);
+  }
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 export function getApiBaseUrl(): string {
   const configured = import.meta.env.VITE_API_BASE_URL?.trim();
@@ -51,6 +81,14 @@ function authHeaders(): Record<string, string> {
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  const isGet = !init?.method || init.method.toUpperCase() === "GET";
+
+  // Return cached response for GET requests
+  if (isGet) {
+    const cached = cacheGet<T>(path);
+    if (cached !== null) return cached;
+  }
+
   const controller = new AbortController();
   const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
   let response: Response;
@@ -73,7 +111,10 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     }
     throw new Error(`API request failed for ${path}: ${response.status}${details ? ` - ${details}` : ""}`);
   }
-  return (await response.json()) as T;
+  const data = (await response.json()) as T;
+  // Cache successful GET responses
+  if (isGet) cacheSet(path, data);
+  return data;
 }
 
 export function getHealth(): Promise<HealthResponse> {
