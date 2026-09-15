@@ -1,10 +1,28 @@
+import {
+  BrainCircuit,
+  CheckCircle2,
+  Clock,
+  FileSearch,
+  FileText,
+  Network,
+  Shield,
+  ShieldAlert,
+  UploadCloud,
+  UserCheck,
+} from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
-import { BrainCircuit, FileText, Network, UploadCloud } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { ErrorState, LoadingState } from "../components/AsyncState";
 import { useAuth } from "../context/AuthContext";
 import { useCaseContext } from "../context/CaseContext";
-import { getAlerts, getCaseActivity, getCaseDetail, getCaseSources, processCaseSource, uploadCaseSource } from "../services/api";
+import {
+  getAlerts,
+  getCaseActivity,
+  getCaseDetail,
+  getCaseSources,
+  processCaseSource,
+  uploadCaseSource,
+} from "../services/api";
 import type { AlertItem } from "../types/analytics";
 import type { CaseDataSource, CaseSummary, ProcessingActivity } from "../types/workspace";
 
@@ -21,25 +39,29 @@ export function CaseOverviewPage() {
   const [category, setCategory] = useState("FIR_REPORT");
   const [description, setDescription] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [uploadSuccess, setUploadSuccess] = useState<string | null>(null);
   const [error, setError] = useState(false);
+
   const load = useCallback(() => {
     setError(false);
-    Promise.all([getCaseDetail(id), getAlerts(id), getCaseSources(id), getCaseActivity(id)]).then(([caseItem, items, sourceRows, events]) => {
-      setItem(caseItem);
-      setAlerts(items);
-      setSources(sourceRows);
-      setActivity(events);
-      setCaseId(id);
-      recordAudit({ action: "VIEW_CASE", target_type: "CASE", target_id: caseItem.case_number, summary: `Viewed case overview for ${caseItem.case_number}.` });
-    }).catch(() => setError(true));
+    Promise.all([getCaseDetail(id), getAlerts(id), getCaseSources(id), getCaseActivity(id)])
+      .then(([caseItem, items, sourceRows, events]) => {
+        setItem(caseItem);
+        setAlerts(items);
+        setSources(sourceRows);
+        setActivity(events);
+        setCaseId(id);
+        recordAudit({
+          action: "VIEW_CASE",
+          target_type: "CASE",
+          target_id: caseItem.case_number,
+          summary: `Viewed case overview for ${caseItem.case_number}.`,
+        });
+      })
+      .catch(() => setError(true));
   }, [id, setCaseId]);
 
   useEffect(load, [load]);
-
-  if (error) return <ErrorState label="Unable to load case overview." retry={load} />;
-  if (!item) return <LoadingState />;
-
-  const [uploadSuccess, setUploadSuccess] = useState<string | null>(null);
 
   async function uploadSource() {
     if (!file) return;
@@ -51,108 +73,293 @@ export function CaseOverviewPage() {
       setFile(null);
       setDescription("");
       load();
-      setUploadSuccess(`Successfully ingested ${file.name}. Extracted ${(processed as any)?.processing?.entities_found ?? "new"} entities and updated Neo4j Knowledge Graph.`);
-    } catch (err) {
+      setUploadSuccess(
+        `Successfully ingested ${file.name}. Extracted ${(processed as any)?.processing?.entities_found ?? "new"} entities and updated Neo4j Knowledge Graph.`,
+      );
+    } catch {
       setError(true);
     } finally {
       setUploading(false);
     }
   }
 
+  if (error) return <ErrorState label="Unable to load case dossier." retry={load} />;
+  if (!item) return <LoadingState label="Loading case intelligence..." />;
+
   return (
     <section className="page">
-      <div className="breadcrumbs"><Link to="/cases">Cases</Link><span>/</span><span>{item.title}</span></div>
+      <div className="breadcrumbs">
+        <Link to="/cases">Cases</Link>
+        <span>/</span>
+        <span style={{ color: "#f8fafc", fontWeight: 600 }}>{item.case_number}</span>
+      </div>
+
       <header className="page-header">
         <div>
-          <p className="eyebrow">{item.case_number}</p>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
+            <span className="eyebrow" style={{ margin: 0 }}>{item.case_number}</span>
+            <span className={`status-pill ${item.risk_level ?? "NORMAL"}`}>
+              RISK: {item.priority_score ?? 0} / 100
+            </span>
+          </div>
           <h1>{item.title}</h1>
-          <p className="muted">{item.description}</p>
+          <p className="muted">{item.description || "No specific background description recorded."}</p>
         </div>
         <div className="quick-links">
-          <Link className="veil-button" to={`/network?case=${encodeURIComponent(item.case_number)}&case_id=${item.id}`}><Network size={15} /> Explore Network Graph</Link>
-          <span className={`status-pill ${item.status}`}>{item.status}</span>
+          <Link
+            className="veil-button"
+            to={`/network?case=${encodeURIComponent(item.case_number)}&case_id=${item.id}`}
+          >
+            <Network size={14} /> Explore Knowledge Graph
+          </Link>
+          <span className={`status-pill ${item.status === "ACTIVE" ? "NORMAL" : "HIGH"}`}>{item.status}</span>
         </div>
       </header>
 
       {uploadSuccess && (
-        <div className="veil-panel" style={{ borderLeft: "4px solid #10b981", background: "#06221d", padding: "12px 18px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div>
-            <strong style={{ color: "#34d399" }}>✓ Document Ingested & Graph Synced: </strong>
-            <span style={{ color: "#ecfdf5" }}>{uploadSuccess}</span>
+        <div
+          className="veil-panel"
+          style={{
+            borderLeft: "4px solid #10b981",
+            background: "#061a15",
+            padding: "12px 18px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <CheckCircle2 size={18} className="text-cyber-teal" />
+            <div>
+              <strong style={{ color: "#34d399", fontSize: "13px" }}>Document Ingested & Graph Synced: </strong>
+              <span style={{ color: "#ecfdf5", fontSize: "12px" }}>{uploadSuccess}</span>
+            </div>
           </div>
-          <Link className="veil-button" to={`/network?case=${encodeURIComponent(item.case_number)}&case_id=${item.id}`}>
-            <Network size={14} /> Open Knowledge Graph
+          <Link
+            className="veil-button"
+            style={{ height: "28px", fontSize: "11px" }}
+            to={`/network?case=${encodeURIComponent(item.case_number)}&case_id=${item.id}`}
+          >
+            <Network size={13} /> View Knowledge Graph
           </Link>
         </div>
       )}
 
+      {/* Metric Cards Grid */}
       <div className="metric-grid">
-        {Object.entries(item.metrics ?? {}).map(([label, value]) => <div className="metric" key={label}><span>{label}</span><strong>{value}</strong></div>)}
-        <div className="metric"><span>Priority</span><strong>{item.priority_score ?? 0}</strong></div>
+        <div className="metric">
+          <span>Priority Score</span>
+          <strong style={{ color: item.priority_score && item.priority_score >= 70 ? "#f87171" : "#38bdf8" }}>
+            {item.priority_score ?? 0} / 100
+          </strong>
+        </div>
+        {Object.entries(item.metrics ?? {}).map(([label, value]) => (
+          <div className="metric" key={label}>
+            <span>{label}</span>
+            <strong>{value}</strong>
+          </div>
+        ))}
       </div>
+
+      {/* Grid: Ownership & Direct Navigation Paths */}
       <div className="veil-grid-2">
         <section className="veil-panel">
-          <div className="panel-head"><h2>Investigation ownership</h2></div>
+          <div className="panel-head">
+            <h2>
+              <UserCheck size={14} style={{ display: "inline", marginRight: "6px", verticalAlign: "middle" }} className="text-cyber-cyan" />
+              Investigation Chain & Ownership
+            </h2>
+          </div>
           <div className="panel-body">
             <dl className="detail-list">
-              <dt>Assigned investigator</dt><dd>{item.assigned_investigator?.name ?? "Unassigned"}</dd>
-              <dt>Role</dt><dd>{item.assigned_investigator?.role ?? "N/A"}</dd>
-              <dt>Created by</dt><dd>{item.created_by?.name ?? "N/A"}</dd>
-              <dt>Last modified by</dt><dd>{item.last_modified_by?.name ?? "N/A"}</dd>
-              <dt>Risk level</dt><dd><span className={`status-pill ${item.risk_level}`}>{item.risk_level}</span></dd>
+              <dt>Assigned Lead</dt>
+              <dd style={{ fontWeight: 600, color: "#edf4f7" }}>{item.assigned_investigator?.name ?? "Unassigned"}</dd>
+              <dt>Investigator Role</dt>
+              <dd>{item.assigned_investigator?.role ?? "Senior Forensic Lead"}</dd>
+              <dt>Case Created By</dt>
+              <dd>{item.created_by?.name ?? "System Intake"}</dd>
+              <dt>Last Active Touch</dt>
+              <dd>{item.last_modified_by?.name ?? item.assigned_investigator?.name ?? "N/A"}</dd>
+              <dt>Risk Assessment</dt>
+              <dd>
+                <span className={`status-pill ${item.risk_level ?? "NORMAL"}`}>{item.risk_level ?? "STANDARD"}</span>
+              </dd>
             </dl>
           </div>
         </section>
+
         <section className="veil-panel">
-          <div className="panel-head"><h2>Investigation paths</h2></div>
-          <div className="panel-body quick-links">
-            <Link className="veil-button" to={`/cases/${id}/intelligence`}><BrainCircuit size={15} /> Intelligence dossier</Link>
-            <Link className="veil-button secondary" to={`/network?case=${encodeURIComponent(item.case_number)}&case_id=${item.id}`}><Network size={15} /> Explore network</Link>
-            <Link className="veil-button secondary" to={`/timeline?case=${id}`}>View timeline</Link>
-            <Link className="veil-button secondary" to="/documents"><FileText size={15} /> View documents</Link>
+          <div className="panel-head">
+            <h2>
+              <BrainCircuit size={14} style={{ display: "inline", marginRight: "6px", verticalAlign: "middle" }} className="text-cyber-amber" />
+              Forensic Investigation Modules
+            </h2>
+          </div>
+          <div className="panel-body quick-links" style={{ gap: "10px" }}>
+            <Link className="veil-button" to={`/cases/${id}/intelligence`}>
+              <BrainCircuit size={14} /> Intelligence Dossier
+            </Link>
+            <Link
+              className="veil-button secondary"
+              to={`/network?case=${encodeURIComponent(item.case_number)}&case_id=${item.id}`}
+            >
+              <Network size={14} /> Interactive Graph
+            </Link>
+            <Link className="veil-button secondary" to={`/timeline?case=${id}`}>
+              <Clock size={14} /> Case Timeline
+            </Link>
+            <Link className="veil-button secondary" to="/documents">
+              <FileText size={14} /> Case Documents
+            </Link>
           </div>
         </section>
       </div>
+
+      {/* Grid: Data Sources & Direct File Upload Ingestion */}
       <div className="veil-grid-2">
         <section className="veil-panel">
-          <div className="panel-head"><h2>Data sources</h2><span className="muted">{sources.length} sources</span></div>
+          <div className="panel-head">
+            <h2>
+              <FileText size={14} style={{ display: "inline", marginRight: "6px", verticalAlign: "middle" }} className="text-cyber-cyan" />
+              Ingested Case Material ({sources.length})
+            </h2>
+          </div>
           <div className="panel-body stack-list">
             {sources.map((source) => (
               <div className="stack-row" key={source.id}>
-                <strong>{source.filename}</strong>
-                <small className="muted">{source.data_category} - {source.processing_status} - {source.entities} entities - {source.relationships} relationships - {source.review_required} review</small>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <strong style={{ color: "#edf4f7", fontSize: "13px" }}>{source.filename}</strong>
+                  <span className="status-pill NORMAL">{source.processing_status}</span>
+                </div>
+                <small className="muted" style={{ display: "block", margin: "4px 0" }}>
+                  {source.data_category} · {source.entities} entities · {source.relationships} links · {source.review_required} review items
+                </small>
                 {source.processing_error ? <p className="veil-error">{source.processing_error}</p> : null}
-                <div className="quick-links"><Link className="veil-button secondary" to={`/documents/${source.id}`}>View</Link><button className="veil-button secondary" onClick={() => processCaseSource(source.id).then(load)}>Reprocess</button></div>
+                <div className="quick-links" style={{ marginTop: "6px" }}>
+                  <Link className="veil-button secondary" style={{ height: "24px", padding: "0 6px", fontSize: "10px" }} to={`/documents/${source.id}`}>
+                    Inspect Dossier
+                  </Link>
+                  <button
+                    className="veil-button secondary"
+                    style={{ height: "24px", padding: "0 6px", fontSize: "10px" }}
+                    onClick={() => processCaseSource(source.id).then(load)}
+                  >
+                    Reprocess
+                  </button>
+                </div>
               </div>
             ))}
-            {!sources.length ? <p className="muted">No sources yet. Add FIR, CDR, financial, surveillance, or intelligence data for this case.</p> : null}
+            {!sources.length ? (
+              <p className="muted">No sources uploaded for this case yet. Upload FIR, CDR, financial or surveillance logs.</p>
+            ) : null}
           </div>
         </section>
+
         <section className="veil-panel">
-          <div className="panel-head"><h2><UploadCloud size={15} /> Add investigation data</h2></div>
+          <div className="panel-head">
+            <h2>
+              <UploadCloud size={14} style={{ display: "inline", marginRight: "6px", verticalAlign: "middle" }} className="text-cyber-teal" />
+              Upload & Extract Forensic Data
+            </h2>
+          </div>
           <div className="panel-body form-stack">
-            <label>Data category<select className="veil-select" value={category} onChange={(event) => setCategory(event.target.value)}><option value="FIR_REPORT">FIR / Report</option><option value="CDR">Call Detail Records</option><option value="FINANCIAL">Financial</option><option value="SURVEILLANCE">Surveillance</option><option value="CRIMINAL_HISTORY">Criminal History</option><option value="INTELLIGENCE">Intelligence</option><option value="OTHER">Other</option></select></label>
-            <label>Upload file<input className="veil-input" type="file" accept=".pdf,.txt,.csv,.json,.xlsx" onChange={(event) => setFile(event.target.files?.[0] ?? null)} /></label>
-            <label>Description<input className="veil-input" value={description} onChange={(event) => setDescription(event.target.value)} placeholder="Source reference, collection context, or intake note" /></label>
-            <button className="veil-button" disabled={!file || uploading} onClick={uploadSource}>{uploading ? "Processing & Syncing Graph..." : "Upload and process"}</button>
+            <label>
+              Data Category
+              <select className="veil-select" value={category} onChange={(e) => setCategory(e.target.value)}>
+                <option value="FIR_REPORT">FIR / Police Report</option>
+                <option value="CDR">Call Detail Records (CDR)</option>
+                <option value="FINANCIAL">Financial Statement / Hawala Log</option>
+                <option value="SURVEILLANCE">Surveillance / Intelligence Note</option>
+                <option value="CRIMINAL_HISTORY">Criminal History / Interrogation</option>
+                <option value="OTHER">Other Forensic Document</option>
+              </select>
+            </label>
+
+            <label>
+              Source Document File (.pdf, .txt, .csv, .json)
+              <input
+                className="veil-input"
+                type="file"
+                accept=".pdf,.txt,.csv,.json,.xlsx"
+                onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+              />
+            </label>
+
+            <label>
+              Collection Context / Intake Summary
+              <input
+                className="veil-input"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Raid location, seizing officer, intake note..."
+              />
+            </label>
+
+            <button
+              className="veil-button"
+              style={{ marginTop: "6px" }}
+              disabled={!file || uploading}
+              onClick={uploadSource}
+            >
+              <UploadCloud size={14} />
+              {uploading ? "Extracting & Syncing to Neo4j..." : "Upload & Sync to Graph"}
+            </button>
           </div>
         </section>
       </div>
-      <section className="veil-panel">
-        <div className="panel-head"><h2>Processing activity</h2><span className="muted">{activity.length} events</span></div>
-        <div className="panel-body stack-list">{activity.slice(0, 10).map((event) => <div className="stack-row" key={event.id}><span className="status-pill">{event.status}</span> {event.summary}<small className="muted">{new Date(event.created_at).toLocaleString()}</small></div>)}{!activity.length ? <p className="muted">No processing activity recorded yet.</p> : null}</div>
-      </section>
-      <section className="veil-panel">
-        <div className="panel-head"><h2>Open analytical alerts</h2><Link to="/alerts">View all</Link></div>
-        <div className="panel-body stack-list">
-          {alerts.filter((row) => row.status === "OPEN").slice(0, 6).map((row) => (
-            <div className="stack-row" key={row.id}>
-              <span className={`status-pill ${row.severity}`}>{row.severity}</span> {row.title}
-              <small className="muted"> Entity P{String(row.entity_id ?? 0).padStart(3, "0")} - {row.score.toFixed(0)}/100</small>
-            </div>
-          ))}
-        </div>
-      </section>
+
+      {/* Activity & Open Alerts */}
+      <div className="veil-grid-2">
+        <section className="veil-panel">
+          <div className="panel-head">
+            <h2>Processing & Pipeline Activity</h2>
+            <span className="muted">{activity.length} records</span>
+          </div>
+          <div className="panel-body stack-list">
+            {activity.slice(0, 8).map((event) => (
+              <div className="stack-row" key={event.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div>
+                  <span className="status-pill NORMAL" style={{ marginRight: "6px" }}>{event.status}</span>
+                  <span style={{ fontSize: "12px", color: "#bad0dc" }}>{event.summary}</span>
+                </div>
+                <small className="muted" style={{ fontSize: "10px", fontFamily: "ui-monospace, monospace" }}>
+                  {new Date(event.created_at).toLocaleTimeString()}
+                </small>
+              </div>
+            ))}
+            {!activity.length ? <p className="muted">No ingestion activity recorded yet.</p> : null}
+          </div>
+        </section>
+
+        <section className="veil-panel">
+          <div className="panel-head">
+            <h2>Open Case Alerts</h2>
+            <Link to="/alerts">Alert Center &rarr;</Link>
+          </div>
+          <div className="panel-body stack-list">
+            {alerts
+              .filter((row) => row.status === "OPEN")
+              .slice(0, 5)
+              .map((row) => (
+                <div className="stack-row" key={row.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <div>
+                    <span className={`status-pill ${row.severity}`} style={{ marginRight: "6px" }}>{row.severity}</span>
+                    <strong style={{ color: "#edf4f7", fontSize: "12px" }}>{row.title}</strong>
+                    <small className="muted" style={{ display: "block", fontSize: "10px", marginTop: "2px" }}>
+                      Score {row.score.toFixed(0)}/100 · Subject P{String(row.entity_id ?? 0).padStart(3, "0")}
+                    </small>
+                  </div>
+                  <Link className="veil-button secondary" style={{ height: "24px", padding: "0 6px", fontSize: "10px" }} to={`/alerts?selected=${row.id}`}>
+                    Review
+                  </Link>
+                </div>
+              ))}
+            {!alerts.filter((r) => r.status === "OPEN").length && (
+              <p className="muted">No open threat signals detected for this case.</p>
+            )}
+          </div>
+        </section>
+      </div>
     </section>
   );
 }
